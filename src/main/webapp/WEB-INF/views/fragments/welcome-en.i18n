@@ -9,4 +9,6 @@
 # they accept any liabilities with respect to them.
 
 master.welcome.title = Welcome!
-master.welcome.text = Acme Toolkits! Your first project in D&T2!
+master.welcome.text = \
+	Hello World! Never before has it bee easier to get your \
+	project up and running!
