@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
+
 import acme.framework.roles.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,9 +22,11 @@ public class Patron extends UserRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
+	@Column(length = 101)
 	protected String			company;
 
 	@NotBlank
+	@Column(length = 256)
 	protected String			statement;
 	
 	
