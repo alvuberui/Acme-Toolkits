@@ -1,6 +1,7 @@
 package acme.entities;
 
-import java.time.LocalDateTime;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PratonageReport extends AbstractEntity{
+public class PatonageReport extends AbstractEntity{
 	
 	// Serialisation identifier -----------------------------------------------
 
@@ -45,7 +46,7 @@ public class PratonageReport extends AbstractEntity{
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	protected LocalDateTime			creationMoment;
+	protected Date			creationMoment;
 	
 	
 	@Max(256)
