@@ -2,9 +2,9 @@ package acme.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -41,7 +41,7 @@ public class Component extends AbstractEntity{
 		@Length(max=256)
 		protected String description;
 
-		@Positive
+		@Valid
 		protected Money retailPrice;
 		
 		@URL
