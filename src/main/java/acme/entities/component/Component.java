@@ -1,7 +1,13 @@
-package acme.entities;
+package acme.entities.component;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -50,4 +56,13 @@ public class Component extends AbstractEntity{
 		// Derived attributes -----------------------------------------------------
 
 		// Relationships ----------------------------------------------------------
+
+		@OneToMany
+		@JoinTable(name= "to_work_with",
+		joinColumns = {@JoinColumn(name= "fk_component1")},
+		inverseJoinColumns = {@JoinColumn(name= "fk_component2")})
+		protected List<Component> toWorkWith;
+
+		@ManyToOne
+		protected List<Tool> Tools;
 }
