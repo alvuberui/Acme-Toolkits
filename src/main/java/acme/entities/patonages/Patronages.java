@@ -1,11 +1,11 @@
 package acme.entities.patonages;
 
 import java.time.LocalDate;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -59,11 +59,14 @@ public class Patronages extends AbstractEntity {
 	
 	private String link;
 	
-	
-	@ManyToOne()
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
 	private Patron patron;
 	
-	@ManyToOne()
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
 	private Inventor inventor;
 	
 	
