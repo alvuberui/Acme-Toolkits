@@ -1,4 +1,4 @@
-package acme.entities.patronage.report;
+package acme.entities.patronageReport;
 
 
 import java.util.Date;
@@ -6,9 +6,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,6 +19,8 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Inventor;
+import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -65,6 +69,14 @@ public class PatronageReport extends AbstractEntity{
 
 	// Relationships ----------------------------------------------------------
 
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	private Patron patron;
 	
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	private Inventor inventor;
 
 }
