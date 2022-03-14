@@ -1,7 +1,7 @@
 package acme.entities.component;
 
-import java.util.List;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -12,10 +12,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-
+import acme.entities.toolkit.Toolkit;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -64,8 +63,14 @@ public class Component extends AbstractEntity{
 		inverseJoinColumns = {@JoinColumn(name= "fk_component2")})
 		protected List<Component> toWorkWith;
 
-		@ManyToOne(optional=false)
 		@Valid
 		@NotNull
+    @ManyToOne(optional=false)
 		protected List<Tool> Tools;
-}
+
+		@NotNull
+		@Valid
+		@ManyToOne(optional = false)
+		protected Toolkit toolkit;
+}	
+
