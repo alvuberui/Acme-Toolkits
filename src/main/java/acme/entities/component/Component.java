@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -63,6 +64,8 @@ public class Component extends AbstractEntity{
 		inverseJoinColumns = {@JoinColumn(name= "fk_component2")})
 		protected List<Component> toWorkWith;
 
-		@ManyToOne
+		@ManyToOne(optional=false)
+		@Valid
+		@NotNull
 		protected List<Tool> Tools;
 }
