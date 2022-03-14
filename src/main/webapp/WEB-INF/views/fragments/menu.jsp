@@ -20,7 +20,12 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.all-jobs" action="/anonymous/job/list"/>			
-			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.juagomram4" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.marpercor8" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.ramoonrb" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.marrodgar62" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.cargarrod12" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.alvuberui" action="/anonymous/shout/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">

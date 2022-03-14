@@ -12,9 +12,9 @@ master.footer.title.about = Nosotros
 master.footer.label.company = La empresa
 master.footer.label.license = Licencia
 master.footer.title.social = Social
-master.footer.url.linkedin = http://www.linkedin.com
+master.footer.url.linkedin = https://es.linkedin.com/in/mario-rodr%C3%ADguez-garc%C3%ADa-975881219
 master.footer.label.linked-in = Linked-In
-master.footer.url.twitter = http://www.twitter.com
+master.footer.url.twitter = https://twitter.com/unisevilla?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
 master.footer.label.twitter = Twitter
 master.footer.title.languages = Lenguajes
 master.footer.label.english = Inglés

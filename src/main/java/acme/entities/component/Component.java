@@ -2,6 +2,7 @@ package acme.entities.component;
 
 
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -12,8 +13,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
+
+import acme.entities.tool.Tool;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
@@ -65,8 +69,8 @@ public class Component extends AbstractEntity{
 
 		@Valid
 		@NotNull
-    @ManyToOne(optional=false)
-		protected List<Tool> Tools;
+        @ManyToOne(optional=false)
+		protected Tool Tool;
 
 		@NotNull
 		@Valid
