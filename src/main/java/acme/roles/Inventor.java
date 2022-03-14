@@ -1,4 +1,3 @@
-
 package acme.roles;
 
 import javax.persistence.Column;
@@ -36,3 +35,4 @@ public class Inventor extends UserRole {
 	// Relationships ----------------------------------------------------------
 
 }
+

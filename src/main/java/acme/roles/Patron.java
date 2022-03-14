@@ -1,4 +1,3 @@
-
 package acme.roles;
 
 import javax.persistence.Column;
@@ -35,5 +34,4 @@ public class Patron extends UserRole {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
 }
