@@ -1,4 +1,4 @@
-package acme.entities;
+package acme.entities.patronage.report;
 
 
 import java.util.Date;
@@ -28,7 +28,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PatonageReport extends AbstractEntity{
+public class PatronageReport extends AbstractEntity{
 	
 	// Serialisation identifier -----------------------------------------------
 
