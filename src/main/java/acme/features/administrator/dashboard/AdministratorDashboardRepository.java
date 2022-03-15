@@ -15,20 +15,32 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Integer getNumberOfComponents();
 	
 	// Media de "retail price" de los componentes agrupado por "currency" y "technology"
-	@Query("select avg(c.retailPrice.amount) from Component c group by c.retailPrice.currency, c.technology")
-	Double getAverageOfRetailpriceComponentGrupByCurrencyAndTechnology();
+	@Query("select avg(c.retailPrice.amount) from Component c group by c.retailPrice.currency")
+	Double getAverageOfRetailpriceComponentGrupByCurrency();
+	
+	@Query("select avg(c.retailPrice.amount) from Component c group by c.technology")
+	Double getAverageOfRetailpriceComponentGrupByTechnology();
 	
 	// Desviacón de "retail price" de los componentes agrupados por "currency" y "technology"
-	@Query("select stddev(c.retailPrice.amount) from Component c group by c.retailPrice.currency, c.technology")
-	Double getDeviationOfRetailpriceComponentGrupByCurrencyAndTechnology();
+	@Query("select stddev(c.retailPrice.amount) from Component c group by c.retailPrice.currency")
+	Double getDeviationOfRetailpriceComponentGrupByCurrency();
+	
+	@Query("select stddev(c.retailPrice.amount) from Component c group by c.technology")
+	Double getDeviationOfRetailpriceComponentGrupByTechnology();
 	
 	// Máximo de "reail price" de los componentes agrupados por "currency" y "technology"
-	@Query("select max(c.retailPrice.amount) from Component c group by c.retailPrice.currency, c.technology")
-	Double getMaxOfRetailpriceComponentGrupByCurrencyAndTechnology();
+	@Query("select max(c.retailPrice.amount) from Component c group by c.retailPrice.currency")
+	Double getMaxOfRetailpriceComponentGrupByCurrency();
+	
+	@Query("select max(c.retailPrice.amount) from Component c group by c.technology")
+	Double getMaxOfRetailpriceComponentGrupByTechnology();
 	
 	// Mínimo de "reail price" de los componentes agrupados por "currency" y "technology"
-	@Query("select min(c.retailPrice.amount) from Component c group by c.retailPrice.currency, c.technology")
-	Double getMinOfRetailpriceComponentGrupByCurrencyAndTechnology();
+	@Query("select min(c.retailPrice.amount) from Component c group by c.retailPrice.currency")
+	Double getMinOfRetailpriceComponentGrupByCurrency();
+	
+	@Query("select min(c.retailPrice.amount) from Component c group by c.technology")
+	Double getMinOfRetailpriceComponentGrupByTechnology();
 	
 	// ------------------------------------ TOOLS GROUP BY CURRENCY ---------------------------------------
 	
