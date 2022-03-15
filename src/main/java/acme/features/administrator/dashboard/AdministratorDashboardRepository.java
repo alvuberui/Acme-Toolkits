@@ -113,15 +113,15 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	
 	// Maximo de Buget Patronages Proposed
-	@Query("select miax(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
 	Integer getMaxBudgetOfProposedPatronage();
 			
 	// Maximo de Budget Patronages Acceptep
-	@Query("select min(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
 	Integer getMaxBudgetOfAcceptepPatronage();
 					
 	// Maximo de Budget Patronages Denied
-	@Query("select min(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
 	Integer getMaxBudgetOfDeniedPatronage();
 	
 	
