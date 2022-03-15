@@ -13,6 +13,7 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
 import acme.roles.Patron;
@@ -47,8 +48,8 @@ public class Patronages extends AbstractEntity {
 	@Column(length = 256)
 	private String legalStuff;
 	
-	@Min(0)
-	private Integer budget;
+	@NotNull
+	private Money budget;
 	
 	@Transient
 	@CreatedDate
