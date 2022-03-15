@@ -56,72 +56,72 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	
 	// Total de Patronages Proposed
-	@Query("select count(p) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED")
+	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED")
 	Integer getNumberOfProposedPatronage();
 	
 	// Total de Patronages Acceptep
-	@Query("select count(p) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED")
+	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED")
 	Integer getNumberOfAcceptepPatronage();
 		
 	// Total de Patronages Denied
-	@Query("select count(p) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED")
+	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED")
 	Integer getNumberOfDeniedPatronage();
 
 	
 	
 	// Average de Buget Patronages Proposed
-	@Query("select avg(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
+	@Query("select avg(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
 	Integer getAverageBudgetOfProposedPatronage();
 	
 	// Average de Budget Patronages Acceptep
-	@Query("select avg(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
+	@Query("select avg(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
 	Integer getAverageBudgetOfAcceptepPatronage();
 			
 	// Average de Budget Patronages Denied
-	@Query("select avg(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
+	@Query("select avg(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
 	Integer getAverageBudgetOfDeniedPatronage();
 	
 	
 	
 	
 	// Desviation de Buget Patronages Proposed
-	@Query("select stddev(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
+	@Query("select stddev(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
 	Integer getDesviationBudgetOfProposedPatronage();
 		
 	// Desviation de Budget Patronages Acceptep
-	@Query("select stddev(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
+	@Query("select stddev(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
 	Integer getDesviationBudgetOfAcceptepPatronage();
 				
 	// Desviation de Budget Patronages Denied
-	@Query("select stddev(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
+	@Query("select stddev(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
 	Integer getDesviationBudgetOfDeniedPatronage();
 	
 	
 	
 	// Minimo de Buget Patronages Proposed
-	@Query("select min(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
+	@Query("select min(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
 	Integer getMinBudgetOfProposedPatronage();
 			
 	// Minimo de Budget Patronages Acceptep
-	@Query("select min(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
+	@Query("select min(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
 	Integer getMinBudgetOfAcceptepPatronage();
 					
 	// Minimo de Budget Patronages Denied
-	@Query("select min(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
+	@Query("select min(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
 	Integer getMinBudgetOfDeniedPatronage();
 	
 	
 	
 	// Maximo de Buget Patronages Proposed
-	@Query("select max(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED group by p.budget.currency")
 	Integer getMaxBudgetOfProposedPatronage();
 			
 	// Maximo de Budget Patronages Acceptep
-	@Query("select max(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED group by p.budget.currency")
 	Integer getMaxBudgetOfAcceptepPatronage();
 					
 	// Maximo de Budget Patronages Denied
-	@Query("select max(p.budget.amount) from Patronage p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
+	@Query("select max(p.budget.amount) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED group by p.budget.currency")
 	Integer getMaxBudgetOfDeniedPatronage();
 	
 	
