@@ -1,13 +1,12 @@
 package acme.entities.patronageReport;
 
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -26,7 +25,6 @@ import lombok.Setter;
 
 
 
-@SequenceGenerator(name= "serialNumberSeq", initialValue = 0001, allocationSize = 1)
 
 
 @Entity
@@ -40,17 +38,9 @@ public class PatronageReport extends AbstractEntity{
 
 	// Attributes -------------------------------------------------------------
 
-	
-	@NotNull
-	protected Integer				patronageCode;
-	
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "serialNumberSeq")
-	@NotNull
-	protected Integer				serialNumber;
-
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	protected Date			creationMoment;
+	protected Date					creationMoment;
 	
 	
 	@Max(256)
@@ -64,7 +54,9 @@ public class PatronageReport extends AbstractEntity{
 	// Derived attributes -----------------------------------------------------
 	
 	public String getSequenceNumber() {
-		return this.patronageCode + ":" + this.serialNumber;
+		final NumberFormat serialNumber = new DecimalFormat("0000");
+		serialNumber.format(this.id);
+		return this.patronage.getCode() + ":" + serialNumber;
 	}
 
 	// Relationships ----------------------------------------------------------
