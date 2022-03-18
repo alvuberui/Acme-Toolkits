@@ -25,7 +25,7 @@ public class Announcement extends AbstractEntity{
 
 		protected static final long	serialVersionUID	= 1L;
 
-		// Attributes -------------------------------------------------------------
+		// Attributes  -------------------------------------------------------------
 		
 		@Temporal(TemporalType.TIMESTAMP)
 		@Past
