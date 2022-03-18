@@ -5,11 +5,15 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import acme.framework.entities.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
 
 
 
 @Entity
+@Getter
+@Setter
 public class Spam extends AbstractEntity{
 
 
