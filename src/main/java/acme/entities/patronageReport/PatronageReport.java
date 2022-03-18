@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.patonages.Patronages;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
 import acme.roles.Patron;
@@ -70,5 +72,12 @@ public class PatronageReport extends AbstractEntity{
 	@NotNull
 	@ManyToOne(optional = false)
 	private Inventor inventor;
+	
+	
+	
+	@Valid
+	@NotNull
+	@OneToOne
+	private Patronages patronage;
 
 }
