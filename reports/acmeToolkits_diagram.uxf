@@ -177,18 +177,17 @@ Patron
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>693</x>
-      <y>1330</y>
+      <x>1687</x>
+      <y>784</y>
       <w>224</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Eum&gt;&gt;
-Patronage
+Lenguage
 --
-+ PROPOSED
-+ ACCEPTED
-+ DENIED</panel_attributes>
++ SPANISH
++ ENGLISH</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -694,5 +693,98 @@ bg=green
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1799</x>
+      <y>630</y>
+      <w>231</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Currency
+--
++ Currencytype: String{}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>707</x>
+      <y>1344</y>
+      <w>224</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Eum&gt;&gt;
+Patronage
+--
++ PROPOSED
++ ACCEPTED
++ DENIED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1442</x>
+      <y>784</y>
+      <w>224</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Eum&gt;&gt;
+SpamType
+--
++ STRONG
++ WEAK</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1533</x>
+      <y>630</y>
+      <w>231</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Spam
+--
++ type: SpamType{NotNull}
++ language: Lenguage{NotNull}
++ term: String {NotBlank}
++ /threshold: Double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2135</x>
+      <y>623</y>
+      <w>140</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>bg=green
+
+Currencytype default "EUR"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2023</x>
+      <y>658</y>
+      <w>126</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;30.0;160.0;10.0</additional_attributes>
   </element>
 </diagram>
