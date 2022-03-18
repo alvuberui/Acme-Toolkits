@@ -338,10 +338,10 @@ Patron Dashboards
       <w>112</w>
       <h>154</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
+    <panel_attributes>lt=x-&gt;
 m1=1..*
 m2=1
-have ^</panel_attributes>
+have v</panel_attributes>
     <additional_attributes>100.0;10.0;100.0;190.0;10.0;190.0</additional_attributes>
   </element>
   <element>
@@ -622,10 +622,10 @@ Artefact
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
-ComponetTolkit
+ComponetToolkit
 --
-+ idComponent: Integer{NotBlank}
-+ idTolkit: Integer{NotBlank}</panel_attributes>
++ idComponent: Integer{NotNull}
++ idToolkit: Integer{NoNull}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
