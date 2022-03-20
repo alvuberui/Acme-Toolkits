@@ -8,6 +8,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -25,20 +26,22 @@ public class Chirp extends AbstractEntity{
 
 	// Attributes -------------------------------------------------------------
 	
+	
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date           	creationMoment;
 	
 	
-	@Length(min=1, max=101)
+	@Length(min= 1, max= 101)
 	@NotBlank
 	protected String			title;
 	
-	@Length(min=1, max=101)
+	@Length(min= 1, max= 101)
 	@NotBlank
 	protected String			author;
 	
 	
-	@Length(min=1, max=256)
+	@Length(min= 1, max= 256)
 	@NotBlank
 	protected String			body;
 	
