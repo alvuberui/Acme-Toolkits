@@ -1,0 +1,4 @@
+key,status,code,legalStuff,budget,creationTime,initPeriod,finalPeriod,link,key:patron,key:inventor
+patronage-01,PROPOSED,ABC-012-A,legal stuff 1,EUR 25.00,"2022/01/19 12:23","2022/02/20 15:23","2022/03/19 12:23",null,patron-01,inventor-01
+patronage-02,ACCEPTED,ABC-012-B,legal stuff 2,EUR 55.00,"2022/01/19 12:23","2022/02/20 17:23","2022/03/19 12:23",null,patron-02,inventor-02
+patronage-03,ACCEPTED,ABC-012-C,legal stuff 2,EUR 20.00,"2022/01/19 12:23","2022/02/20 17:23","2022/03/19 12:23",null,patron-03,inventor-03
