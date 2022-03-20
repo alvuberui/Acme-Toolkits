@@ -10,10 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.patonages.Patronages;
@@ -41,7 +41,7 @@ public class PatronageReport extends AbstractEntity{
 	protected Date					creationMoment;
 	
 	
-	@Max(256)
+	@Length(min=1, max=256)
 	@NotBlank
 	protected String				memorandum;
 	

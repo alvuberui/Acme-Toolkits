@@ -1,18 +1,13 @@
 package acme.entities.systemConfiguration;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -41,39 +36,40 @@ public class SystemConfiguration extends AbstractEntity{
 	@NotBlank
 	private String strongTerms;
 	
+	@NotNull
 	@Range(min = 0, max = 100)
 	@Digits(fraction = 2, integer = 2)
 	private Double weakThreshold;
 	
-	
+	@NotNull
 	@Range(min = 0, max = 100)
 	@Digits(fraction = 2, integer = 2)
 	private Double strongThreshold;
 	
-	private HashMap<String, String> getMapLenguajes(String terms) {
-		HashMap<String, String> m = new HashMap<String, String>();
-		String[] lenguages = terms.split(";");
+	private HashMap<String, String> getMapLenguajes(final String terms) {
+		final HashMap<String, String> m = new HashMap<String, String>();
+		final String[] lenguages = terms.split(";");
 		for (int i = 0; i < lenguages.length; i++) {
-			String[] parseLenguage = lenguages[i].split(":");
-			String parseTerms = parseLenguage[1].replace(",", " ");
-			String lenguage = parseLenguage[0];
-			m.put(lenguage, parseTerms);
+			final String[] parseLenguage = lenguages[i].split(":");
+			final String parseTerms = parseLenguage[1].replace(",", " ");
+			final String selectedLenguage = parseLenguage[0];
+			m.put(selectedLenguage, parseTerms);
 		}
 		return m;
 	}
 	
 	private String getWeakTerms() {
-		return getMapLenguajes(this.weakTerms).get(this.lenguage);
+		return this.getMapLenguajes(this.weakTerms).get(this.lenguage);
 	}
 	
 	private String getStrongTerms() {
-		return getMapLenguajes(this.strongTerms).get(this.lenguage);
+		return this.getMapLenguajes(this.strongTerms).get(this.lenguage);
 	}
-	private void setStrongTerms(String strongTerms) {
+	private void setStrongTerms(final String strongTerms) {
 		this.strongTerms = strongTerms;
 	}
 	
-	private void setWeakTerms(String weakTerms) {
+	private void setWeakTerms(final String weakTerms) {
 		this.weakTerms = weakTerms;
 	}
 

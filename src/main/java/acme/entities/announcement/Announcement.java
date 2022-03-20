@@ -40,6 +40,7 @@ public class Announcement extends AbstractEntity{
 		@Length(min= 1, max = 256)
 		protected String body;
 
+		@NotNull
 		protected boolean flag;
 		
 		@URL
