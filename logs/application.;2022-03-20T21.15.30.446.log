@@ -1,0 +1,4 @@
+2022-03-14 20:44:44.369 INFO  [acme.Launcher@main] Starting Launcher using Java 1.8.0_281 on PC_ALVARO with PID 5760 (C:\Users\alvar\Desktop\Universidad\DP2\Workspace-22.0\Frameworks\Acme-Framework-22.1\target\classes started by alvar in C:\Users\alvar\Desktop\Universidad\DP2\Workspace-22.0\Projects\Acme-Toolkits) 
+2022-03-14 20:44:44.370 DEBUG [acme.Launcher@main] Running with Spring Boot v2.4.2, Spring v5.3.3 
+2022-03-14 20:44:44.371 INFO  [acme.Launcher@main] The following profiles are active: development,default 
+2022-03-14 20:44:48.119 DEBUG [org.apache.jasper.servlet.JasperInitializer@main] Initializing Jasper for context [application] 
