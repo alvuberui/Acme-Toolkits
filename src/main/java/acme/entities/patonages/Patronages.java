@@ -48,19 +48,24 @@ public class Patronages extends AbstractEntity {
 	private String code;
 	
 	@NotBlank
-	@Length(max= 256)
+	@Length(min=1, max= 256)
 	private String legalStuff;
 	
 	@Valid
 	@NotNull
 	private Money budget;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Transient
 	@CreatedDate
-	private Date initialPeriod;
+	private Date creationTime;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
+	@NotNull
+	private Date initPeriod;
+	
+	
+	@Temporal(TemporalType.DATE)
 	@NotNull
 	private Date finalPeriod;
 	
