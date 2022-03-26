@@ -16,6 +16,8 @@ master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
 # master.menu.anonymous #######################################################
+master.menu.anonymous.components.list = Components list
+
 master.menu.anonymous.favourite-link.juagomram4 = 48123008Q: Gómez Ramírez, Juan Carlos
 master.menu.anonymous.favourite-link-marpercor8 = 49160010V: Pérez Coronel, Mario
 master.menu.anonymous.favourite-link-ramoonrb = 29516826Y: Rodriguez Bejarano, Ramón
@@ -25,13 +27,23 @@ master.menu.anonymous.favourite-link-alvuberui = 17480690T: Úbeda Ruiz, Álvaro
 master.menu.anonymous = Anonymous
 
 # master.menu.administrator ###################################################
-
+master.menu.administrator.components.list = Components list
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+
+# master.menu.inventor ########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.components.list = Components list
+
+# master.menu.patron ########################################################
+
+master.menu.patron = Patron
+master.menu.patron.components.list = Components list
 
 # master.menu.provider ########################################################
 
@@ -44,6 +56,7 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.user-account ####################################################
+master.menu.user-account.components.list = Components list
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data

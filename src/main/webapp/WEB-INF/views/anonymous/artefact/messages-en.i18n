@@ -1,0 +1,16 @@
+
+anonymous.artefact.list.label.type = Type
+anonymous.artefact.list.label.name = Name
+anonymous.artefact.list.label.code = Code
+anonymous.artefact.list.label.technology = Technology
+anonymous.artefact.list.label.description = Description
+anonymous.artefact.list.label.retail-price = Retail price
+anonymous.artefact.list.label.more-info = More info
+
+anonymous.artefact.form.label.type = Type:
+anonymous.artefact.form.label.name = Name:
+anonymous.artefact.form.label.code = Code:
+anonymous.artefact.form.label.technology = Technology:
+anonymous.artefact.form.label.description = Description:
+anonymous.artefact.form.label.retail-price = Retail price:
+anonymous.artefact.form.label.more-info = More info:
