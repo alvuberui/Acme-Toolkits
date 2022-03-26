@@ -1,0 +1,16 @@
+
+patron.artefact.list.label.type = Type
+patron.artefact.list.label.name = Name
+patron.artefact.list.label.code = Code
+patron.artefact.list.label.technology = Technology
+patron.artefact.list.label.description = Description
+patron.artefact.list.label.retail-price = Retail price
+patron.artefact.list.label.more-info = More info
+
+patron.artefact.form.label.type = Type:
+patron.artefact.form.label.name = Name:
+patron.artefact.form.label.code = Code:
+patron.artefact.form.label.technology = Technology:
+patron.artefact.form.label.description = Description:
+patron.artefact.form.label.retail-price = Retail price:
+patron.artefact.form.label.more-info = More info:

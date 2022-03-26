@@ -1,0 +1,16 @@
+
+authenticated.artefact.list.label.type = Type
+authenticated.artefact.list.label.name = Name
+authenticated.artefact.list.label.code = Code
+authenticated.artefact.list.label.technology = Technology
+authenticated.artefact.list.label.description = Description
+authenticated.artefact.list.label.retail-price = Retail price
+authenticated.artefact.list.label.more-info = More info
+
+authenticated.artefact.form.label.type = Type:
+authenticated.artefact.form.label.name = Name:
+authenticated.artefact.form.label.code = Code:
+authenticated.artefact.form.label.technology = Technology:
+authenticated.artefact.form.label.description = Description:
+authenticated.artefact.form.label.retail-price = Retail price:
+authenticated.artefact.form.label.more-info = More info:

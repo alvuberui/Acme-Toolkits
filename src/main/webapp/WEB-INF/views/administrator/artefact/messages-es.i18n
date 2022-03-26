@@ -1,0 +1,15 @@
+administrator.artefact.list.label.type = Tipo
+administrator.artefact.list.label.name = Nombre
+administrator.artefact.list.label.code = Código
+administrator.artefact.list.label.technology = Tecnología
+administrator.artefact.list.label.description = Descripción
+administrator.artefact.list.label.retail-price = Precio por menor
+administrator.artefact.list.label.more-info = Más información
+
+administrator.artefact.form.label.type = Tipo:
+administrator.artefact.form.label.name = Nombre:
+administrator.artefact.form.label.code = Código:
+administrator.artefact.form.label.technology = Tecnología:
+administrator.artefact.form.label.description = Descripción:
+administrator.artefact.form.label.retail-price = Precio por menor:
+administrator.artefact.form.label.more-info = Más información:
