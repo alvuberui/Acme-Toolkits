@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.components.list" action="/anonymous/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.anonymous.chirps.list" action="/anonymous/chirp/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marpercor8" action="https://github.com/marpercor8"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-ramoonrb" action="https://github.com/ramoonrb"/>
@@ -31,6 +32,7 @@
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.components.list" action="/administrator/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.administrator.chirps.list" action="/administrator/chirp/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -42,10 +44,12 @@
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.components.list" action="/inventor/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.inventor.chirps.list" action="/inventor/chirp/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.components.list" action="/patron/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.patron.chirps.list" action="/patron/chirp/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -63,6 +67,8 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.components.list" action="/authenticated/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.user-account.chirps.list" action="/authenticated/chirp/list"/>
+			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
