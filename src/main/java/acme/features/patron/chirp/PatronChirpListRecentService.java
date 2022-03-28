@@ -14,7 +14,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
 
 @Service
-public class PatronChirpListAllService implements AbstractListService<Patron, Chirp>{
+public class PatronChirpListRecentService implements AbstractListService<Patron, Chirp>{
 
 	// Internal State --------------------------------------------------
 	

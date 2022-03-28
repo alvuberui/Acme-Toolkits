@@ -14,7 +14,7 @@ import acme.framework.roles.Anonymous;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousChirpListAllService implements AbstractListService<Anonymous, Chirp>{
+public class AnonymousChirpListRecentService implements AbstractListService<Anonymous, Chirp>{
 
 	// Internal State --------------------------------------------------
 	

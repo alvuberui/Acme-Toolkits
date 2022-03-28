@@ -14,7 +14,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChirpListAllService implements AbstractListService<Inventor, Chirp>{
+public class InventorChirpListRecentService implements AbstractListService<Inventor, Chirp>{
 
 	
 	// Internal State --------------------------------------------------

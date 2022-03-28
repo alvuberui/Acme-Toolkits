@@ -15,7 +15,7 @@ public class AnonymousChirpController extends AbstractController<Anonymous, Chir
 	//Internal state ------------------------------------------------
 	
 	@Autowired
-	protected AnonymousChirpListAllService chirpListAllService;
+	protected AnonymousChirpListRecentService chirpListAllService;
 	
 	// Constructors -------------------------------------------------
 	

@@ -15,7 +15,7 @@ public class AuthenticatedChirpController extends AbstractController<Authenticat
 	//Internal state ------------------------------------------------
 	
 		@Autowired
-		protected AuthenticatedChirpListAllService chirpListAllService;
+		protected AuthenticatedChirpListRecentService chirpListAllService;
 		
 		// Constructors -------------------------------------------------
 		

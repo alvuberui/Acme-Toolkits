@@ -16,7 +16,7 @@ public class PatronChirpController extends AbstractController<Patron, Chirp>{
 	//Internal state ------------------------------------------------
 	
 	@Autowired
-	protected PatronChirpListAllService chirpListAllService;
+	protected PatronChirpListRecentService chirpListAllService;
 	
 	// Constructors -------------------------------------------------
 	

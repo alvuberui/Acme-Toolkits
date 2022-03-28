@@ -1,4 +1,4 @@
-package acme.features.authenticated.chirp;
+package acme.features.administrator.chirp;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 import acme.entities.chirp.Chirp;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
+import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedChirpListAllService implements AbstractListService<Authenticated, Chirp>{
-
-	// Internal State --------------------------------------------------
+public class AdministratorChirpListRecentService implements AbstractListService<Administrator, Chirp>{
 	
+	// Internal State --------------------------------------------------
+
 	@Autowired
-	protected AuthenticatedChirpRepository repository;
+	protected AdminstratorChirpRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Chirp> request) {

@@ -16,7 +16,7 @@ public class InventorChirpController extends AbstractController<Inventor, Chirp>
 	//Internal state ------------------------------------------------
 	
 			@Autowired
-			protected InventorChirpListAllService chirpListAllService;
+			protected InventorChirpListRecentService chirpListAllService;
 			
 			// Constructors -------------------------------------------------
 			

@@ -15,7 +15,7 @@ public class AdministratorChirpControler extends AbstractController<Administrato
 	//Internal state ------------------------------------------------
 	
 		@Autowired
-		protected AdministratorChirpListAllService chirpListAllService;
+		protected AdministratorChirpListRecentService chirpListAllService;
 		
 		// Constructors -------------------------------------------------
 		
