@@ -17,6 +17,7 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous.components.list = Lista de componentes
+master.menu.anonymous.tools.list = Lista de herramientas
 
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link.juagomram4 = 48123008Q: Gómez Ramírez, Juan Carlos
@@ -29,6 +30,8 @@ master.menu.anonymous = Anónimo
 
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Lista de componentes
+master.menu.administrator.tools.list = Lista de herramientas
+
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
@@ -39,10 +42,12 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 master.menu.inventor = Inventor
 master.menu.inventor.components.list = Lista de componentes
+master.menu.inventor.tools.list = Lista de herramientas
 
 # master.menu.patron ########################################################
 master.menu.patron = Patrocinador
 master.menu.patron.components.list = Lista de componentes
+master.menu.patron.tools.list = Lista de herramientas
 
 # master.menu.provider ########################################################
 
@@ -56,6 +61,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Lista de componentes
+master.menu.user-account.tools.list = Lista de herramientas
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales

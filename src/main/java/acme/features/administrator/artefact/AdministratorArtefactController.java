@@ -17,6 +17,9 @@ public class AdministratorArtefactController extends AbstractController<Administ
 		protected AdministratorComponentListAllService	componentListAllService;
 		
 		@Autowired
+		protected AdministratorToolListAllService	tooltListAllService;
+		
+		@Autowired
 		protected AdministratorArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
@@ -25,6 +28,7 @@ public class AdministratorArtefactController extends AbstractController<Administ
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("list-all-components", "list", this.componentListAllService);
+			super.addCommand("list-all-tools", "list", this.tooltListAllService);
 			super.addCommand("show", this.showService);
 		}
 }

@@ -17,6 +17,9 @@ public class InventorArtefactController extends AbstractController<Inventor, Art
 		protected InventorComponentListAllService	componentListAllService;
 		
 		@Autowired
+		protected InventorToolListAllService	toolListAllService;
+		
+		@Autowired
 		protected InventorArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
@@ -25,6 +28,7 @@ public class InventorArtefactController extends AbstractController<Inventor, Art
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("list-all-components", "list", this.componentListAllService);
+			super.addCommand("list-all-tools", "list", this.toolListAllService);
 			super.addCommand("show", this.showService);
 		}
 }

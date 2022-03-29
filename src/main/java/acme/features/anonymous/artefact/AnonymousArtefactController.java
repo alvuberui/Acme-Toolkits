@@ -18,6 +18,9 @@ public class AnonymousArtefactController extends AbstractController<Anonymous, A
 		
 		@Autowired
 		protected AnonymousArtefactShowService	showService;
+		
+		@Autowired
+		protected AnonymousToolListAllService	toolListAllService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -25,6 +28,7 @@ public class AnonymousArtefactController extends AbstractController<Anonymous, A
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("list-all-components", "list", this.componentListAllService);
+			super.addCommand("list-all-tools", "list", this.toolListAllService);
 			super.addCommand("show", this.showService);
 		}
 }

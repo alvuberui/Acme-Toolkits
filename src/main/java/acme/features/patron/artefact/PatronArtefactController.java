@@ -17,6 +17,9 @@ public class PatronArtefactController extends AbstractController<Patron, Artefac
 		protected PatronComponentListAllService	componentListAllService;
 		
 		@Autowired
+		protected PatronToolListAllService	toolListAllService;
+		
+		@Autowired
 		protected PatronArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
@@ -25,6 +28,7 @@ public class PatronArtefactController extends AbstractController<Patron, Artefac
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("list-all-components", "list", this.componentListAllService);
+			super.addCommand("list-all-tool", "list", this.toolListAllService);
 			super.addCommand("show", this.showService);
 		}
 }

@@ -16,5 +16,9 @@ public interface PatronArtefactRepository extends AbstractRepository{
 	
 	@Query("select a from Artefact a where a.id = :id")
 	Artefact findArtefactById(int id);
+	
+	@Query("select a from Artefact a where a.type = 1")
+	Collection<Artefact> findManyTools();
+	
 
 }
