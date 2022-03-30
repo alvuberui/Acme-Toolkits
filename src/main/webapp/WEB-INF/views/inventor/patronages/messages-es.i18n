@@ -1,0 +1,15 @@
+
+inventor.patronages.list.label.status = Estado
+inventor.patronages.list.label.code = Código
+inventor.patronages.list.label.legal-stuff = Asuntos legales
+inventor.patronages.list.label.budget = Presupuesto
+
+
+
+inventor.patronages.form.label.status = Estado
+inventor.patronages.form.label.code = Código
+inventor.patronages.form.label.legal-stuff = Asuntos legales
+inventor.patronages.form.label.budget = Presupuesto
+inventor.patronages.form.label.init-period = Periodo inicial
+inventor.patronages.form.label.final-period = Periodo final
+inventor.patronages.form.label.link = link

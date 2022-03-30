@@ -1,0 +1,17 @@
+
+inventor.patronages.list.label.status = Status
+inventor.patronages.list.label.code = Code
+inventor.patronages.list.label.legal-stuff = Legal Stuff
+inventor.patronages.list.label.budget = Budget
+inventor.patronages.list.label.init-period = Init Period
+inventor.patronages.list.label.final-period = Final Period
+inventor.patronages.list.label.link = link
+
+inventor.patronages.form.label.status = Status
+inventor.patronages.form.label.code = Code
+inventor.patronages.form.label.legal-stuff = Legal Stuff
+inventor.patronages.form.label.budget = Budget
+inventor.patronages.form.label.init-period = Init Period
+inventor.patronages.form.label.final-period = Final Period
+inventor.patronages.form.label.link = link
+
