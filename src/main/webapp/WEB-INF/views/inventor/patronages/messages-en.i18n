@@ -15,3 +15,7 @@ inventor.patronages.form.label.init-period = Init Period
 inventor.patronages.form.label.final-period = Final Period
 inventor.patronages.form.label.link = link
 
+inventor.patronages.patron.form.label.title = Patron information
+inventor.patronages.patron.form.label.username = Username
+inventor.patronages.patron.form.label.company = Company
+

@@ -15,5 +15,11 @@
 	<acme:input-money code="inventor.patronages.form.label.budget" path="budget"/>
 	<acme:input-moment code="inventor.patronages.form.label.init-period" path="initPeriod"/>
 	<acme:input-moment code="inventor.patronages.form.label.final-period" path="finalPeriod"/>	
-	<acme:input-url code="inventor.patronages.form.label.link" path="link"/>	
+	<acme:input-url code="inventor.patronages.form.label.link" path="link"/>
+	
+	<br></br>
+	<acme:message code="inventor.patronages.patron.form.label.title"/>
+	<acme:input-textbox code="inventor.patronages.patron.form.label.username" path="username"/>		
+	<acme:input-textbox code="inventor.patronages.patron.form.label.company" path="company"/>		
+	
 </acme:form>
