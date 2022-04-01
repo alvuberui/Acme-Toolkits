@@ -1,0 +1,17 @@
+authenticated.toolkit.list.label.code = Codigo
+authenticated.toolkit.list.label.title = Titulo
+authenticated.toolkit.list.label.description = Descripcion
+authenticated.toolkit.list.label.assemblyNotes = Notas
+authenticated.toolkit.list.label.link = Link
+authenticated.toolkit.list.label.search = Busqueda
+
+authenticated.toolkit.form.label.code = Codigo
+authenticated.toolkit.form.label.title = Titulo
+authenticated.toolkit.form.label.description = Descripcion
+authenticated.toolkit.form.label.assemblyNotes = Notas
+authenticated.toolkit.form.label.link = Link
+
+
+authenticated.toolkit.form.label.component = Componente
+authenticated.toolkit.form.label.tool = Herramienta
+authenticated.toolkit.form.button.details = Detalles
