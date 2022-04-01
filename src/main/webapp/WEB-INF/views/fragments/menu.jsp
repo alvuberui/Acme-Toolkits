@@ -42,6 +42,8 @@
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.components.list" action="/inventor/artefact/list-all-components"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.inventor.own.tools.list" action="/inventor/artefact/list-own-tools"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
