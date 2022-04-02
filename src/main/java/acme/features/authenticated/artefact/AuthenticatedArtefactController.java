@@ -17,6 +17,9 @@ public class AuthenticatedArtefactController extends AbstractController<Authenti
 		protected AuthenticatedComponentListAllService	componentListAllService;
 		
 		@Autowired
+		protected AuthenticatedComponentListByToolkit componentListByToolkit;
+		
+		@Autowired
 		protected AuthenticatedArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
@@ -26,5 +29,6 @@ public class AuthenticatedArtefactController extends AbstractController<Authenti
 		protected void initialise() {
 			super.addCommand("list-all-components", "list", this.componentListAllService);
 			super.addCommand("show", this.showService);
+			super.addCommand("list-components","list", this.componentListByToolkit);
 		}
 }

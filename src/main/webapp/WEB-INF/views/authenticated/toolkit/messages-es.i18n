@@ -14,4 +14,4 @@ authenticated.toolkit.form.label.link = Link
 
 authenticated.toolkit.form.label.component = Componente
 authenticated.toolkit.form.label.tool = Herramienta
-authenticated.toolkit.form.button.details = Detalles
+authenticated.toolkit.form.label.price = Precio

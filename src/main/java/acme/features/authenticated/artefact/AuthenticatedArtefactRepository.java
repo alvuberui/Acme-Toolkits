@@ -17,4 +17,7 @@ public interface AuthenticatedArtefactRepository extends AbstractRepository{
 	@Query("select a from Artefact a where a.id = :id")
 	Artefact findArtefactById(int id);
 
+	@Query("select a from Artefact a, Quantity q, Toolkit t where q.artefact = a and q.toolkit=t and a.type = acme.entities.artefact.ArtefactType.COMPONENT and t.id = :toolkitId")
+	Collection<Artefact> findComponentsByToolkitId(int toolkitId);
+
 }

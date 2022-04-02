@@ -1,6 +1,7 @@
 package acme.features.authenticated.toolkit;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import acme.entities.artefact.Artefact;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractShowService;
 
@@ -49,16 +51,30 @@ public class AuthenticatedToolkitShowService implements AbstractShowService<Auth
 		Collection<Artefact> components;
 		Artefact tool;
 		int id;
-		
+		Money price = new Money();
 		
 		id = request.getModel().getInteger("id");
-		components = repository.findComponentsByToolkitId(id);
-		tool = repository.findToolByToolkitId(id);
 	
+		
+		tool = repository.findToolByToolkitId(id);
+		
+		if(tool != null) {
+			model.setAttribute("toolId", tool.getId());
+			price.setAmount(tool.getRetailPrice().getAmount());
+			price.setCurrency(tool.getRetailPrice().getCurrency());
+		}
+		
+		
+		components = repository.findComponentsByToolkitId(id);
+		if(components != null && !components.isEmpty()) {
+			price.setAmount(components.stream().map(x->x.getRetailPrice().getAmount()).reduce(0.0, (a, b) -> a + b) + price.getAmount());;
+			model.setAttribute("toolkitId", entity.getId());
+		}
+		
+		
 	
 		request.unbind(entity, model, "code", "title", "description", " assemblyNotes", "link");
-		model.setAttribute("components", components);
-		model.setAttribute("tool", tool);
+		model.setAttribute("price", price);
 	}
 
 }

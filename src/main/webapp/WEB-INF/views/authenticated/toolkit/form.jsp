@@ -11,30 +11,16 @@
 	<acme:input-textarea code="authenticated.toolkit.form.label.description" path="description"/>	
 	<acme:input-textarea code="authenticated.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="authenticated.toolkit.form.label.link" path="link"/>	
-	<table  class="table table-striped table-condensed table-hover nowrap w-100">
- 		 	<tr>
- 		  		<th>Type</th>
-  				<th>Name</th>
- 		  		<th>Code</th>
- 		  		<th>Price</th>
- 		  		<th></th>
-			</tr>
-			<jstl:forEach items="${components}" var="component">
-	  		 <tr>
-  		  		<th><acme:message code="authenticated.toolkit.form.label.component"/></th>
-				<th><acme:print value="${component.name}"/></th>
-	 			<th><acme:print value="${component.code}"/></th>
-				<th><acme:print value="${component.retailPrice}"/></th>
-  		  		<th><acme:button action="id" code="authenticated.toolkit.form.button.details" /></th>
- 			</tr>
-			</jstl:forEach>
-			<tr>
-  		  		<th><acme:message code="authenticated.toolkit.form.label.tool"/></th>
-	   			<th><acme:print value="${tool.name}"/></th>
-	  		 	<th><acme:print value="${tool.code}"/></th>
-	  		  	<th><acme:print value="${tool.retailPrice}"/></th>
-	  		  	<th><acme:button action="id" code="authenticated.toolkit.form.button.details" /></th>
- 			</tr>
-	</table> 
-	
+	<acme:box code="">
+		<acme:message code="authenticated.toolkit.form.label.price"/>
+		<acme:print value="${price}" />
+	</acme:box>
+	<acme:box code="">
+		<jstl:if test="${toolId!=null}">
+				<acme:button action="/tool/show?id=${toolId}" code="authenticated.toolkit.form.button.tool"/>
+		</jstl:if>
+		<jstl:if test="${toolkitId!=null}">
+			<acme:button action="/authenticated/artefact/list-components?toolkitId=${toolkitId}" code="authenticated.toolkit.form.button.component"/>
+		</jstl:if>
+	</acme:box>
 </acme:form>
