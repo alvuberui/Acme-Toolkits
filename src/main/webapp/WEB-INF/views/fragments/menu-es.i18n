@@ -39,6 +39,7 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 master.menu.inventor = Inventor
 master.menu.inventor.components.list = Lista de componentes
+master.menu.inventor.patronages.list = Lista de patrocinios
 
 # master.menu.patron ########################################################
 master.menu.patron = Patrocinador
