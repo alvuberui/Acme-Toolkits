@@ -17,7 +17,7 @@ master.menu.sign-out = Sign out
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous.components.list = Components list
-
+master.menu.anonymous.chirps.list = Chirp List
 master.menu.anonymous.favourite-link.juagomram4 = 48123008Q: Gómez Ramírez, Juan Carlos
 master.menu.anonymous.favourite-link-marpercor8 = 49160010V: Pérez Coronel, Mario
 master.menu.anonymous.favourite-link-ramoonrb = 29516826Y: Rodriguez Bejarano, Ramón
@@ -45,6 +45,7 @@ master.menu.inventor.patronages.list = Patronages list
 
 master.menu.any = Any
 master.menu.any.announcements.list = Announcement list
+master.menu.any.chirps.list = Chirps List
 
 # master.menu.patron ########################################################
 
