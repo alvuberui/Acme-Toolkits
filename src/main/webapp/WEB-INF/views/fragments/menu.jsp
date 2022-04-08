@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.components.list" action="/anonymous/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.anonymous.chirps.list" action="/any/chirp/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marpercor8" action="https://github.com/marpercor8"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-ramoonrb" action="https://github.com/ramoonrb"/>
@@ -41,13 +42,21 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
+			<acme:menu-suboption code="master.menu.inventor.my-toolkits" action="/inventor/toolkit/list-mine"/>		
 			<acme:menu-suboption code="master.menu.inventor.components.list" action="/inventor/artefact/list-all-components"/>
+
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.own.tools.list" action="/inventor/artefact/list-own-tools"/>
+			<acme:menu-suboption code="master.menu.inventor.patronages.list" action="/inventor/patronages/list-mine"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.components.list" action="/patron/artefact/list-all-components"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.announcements.list" action="/any/announcement/list-all-announcements"/>
+			<acme:menu-suboption code="master.menu.any.chirps.list" action="/any/chirp/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

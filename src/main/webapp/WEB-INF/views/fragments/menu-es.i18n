@@ -17,6 +17,7 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous.components.list = Lista de componentes
+master.menu.anonymous.chirps.list = Lista de Chirridos
 
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link.juagomram4 = 48123008Q: Gómez Ramírez, Juan Carlos
@@ -41,9 +42,20 @@ master.menu.inventor = Inventor
 master.menu.inventor.components.list = Lista de componentes
 master.menu.inventor.own.tools.list = Herramientas proias
 
+master.menu.inventor.my-toolkits = Mi herramienta
+
+
+master.menu.inventor.patronages.list = Lista de patrocinios
+
 # master.menu.patron ########################################################
 master.menu.patron = Patrocinador
 master.menu.patron.components.list = Lista de componentes
+
+# master.menu.any ########################################################
+master.menu.any = Cualquiera
+master.menu.any.announcements.list = Lista de anuncios
+master.menu.any.chirps.list = Lista de Chirridos
+
 
 # master.menu.provider ########################################################
 

@@ -1,0 +1,13 @@
+any.announcement.list.label.creation = Creacion
+any.announcement.list.label.title = Titutlo
+any.announcement.list.label.body = Cuerpo
+any.announcement.list.label.flag = Bandera
+any.announcement.list.label.url = Url
+
+
+any.announcement.form.label.creation = Creacion:
+any.announcement.form.label.title = Titutlo:
+any.announcement.form.label.body = Cuerpo:
+any.announcement.form.label.flag = Bandera:
+any.announcement.form.label.url = Url:
+
