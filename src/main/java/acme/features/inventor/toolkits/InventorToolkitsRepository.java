@@ -22,4 +22,8 @@ public interface InventorToolkitsRepository extends AbstractRepository{
 	@Query("select a.retailPrice from Toolkit t join Quantity q on q.toolkit.id = t.id join Artefact a on a.id = q.artefact.id where t.id = :id")
 	Money findPrice(int id);
 	
+	@Query("select a.inventor.id from Toolkit t join Quantity q on q.toolkit.id = t.id join Artefact a on a.id = q.artefact.id where t.id = :id")
+	Integer findInventorIdByToolkitId(int id);
+	
+
 }

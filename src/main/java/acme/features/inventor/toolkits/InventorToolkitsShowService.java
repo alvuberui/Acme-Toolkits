@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -21,8 +22,20 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
-		return true;
+		final boolean result;
+		int masterId;
+		Integer inventorId;
+		final Principal principal;
+		Toolkit toolkit;
+		
+		masterId = request.getModel().getInteger("id");
+		toolkit = this.repository.findToolkitById(masterId);
+		inventorId = this.repository.findInventorIdByToolkitId(toolkit.getId());
+		principal = request.getPrincipal();
+		result = (principal.getActiveRoleId() == inventorId);
+		return result;
 	}
+
 	
 	@Override
 	public Toolkit findOne(final Request<Toolkit> request) {

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.artefact.Artefact;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
@@ -21,8 +22,21 @@ public class InventorToolByToolkitListService implements AbstractListService<Inv
 	public boolean authorise(final Request<Artefact> request) {
 		assert request != null;
 
-		return true;
+		final boolean result;
+		int masterId;
+		Integer inventorId;
+		Principal principal;
+		Integer artefactId;
+		
+		masterId = request.getModel().getInteger("masterId");
+		artefactId = this.repository.findArtefactIdByToolkitId(masterId);
+		inventorId = this.repository.findInventorIdByArtefactId(artefactId);
+		principal = request.getPrincipal();
+		result = principal.getActiveRoleId() == inventorId;
+			
+		return result;
 	}
+	
 
 	@Override
 	public Collection<Artefact> findMany(final Request<Artefact> request) {

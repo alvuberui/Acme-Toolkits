@@ -22,4 +22,10 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	
 	@Query("select distinct a from Toolkit t join Quantity q on q.toolkit.id  = t.id join Artefact a on a.id = q.artefact.id where t.id  = :id and a.type = 1")
 	Collection<Artefact> findToolsByToolkitId(int id);
+	
+	@Query("select a.inventor.id from Artefact a where a.id = :id")
+	Integer findInventorIdByArtefactId(int id);
+	
+	@Query("select distinct a.id from Toolkit t join Quantity q on q.toolkit.id  = t.id join Artefact a on a.id = q.artefact.id where t.id  = :id")
+	Integer findArtefactIdByToolkitId(int id);
 }
