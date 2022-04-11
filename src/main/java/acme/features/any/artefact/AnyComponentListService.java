@@ -12,7 +12,7 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyComponentListAllService implements AbstractListService<Any, Artefact>{
+public class AnyComponentListService implements AbstractListService<Any, Artefact>{
 	
 	// Internal state ---------------------------------------------------------
 

@@ -37,7 +37,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
-			<acme:menu-suboption code="master.menu.any.components.list" action="/any/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.any.components.list" action="/any/artefact/list-components"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

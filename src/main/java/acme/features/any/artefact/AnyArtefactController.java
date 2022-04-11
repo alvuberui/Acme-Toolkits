@@ -14,7 +14,7 @@ public class AnyArtefactController extends AbstractController<Any, Artefact> {
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AnyComponentListAllService	componentListAllService;
+		protected AnyComponentListService	componentListService;
 		
 		@Autowired
 		protected AnyArtefactShowService	showService;
@@ -24,7 +24,7 @@ public class AnyArtefactController extends AbstractController<Any, Artefact> {
 
 		@PostConstruct
 		protected void initialise() {
-			super.addCommand("list-all-components", "list", this.componentListAllService);
+			super.addCommand("list-components","list", this.componentListService);
 			super.addCommand("show", this.showService);
 		}
 }
