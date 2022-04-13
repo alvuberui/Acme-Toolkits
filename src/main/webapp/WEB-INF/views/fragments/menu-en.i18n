@@ -45,6 +45,11 @@ master.menu.inventor.components.list = Components list
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
 
+# master.menu.any ########################################################
+
+master.menu.any = Any
+master.menu.any.user-accounts = User Accounts List
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
