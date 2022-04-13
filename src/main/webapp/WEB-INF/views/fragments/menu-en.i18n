@@ -44,6 +44,7 @@ master.menu.inventor.components.list = Components list
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+master.menu.patron.patronages.list = Patronages list
 
 # master.menu.provider ########################################################
 

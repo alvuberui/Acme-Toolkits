@@ -1,12 +1,15 @@
 package acme.features.patron.patronage;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patonages.Patronages;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
 
@@ -15,6 +18,7 @@ import acme.roles.Patron;
 public class PatronPranonageListService implements AbstractListService<Patron, Patronages>{
 
 
+	@Autowired
 	private PatronPatronageRepository repository;
 
 	@Override
@@ -29,7 +33,12 @@ public class PatronPranonageListService implements AbstractListService<Patron, P
 		assert request != null;
 		
 		Collection<Patronages> result;
-		result = this.repository.findAllPatronages();
+		final Principal principal = request.getPrincipal();
+		
+		result = this.repository.findOwnPatronages(principal.getActiveRoleId());
+		if(result == null) {
+			return new ArrayList<Patronages>();
+		}
 		return result;
 	}
 
@@ -39,7 +48,7 @@ public class PatronPranonageListService implements AbstractListService<Patron, P
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model,"status", "code", "legalStuff", "budget", "inventor");
+		request.unbind(entity, model,"status", "code", "legalStuff", "budget", "inventor.username");
 	}
 
 }

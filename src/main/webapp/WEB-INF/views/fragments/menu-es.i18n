@@ -43,6 +43,7 @@ master.menu.inventor.components.list = Lista de componentes
 # master.menu.patron ########################################################
 master.menu.patron = Patrocinador
 master.menu.patron.components.list = Lista de componentes
+master.menu.patron.patronages.list = Lista de Patrocinios
 
 # master.menu.provider ########################################################
 
