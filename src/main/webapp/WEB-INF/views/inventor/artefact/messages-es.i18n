@@ -13,3 +13,6 @@ inventor.artefact.form.label.technology = Tecnología:
 inventor.artefact.form.label.description = Descripción:
 inventor.artefact.form.label.retail-price = Precio por menor:
 inventor.artefact.form.label.more-info = Más información:
+
+inventor.artefact.list.button.component = Componentes
+inventor.artefact.list.button.tool = Herramientas
