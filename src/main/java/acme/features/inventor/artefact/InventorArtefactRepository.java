@@ -16,5 +16,8 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	
 	@Query("select a from Artefact a where a.id = :id")
 	Artefact findArtefactById(int id);
+	
+	@Query ("select a from Artefact a where a.type = :artefactType and a.inventor.id = :inventorId")
+	Collection<Artefact> findArtefactsFromInventor(int inventorId, int artefactType);
 
 }
