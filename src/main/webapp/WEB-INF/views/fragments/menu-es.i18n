@@ -45,6 +45,7 @@ master.menu.inventor.patronages.list = Lista de patrocinios
 # master.menu.patron ########################################################
 master.menu.patron = Patrocinador
 master.menu.patron.components.list = Lista de componentes
+master.menu.patron.dashboard = Panel del patrón
 
 # master.menu.any ########################################################
 master.menu.any = Cualquiera
