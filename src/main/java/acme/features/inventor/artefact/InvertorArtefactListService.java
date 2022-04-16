@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.ArtefactType;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
@@ -30,21 +31,23 @@ public class InvertorArtefactListService implements AbstractListService<Inventor
 		assert request != null;
 		
 		Collection<Artefact> result;
-		int inventorId;
-		int artefactType;
-		int artefactPrueba;
+		final int inventorId;
+		final int artefactTypeToParse;
+		ArtefactType artefactType;
 		
-		artefactPrueba = request.getModel().getInteger("artefactType");
+		artefactTypeToParse = request.getModel().getInteger("artefactType");
 		
-		if(artefactPrueba<0 || artefactPrueba>1) {
-			artefactType=0;
-		}else {
-			artefactType=artefactPrueba;
+		if (artefactTypeToParse < 0 || artefactTypeToParse >1) {
+			artefactType = ArtefactType.COMPONENT;
+		} else if ( artefactTypeToParse == 0) {
+			artefactType = ArtefactType.COMPONENT;
+		} else {
+			artefactType = ArtefactType.TOOL;
 		}
 		
 		inventorId = request.getPrincipal().getActiveRoleId();
 		
-		result = this.repository.findArtefactsFromInventor(inventorId, artefactType);
+		result = this.repository.findArtefactsFromInventor(inventorId,artefactType); //
 		
 		return result;
 		
