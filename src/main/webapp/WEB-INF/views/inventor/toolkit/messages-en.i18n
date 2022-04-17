@@ -11,5 +11,4 @@ inventor.toolkit.form.label.description = Description
 inventor.toolkit.form.label.assemblyNotes = Assembly Notes
 inventor.toolkit.form.label.link = Link
 
-inventor.toolkit.form.button.tools = Tools
-inventor.toolkit.form.button.componets = Components
+inventor.toolkit.form.button.toolkits-artefact = Artefacts

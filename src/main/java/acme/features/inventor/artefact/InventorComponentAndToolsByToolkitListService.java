@@ -13,7 +13,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorComponentByToolkitListService implements AbstractListService<Inventor, Artefact>{
+public class InventorComponentAndToolsByToolkitListService implements AbstractListService<Inventor, Artefact>{
 
 	@Autowired
 	protected InventorArtefactRepository repository;
@@ -29,8 +29,10 @@ public class InventorComponentByToolkitListService implements AbstractListServic
 		Integer artefact;
 		
 		masterId = request.getModel().getInteger("masterId");
-		artefact = this.repository.findArtefactIdByToolkitId(masterId);
+		
+		artefact = this.repository.findArtefactIdByToolkitId(masterId).get(0);
 		inventorId = this.repository.findInventorIdByArtefactId(artefact);
+		
 		principal = request.getPrincipal();
 		result = principal.getActiveRoleId() == inventorId;
 			
@@ -46,7 +48,7 @@ public class InventorComponentByToolkitListService implements AbstractListServic
 		int id;
 		
 		id = request.getModel().getInteger("masterId");
-		result = this.repository.findComponentsByToolkitId(id);
+		result = this.repository.findComponentsAndToolsByToolkitId(id);
 
 		return result;
 	}
