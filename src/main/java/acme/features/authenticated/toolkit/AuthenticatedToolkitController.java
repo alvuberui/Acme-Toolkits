@@ -16,12 +16,13 @@ public class AuthenticatedToolkitController extends AbstractController<Authentic
 	@Autowired
 	protected AuthenticatedToolkitListAllService listAllService;
 	
-	@Autowired AuthenticatedToolkitShowService showService;
+	@Autowired 
+	protected AuthenticatedToolkitShowService showService;
 	
 	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list-all","list", this.listAllService);
-		super.addCommand("show", this.showService);
+		super.addCommand("show","show", this.showService);
 	}
 }

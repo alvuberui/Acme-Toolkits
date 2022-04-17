@@ -3,7 +3,8 @@ authenticated.toolkit.list.label.title = Name
 authenticated.toolkit.list.label.description = Description
 authenticated.toolkit.list.label.assemblyNotes = Assembly Notes
 authenticated.toolkit.list.label.link = Description
-authenticated.toolkit.list.label.search = Busqueda
+authenticated.toolkit.label.search = Filter by tool or component
+authenticated.toolkit.list.search.button = Filter
 
 authenticated.toolkit.form.label.code = Type
 authenticated.toolkit.form.label.title = Name

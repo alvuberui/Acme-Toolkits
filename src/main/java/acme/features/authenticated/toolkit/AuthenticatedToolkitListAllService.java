@@ -1,10 +1,14 @@
 package acme.features.authenticated.toolkit;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.Objects;
+
+import acme.entities.artefact.Artefact;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -35,8 +39,16 @@ public class AuthenticatedToolkitListAllService implements AbstractListService<A
 		
 		Collection<Toolkit> result;
 		
-		result = this.repository.findAllToolkit();
 		
+		String artefactName;
+		
+		if(request.getModel().hasAttribute("artefactName") && !Objects.equal(request.getModel().getString("artefactName") , "")) {
+			artefactName = "%" + request.getModel().getString("artefactName") + "%";
+			result = this.repository.findAllArtefactByName(artefactName);
+		}else {
+			result = this.repository.findAllToolkit();
+		}
+	
 		
 		return result;
 	}
@@ -48,7 +60,7 @@ public class AuthenticatedToolkitListAllService implements AbstractListService<A
 		assert model != null;
 		
 		request.unbind(entity, model, "code", "title", "description", " assemblyNotes", "link");
-		
+
 	}
 	
 	
