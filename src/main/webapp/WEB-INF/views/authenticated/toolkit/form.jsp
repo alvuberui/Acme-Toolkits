@@ -11,10 +11,12 @@
 	<acme:input-textarea code="authenticated.toolkit.form.label.description" path="description"/>	
 	<acme:input-textarea code="authenticated.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="authenticated.toolkit.form.label.link" path="link"/>	
-	<acme:box code="">
-		<acme:message code="authenticated.toolkit.form.label.price"/>
-		<acme:print value="${price}" />
-	</acme:box>
+	<jstl:if test="${price!=null}">
+		<acme:box code="">
+			<acme:message code="authenticated.toolkit.form.label.price"/>
+			<acme:print value="${price}" />
+		</acme:box>
+	</jstl:if>
 	<acme:box code="">
 		<jstl:if test="${toolId!=null}">
 				<acme:button action="/tool/show?id=${toolId}" code="authenticated.toolkit.form.button.tool"/>

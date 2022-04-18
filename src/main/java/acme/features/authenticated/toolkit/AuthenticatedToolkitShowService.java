@@ -57,7 +57,6 @@ public class AuthenticatedToolkitShowService implements AbstractShowService<Auth
 	
 		
 		tool = repository.findToolByToolkitId(id);
-		
 		if(tool != null) {
 			model.setAttribute("toolId", tool.getId());
 			price.setAmount(tool.getRetailPrice().getAmount());
@@ -72,9 +71,16 @@ public class AuthenticatedToolkitShowService implements AbstractShowService<Auth
 		}
 		
 		
+		// Model attributes
+		
+		if(price.getAmount()!=null) {
+			model.setAttribute("price", price);
+		}
 	
 		request.unbind(entity, model, "code", "title", "description", " assemblyNotes", "link");
-		model.setAttribute("price", price);
+		
+		
+		
 	}
 
 }
