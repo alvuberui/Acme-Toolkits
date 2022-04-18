@@ -19,3 +19,5 @@ inventor.patronages.patron.form.label.title = Patron information
 inventor.patronages.patron.form.label.username = Username
 inventor.patronages.patron.form.label.company = Company
 
+inventor.patronage-reports.form.button.list-mine-reports = Patronage Reports
+
