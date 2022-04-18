@@ -40,7 +40,7 @@ public class AuthenticatedSystemConfigurationShowService implements AbstractShow
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "currency", "currencies");	
+		request.unbind(entity, model, "currencies", "currency");	
 	}
 
 }

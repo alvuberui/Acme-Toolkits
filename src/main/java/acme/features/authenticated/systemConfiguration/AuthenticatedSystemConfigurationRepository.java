@@ -11,7 +11,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuthenticatedSystemConfigurationRepository extends AbstractRepository{
 	
 	
-	@Query("Select sc form SystemConfiguration sc")
+	@Query("Select sc from SystemConfiguration sc")
 	SystemConfiguration find();
 
 }
