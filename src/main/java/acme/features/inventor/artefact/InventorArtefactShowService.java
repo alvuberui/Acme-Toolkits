@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.artefact.Artefact;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -20,8 +21,22 @@ public class InventorArtefactShowService implements AbstractShowService<Inventor
 		@Override
 		public boolean authorise(final Request<Artefact> request) {
 			assert request != null;
-
-			return true;
+			
+			boolean result;
+			int artefactId;
+			Artefact artefact;
+			Principal user;
+			int inventorId;
+			
+			
+			artefactId = request.getModel().getInteger("id");
+			user = request.getPrincipal();
+			artefact = this.repository.findArtefactById(artefactId);
+			inventorId = artefact.getInventor().getId();
+			
+			result = (inventorId == user.getActiveRoleId());
+			
+			return result;
 		}
 
 		@Override
