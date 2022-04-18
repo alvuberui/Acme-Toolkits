@@ -1,6 +1,5 @@
 patron.patronage.form.label.code = Code
 patron.patronage.form.label.status = Status
-patron.patronage.form.label.creationTime = Creation Time
 patron.patronage.form.label.initPeriod = Initial Date
 patron.patronage.form.label.finalPeriod = End Date
 patron.patronage.form.label.budget = Budget
@@ -9,7 +8,7 @@ patron.patronage.form.label.link = Link
 patron.patronage.form.label.username = Username
 patron.patronage.form.label.company = Company
 patron.patronage.form.label.statement = Statement
-
+patron.patronage.form.label.inventor-link = Link
 
 
 patron.patronages.list.label.code = Code

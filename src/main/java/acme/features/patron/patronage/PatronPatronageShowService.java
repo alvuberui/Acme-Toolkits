@@ -1,5 +1,6 @@
 package acme.features.patron.patronage;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patonages.Patronages;
@@ -11,17 +12,16 @@ import acme.roles.Patron;
 @Service
 public class PatronPatronageShowService implements AbstractShowService<Patron, Patronages>{
 	
-	
+	@Autowired
 	private PatronPatronageRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Patronages> request) {
 		assert request != null;
 
-		final Patron patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getAccountId());
 		final Patronages patronage = this.repository.findOneById(request.getModel().getInteger("id"));
 		
-		if(patronage.getPatron().equals(patron)) return true;
+		if(patronage.getPatron().getId() == request.getPrincipal().getActiveRoleId()) return true;
 		
 		return false;
 	}
@@ -45,8 +45,8 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget",
-			"creationTime","initPeriod", "finalPeriod", "link", "inventor.userAccount.username",
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget"
+			,"initPeriod", "finalPeriod", "link", "inventor.userAccount.username",
 			"inventor.company","inventor.link","inventor.statement");
 		
 	}
