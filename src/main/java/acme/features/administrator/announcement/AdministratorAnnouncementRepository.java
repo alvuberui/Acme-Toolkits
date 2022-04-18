@@ -1,4 +1,4 @@
-package acme.features.any.announcement;
+package acme.features.administrator.announcement;
 
 import java.util.Collection;
 import java.util.Date;
@@ -10,7 +10,7 @@ import acme.entities.announcement.Announcement;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnyAnnouncementRepository extends AbstractRepository{
+public interface AdministratorAnnouncementRepository extends AbstractRepository{
 	
 	@Query("select a from Announcement a")
 	Collection<Announcement> findAllAnnouncements();
