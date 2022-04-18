@@ -15,5 +15,8 @@ public interface AnyArtefactRepository extends AbstractRepository {
 	
 	@Query("select a from Artefact a where a.type = :artefactType")
 	Collection<Artefact> findManyArtifacts(ArtefactType artefactType);
-
+	
+	@Query("select a from Artefact a where a.id = :id")
+	Artefact findArtefactById(int id);
+	
 }
