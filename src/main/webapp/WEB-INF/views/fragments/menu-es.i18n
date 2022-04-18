@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 master.menu.anonymous.components.list = Lista de componentes
 
+
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link.juagomram4 = 48123008Q: Gómez Ramírez, Juan Carlos
 master.menu.anonymous.favourite-link-marpercor8 = 49160010V: Pérez Coronel, Mario
@@ -56,6 +57,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Lista de componentes
+master.menu.user-account.toolkit.list = Kit de herramientas
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales

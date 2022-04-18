@@ -57,6 +57,7 @@ master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Components list
+master.menu.user-account.toolkit.list = Toolkit list
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data

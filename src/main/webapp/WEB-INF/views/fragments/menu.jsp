@@ -63,6 +63,7 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.components.list" action="/authenticated/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.user-account.toolkits.list" action="/authenticated/toolkit/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
