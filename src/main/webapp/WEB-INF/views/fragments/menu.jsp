@@ -72,6 +72,7 @@
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.announcements.list" action="/any/announcement/list-all-announcements"/>
 			<acme:menu-suboption code="master.menu.any.chirps.list" action="/any/chirp/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.system-configuration" action="/authenticated/system-configuration/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
