@@ -53,8 +53,7 @@ public class PatronageReport extends AbstractEntity{
 	
 	public String getSequenceNumber() {
 		final NumberFormat serialNumber = new DecimalFormat("0000");
-		serialNumber.format(this.id);
-		return this.patronage.getCode() + ":" + serialNumber;
+		return this.patronage.getCode() + ":" + serialNumber.format(this.id);
 	}
 
 	// Relationships ----------------------------------------------------------
