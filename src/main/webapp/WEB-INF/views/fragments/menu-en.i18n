@@ -62,6 +62,7 @@ master.menu.any.chirps.list = Chirps List
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+master.menu.patron.dashboard = Patron dashboard
 master.menu.patron.patronage-report.list = Patronage Reports list
 
 master.menu.patron.artefacts.list = Artefact List

@@ -59,6 +59,7 @@ master.menu.inventor.announcements.list = Lista de anuncios
 master.menu.patron = Patrocinador
 master.menu.patron.artefacts.list = Lista de Artefactos
 master.menu.patron.components.list = Lista de componentes
+master.menu.patron.dashboard = Panel del patrón
 master.menu.patron.patronage-report.list = Lista de Patronage Reports
 master.menu.patron.announcements.list = Lista de anuncios
 
