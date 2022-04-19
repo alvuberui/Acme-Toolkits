@@ -13,6 +13,6 @@ authenticated.toolkit.form.label.assemblyNotes = Assembly Notes
 authenticated.toolkit.form.label.link = Description
 
 
-authenticated.toolkit.form.button.component = Component
+authenticated.toolkit.form.button.component = Components
 authenticated.toolkit.form.button.tool = Tool
 authenticated.toolkit.form.label.price = Price
