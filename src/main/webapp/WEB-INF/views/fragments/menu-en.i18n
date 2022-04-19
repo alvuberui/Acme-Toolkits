@@ -62,6 +62,7 @@ master.menu.any.chirps.list = Chirps List
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+master.menu.patron.patronage-report.list = Patronage Reports list
 
 master.menu.patron.artefacts.list = Artefact List
 master.menu.patron.announcements.list = Announcements list
@@ -90,8 +91,8 @@ master.menu.authenticated.artefacts.list = Artefact List
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Components list
+master.menu.user-account.toolkits.list = Toolkit list
 master.menu.user-account.announcements.list = Announcements list
-
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
