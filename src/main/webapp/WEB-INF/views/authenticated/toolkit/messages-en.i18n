@@ -1,0 +1,18 @@
+authenticated.toolkit.list.label.code = Type
+authenticated.toolkit.list.label.title = Name
+authenticated.toolkit.list.label.description = Description
+authenticated.toolkit.list.label.assemblyNotes = Assembly Notes
+authenticated.toolkit.list.label.link = Description
+authenticated.toolkit.label.search = Filter by tool or component
+authenticated.toolkit.list.search.button = Filter
+
+authenticated.toolkit.form.label.code = Type
+authenticated.toolkit.form.label.title = Name
+authenticated.toolkit.form.label.description = Description
+authenticated.toolkit.form.label.assemblyNotes = Assembly Notes
+authenticated.toolkit.form.label.link = Description
+
+
+authenticated.toolkit.form.button.component = Components
+authenticated.toolkit.form.button.tool = Tool
+authenticated.toolkit.form.label.price = Price

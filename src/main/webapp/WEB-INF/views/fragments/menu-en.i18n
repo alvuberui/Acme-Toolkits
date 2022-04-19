@@ -34,6 +34,7 @@ master.menu.administrator.announcements.list = Announcements list
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.system-configuration = System Configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
@@ -64,6 +65,8 @@ master.menu.patron = Patron
 master.menu.patron.components.list = Components list
 master.menu.patron.patronages.list = Patronages list
 master.menu.patron.announcements.list = Announcements list
+master.menu.patron.dashboard = Patron dashboard
+master.menu.patron.patronage-report.list = Patronage Reports list
 master.menu.patron.artefacts.list = Artefact List
 master.menu.patron.announcements.list = Announcements list
 
@@ -91,8 +94,8 @@ master.menu.authenticated.artefacts.list = Artefact List
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Components list
+master.menu.user-account.toolkits.list = Toolkit list
 master.menu.user-account.announcements.list = Announcements list
-
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
@@ -100,5 +103,6 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.authenticated.system-configuration = System Configuration
 
 
