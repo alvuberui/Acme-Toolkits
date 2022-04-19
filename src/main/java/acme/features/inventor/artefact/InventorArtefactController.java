@@ -13,18 +13,16 @@ import acme.roles.Inventor;
 public class InventorArtefactController extends AbstractController<Inventor, Artefact> {
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected InventorComponentListAllService	componentListAllService;
+		@Autowired 
+		protected InventorComponentAndToolsByToolkitListService componentAndToolByToolkitService;
 		
-		@Autowired
-		protected InventorArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 		@PostConstruct
 		protected void initialise() {
-			super.addCommand("list-all-components", "list", this.componentListAllService);
-			super.addCommand("show", this.showService);
+			super.addCommand("list-artefact-toolkit", "list", this.componentAndToolByToolkitService);
+
 		}
 }
