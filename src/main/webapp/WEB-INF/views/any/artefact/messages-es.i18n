@@ -12,7 +12,7 @@ any.artefact.form.label.code = Código:
 any.artefact.form.label.technology = Tecnología:
 any.artefact.form.label.description = Descripción:
 any.artefact.form.label.retail-price = Precio por menor:
-anys.artefact.form.label.more-info = Más información:
+any.artefact.form.label.more-info = Más información:
 
 any.artefact.list.button.component = Componentes
 any.artefact.list.button.tool = Herramientas

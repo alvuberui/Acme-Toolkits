@@ -54,6 +54,7 @@ master.menu.any.chirps.list = Chirps List
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+master.menu.patron.artefacts.list = Artefact List
 
 # master.menu.provider ########################################################
 
