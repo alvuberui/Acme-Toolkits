@@ -30,17 +30,15 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-alvuberui" action="https://github.com/alvuberui"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link.juagomram4" action="https://github.com/juagomram4"/>
 		</acme:menu-option>
-		
+
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.artefacts.list" action="/any/artefact/list?artefactType=0"/>
-			
+			<acme:menu-suboption code="master.menu.user-account.toolkits.list" action="/authenticated/toolkit/list-all"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
-
 			<acme:menu-suboption code="master.menu.administrator.artefacts.list" action="/any/artefact/list?artefactType=0"/>
 			<acme:menu-suboption code="master.menu.administrator.announcements.list" action="/administrator/announcement/list-all-announcements"/>
-
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -49,7 +47,6 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
-		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.patronages.list" action="/inventor/patronages/list-mine"/>
 			<acme:menu-separator/>
@@ -103,7 +100,6 @@
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
 		</acme:menu-option>
-
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>

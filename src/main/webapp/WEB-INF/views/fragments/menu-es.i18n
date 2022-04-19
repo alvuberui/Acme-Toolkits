@@ -20,6 +20,7 @@ master.menu.anonymous.components.list = Lista de componentes
 master.menu.anonymous.chirps.list = Lista de Chirridos
 master.menu.anonymous.artefacts.list = Lista de Artefactos
 
+
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link.juagomram4 = 48123008Q: Gómez Ramírez, Juan Carlos
 master.menu.anonymous.favourite-link-marpercor8 = 49160010V: Pérez Coronel, Mario
@@ -91,8 +92,8 @@ master.menu.authenticated.artefacts.list = Lista de artefactos
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Lista de componentes
+master.menu.user-account.toolkits.list = Kit de herramientas
 master.menu.user-account.announcements.list = Lista de anuncios
-
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
