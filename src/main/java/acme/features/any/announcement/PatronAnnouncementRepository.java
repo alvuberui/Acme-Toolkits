@@ -1,4 +1,4 @@
-package acme.features.patron.announcement;
+package acme.features.any.announcement;
 
 import java.util.Collection;
 import java.util.Date;

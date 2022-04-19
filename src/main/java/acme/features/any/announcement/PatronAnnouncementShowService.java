@@ -1,9 +1,5 @@
-package acme.features.patron.announcement;
+package acme.features.any.announcement;
 
-
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,17 +7,17 @@ import org.springframework.stereotype.Service;
 import acme.entities.announcement.Announcement;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
 
 @Service
-public class PatronAnnouncementListRecentAllService implements AbstractListService<Patron, Announcement>{
+public class PatronAnnouncementShowService implements AbstractShowService<Patron, Announcement>{
 	
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
 		protected PatronAnnouncementRepository repository;
-
+			
 		@Override
 		public boolean authorise(final Request<Announcement> request) {
 			assert request != null;
@@ -30,17 +26,14 @@ public class PatronAnnouncementListRecentAllService implements AbstractListServi
 		}
 
 		@Override
-		public Collection<Announcement> findMany(final Request<Announcement> request) {
+		public Announcement findOne(final Request<Announcement> request) {
 			assert request != null;
 
-			Collection<Announcement> result;
-			Calendar calendar;
-			Date deadline;
-			calendar = Calendar.getInstance();
-			calendar.add(Calendar.MONTH, -1);
-			deadline= calendar.getTime();
-			
-			result = this.repository.findRecentAnnouncements(deadline);
+			Announcement result;
+			int id;
+
+			id = request.getModel().getInteger("id");
+			result = this.repository.findAnnouncementById(id);
 
 			return result;
 		}

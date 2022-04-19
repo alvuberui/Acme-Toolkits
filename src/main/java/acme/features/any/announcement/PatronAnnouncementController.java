@@ -1,4 +1,4 @@
-package acme.features.patron.announcement;
+package acme.features.any.announcement;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;

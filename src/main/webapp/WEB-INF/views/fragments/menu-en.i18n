@@ -25,6 +25,7 @@ master.menu.anonymous.favourite-link-marrodgar62 = 77859215Y: Rodríguez García
 master.menu.anonymous.favourite-link-cargarrod12 = 49395514R: Garrido Rodríguez, Carlos
 master.menu.anonymous.favourite-link-alvuberui = 17480690T: Úbeda Ruiz, Álvaro
 master.menu.anonymous = Anonymous
+master.menu.anonymous.artefacts.list = Artefact List
 
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Components list
@@ -36,6 +37,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.artefacts.list = Artefact List
 
 # master.menu.inventor ########################################################
 
@@ -45,6 +47,7 @@ master.menu.inventor.components.list = Components list
 master.menu.inventor.my-toolkits = My toolkit
 
 master.menu.inventor.patronages.list = Patronages list
+master.menu.inventor.artefacts.list = Artefact List
 master.menu.inventor.announcements.list = Announcements list
 
 
@@ -59,8 +62,16 @@ master.menu.any.chirps.list = Chirps List
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+
+master.menu.patron.artefacts.list = Artefact List
 master.menu.patron.announcements.list = Announcements list
 
+
+
+# master.menu.any ########################################################
+
+master.menu.any = Any
+master.menu.any.user-accounts = User Accounts List
 
 # master.menu.provider ########################################################
 
