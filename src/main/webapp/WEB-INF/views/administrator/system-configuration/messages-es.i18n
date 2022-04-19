@@ -1,7 +1,6 @@
-
-administrator.systemConfiguration.label.currency = Currency
-administrator.systemConfiguration.label.language  = Language
-administrator.systemConfiguration.label.weakTerms =  Weak terms
-administrator.systemConfiguration.label.strongTerms = Strong terms
-administrator.systemConfiguration.label.weakThreshold = Weak threshold
-administrator.systemConfiguration.label.strongThreshold = Strong threshold
+administrator.systemConfiguration.label.currency = Moneda
+administrator.systemConfiguration.label.language = Lenguaje
+administrator.systemConfiguration.label.weakTerms =  Palabras débiles
+administrator.systemConfiguration.label.strongTerms = Palabras fuertes
+administrator.systemConfiguration.label.weakThreshold = Umbral débil
+administrator.systemConfiguration.label.strongThreshold = Umbral fuerte
