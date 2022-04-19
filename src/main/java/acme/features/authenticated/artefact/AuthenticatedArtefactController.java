@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.artefact.Artefact;
+import acme.features.inventor.artefact.InventorComponentAndToolsByToolkitListService;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Authenticated;
 
@@ -13,22 +14,15 @@ import acme.framework.roles.Authenticated;
 public class AuthenticatedArtefactController extends AbstractController<Authenticated, Artefact> {
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected AuthenticatedComponentListAllService	componentListAllService;
+		@Autowired 
+		protected AuthenticatedArtefactListByToolkitService authenticatedArtefactListByToolkitService;
 		
-		@Autowired
-		protected AuthenticatedComponentListByToolkit componentListByToolkit;
-		
-		@Autowired
-		protected AuthenticatedArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 		@PostConstruct
 		protected void initialise() {
-			super.addCommand("list-all-components", "list", this.componentListAllService);
-			super.addCommand("show", this.showService);
-			super.addCommand("list-components","list", this.componentListByToolkit);
+			super.addCommand("list-artefact-toolkit","list", this.authenticatedArtefactListByToolkitService);
 		}
 }

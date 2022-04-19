@@ -23,6 +23,6 @@ public class AuthenticatedToolkitController extends AbstractController<Authentic
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list-all","list", this.listAllService);
-		super.addCommand("show","show", this.showService);
+		super.addCommand("show", this.showService);
 	}
 }
