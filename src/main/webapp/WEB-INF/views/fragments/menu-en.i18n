@@ -68,6 +68,11 @@ master.menu.patron.announcements.list = Announcements list
 
 
 
+# master.menu.any ########################################################
+
+master.menu.any = Any
+master.menu.any.user-accounts = User Accounts List
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider

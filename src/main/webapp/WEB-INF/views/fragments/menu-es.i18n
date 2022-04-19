@@ -66,6 +66,13 @@ master.menu.any.announcements.list = Lista de anuncios
 master.menu.any.chirps.list = Lista de Chirridos
 
 
+
+# master.menu.any ########################################################
+
+master.menu.any = Cualquiera
+master.menu.any.user-accounts = Lista de cuentas de usuario
+
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
