@@ -32,6 +32,8 @@
 		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.components.list" action="/administrator/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.administrator.announcements.list" action="/administrator/announcement/list-all-announcements"/>
+			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -45,10 +47,14 @@
 			<acme:menu-suboption code="master.menu.inventor.my-toolkits" action="/inventor/toolkit/list-mine"/>		
 			<acme:menu-suboption code="master.menu.inventor.components.list" action="/inventor/artefact/list-all-components"/>
 			<acme:menu-suboption code="master.menu.inventor.patronages.list" action="/inventor/patronages/list-mine"/>
+			<acme:menu-suboption code="master.menu.inventor.announcements.list" action="/inventor/announcement/list-all-announcements"/>
+			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.components.list" action="/patron/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.patron.announcements.list" action="/patron/announcement/list-all-announcements"/>
+		
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
@@ -71,6 +77,8 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.components.list" action="/authenticated/artefact/list-all-components"/>
+			<acme:menu-suboption code="master.menu.user-account.announcements.list" action="/authenticated/announcement/list-all-announcements"/>
+			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>

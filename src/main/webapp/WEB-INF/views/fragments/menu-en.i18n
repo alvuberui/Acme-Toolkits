@@ -28,6 +28,8 @@ master.menu.anonymous = Anonymous
 
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Components list
+master.menu.administrator.announcements.list = Announcements list
+
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
@@ -43,6 +45,8 @@ master.menu.inventor.components.list = Components list
 master.menu.inventor.my-toolkits = My toolkit
 
 master.menu.inventor.patronages.list = Patronages list
+master.menu.inventor.announcements.list = Announcements list
+
 
 # master.menu.any ########################################################
 
@@ -55,6 +59,8 @@ master.menu.any.chirps.list = Chirps List
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+master.menu.patron.announcements.list = Announcements list
+
 
 # master.menu.provider ########################################################
 
@@ -68,6 +74,8 @@ master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Components list
+master.menu.user-account.announcements.list = Announcements list
+
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data

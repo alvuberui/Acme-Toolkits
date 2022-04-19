@@ -1,5 +1,9 @@
-package acme.features.any.announcement;
+package acme.features.inventor.announcement;
 
+
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,17 +11,17 @@ import org.springframework.stereotype.Service;
 import acme.entities.announcement.Announcement;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Any;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractListService;
+import acme.roles.Inventor;
 
 @Service
-public class AnyAnnouncementShowService implements AbstractShowService<Any, Announcement>{
+public class InventorAnnouncementListRecentAllService implements AbstractListService<Inventor, Announcement>{
 	
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AnyAnnouncementRepository repository;
-			
+		protected InventorAnnouncementRepository repository;
+
 		@Override
 		public boolean authorise(final Request<Announcement> request) {
 			assert request != null;
@@ -26,14 +30,17 @@ public class AnyAnnouncementShowService implements AbstractShowService<Any, Anno
 		}
 
 		@Override
-		public Announcement findOne(final Request<Announcement> request) {
+		public Collection<Announcement> findMany(final Request<Announcement> request) {
 			assert request != null;
 
-			Announcement result;
-			int id;
-
-			id = request.getModel().getInteger("id");
-			result = this.repository.findAnnouncementById(id);
+			Collection<Announcement> result;
+			Calendar calendar;
+			Date deadline;
+			calendar = Calendar.getInstance();
+			calendar.add(Calendar.MONTH, -1);
+			deadline= calendar.getTime();
+			
+			result = this.repository.findRecentAnnouncements(deadline);
 
 			return result;
 		}
