@@ -1,4 +1,4 @@
-package acme.features.any.announcement;
+package acme.features.inventor.announcement;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,17 +6,17 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.announcement.Announcement;
 import acme.framework.controllers.AbstractController;
-import acme.framework.roles.Any;
+import acme.roles.Inventor;
 
 @Controller
-public class AnyAnnouncementController extends AbstractController<Any, Announcement> {
+public class InventorAnnouncementController extends AbstractController<Inventor, Announcement> {
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AnyAnnouncementListRecentAllService	announcementListAllService;
+		protected InventorAnnouncementListRecentAllService	announcementListAllService;
 		
 		@Autowired
-		protected AnyAnnouncementShowService	showService;
+		protected InventorAnnouncementShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
