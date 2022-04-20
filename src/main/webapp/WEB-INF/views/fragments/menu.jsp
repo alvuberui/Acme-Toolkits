@@ -57,6 +57,7 @@
 		
 		
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
+			<acme:menu-suboption code="master.menu.inventor.list.own" action="/inventor/artefact/list-own?artefactType=0"/>
 			<acme:menu-suboption code="master.menu.inventor.patronages.list" action="/inventor/patronages/list-mine"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.inventor.my-toolkits" action="/inventor/toolkit/list-mine"/>		

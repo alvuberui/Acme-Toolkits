@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.artefact.Artefact;
-import acme.features.inventor.artefact.InventorComponentAndToolsByToolkitListService;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Authenticated;
 

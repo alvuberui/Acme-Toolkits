@@ -1,4 +1,4 @@
-package acme.features.authenticated.artefact;
+package acme.features.inventor.artefact;
 
 import java.util.Collection;
 
@@ -6,46 +6,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.ArtefactType;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractListService;
-
+import acme.roles.Inventor;
 
 @Service
-public class AuthenticatedArtefactListByToolkitService implements AbstractListService<Authenticated, Artefact>{
+public class InvertorArtefactListService implements AbstractListService<Inventor, Artefact>{
 
 	@Autowired
-	protected AuthenticatedArtefactRepository repository;
-
+	protected InventorArtefactRepository repository;
+	
 	@Override
 	public boolean authorise(final Request<Artefact> request) {
 		assert request != null;
 		
-			
 		return true;
 	}
-
+	
 
 	@Override
 	public Collection<Artefact> findMany(final Request<Artefact> request) {
 		assert request != null;
 		
 		Collection<Artefact> result;
+		final int inventorId;
 		final int artefactTypeToParse;
-		final int masterId;
+		ArtefactType artefactType;
 		
-	
-		masterId = request.getModel().getInteger("masterId");
 		artefactTypeToParse = request.getModel().getInteger("artefactType");
 		
-		if (artefactTypeToParse == 0 || artefactTypeToParse < 0 || artefactTypeToParse >1) {
-			result = this.repository.findComponentsByToolkitId(masterId); //
+		if (artefactTypeToParse < 0 || artefactTypeToParse >1) {
+			artefactType = ArtefactType.COMPONENT;
+		} else if ( artefactTypeToParse == 0) {
+			artefactType = ArtefactType.COMPONENT;
 		} else {
-			result = this.repository.findToolsByToolkitId(masterId); //	
+			artefactType = ArtefactType.TOOL;
 		}
 		
-
+		inventorId = request.getPrincipal().getActiveRoleId();
+		
+		result = this.repository.findArtefactsFromInventor(inventorId,artefactType); //
 		
 		return result;
 		
@@ -61,5 +63,5 @@ public class AuthenticatedArtefactListByToolkitService implements AbstractListSe
 			"description","retailPrice", "moreInfo");
 		
 	}
-	
+
 }

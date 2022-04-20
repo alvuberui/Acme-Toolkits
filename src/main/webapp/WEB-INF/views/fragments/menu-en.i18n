@@ -43,10 +43,10 @@ master.menu.administrator.artefacts.list = Artefact List
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.components.list = Components list
-
 master.menu.inventor.my-toolkits = My toolkit
-
+master.menu.inventor.patronages.list = Patronages list
+master.menu.inventor.list.own = Own artefacts
+master.menu.inventor.artefacts.list = Artefact List
 master.menu.inventor.patronages.list = My Patronages
 master.menu.inventor.announcements.list = Announcements list
 
