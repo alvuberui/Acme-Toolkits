@@ -17,7 +17,7 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous.components.list = Lista de componentes
-master.menu.anonymous.chirps.list = Lista de Chirridos
+master.menu.anonymous.chirps.list = Lista de Mensajes
 master.menu.anonymous.artefacts.list = Lista de Artefactos
 
 
@@ -68,7 +68,7 @@ master.menu.patron.announcements.list = Lista de anuncios
 # master.menu.any ########################################################
 master.menu.any = Cualquiera
 master.menu.any.announcements.list = Lista de anuncios
-master.menu.any.chirps.list = Lista de Chirridos
+master.menu.any.chirps.list = Lista de Mensajes
 
 
 
