@@ -3,10 +3,14 @@ package acme.forms;
 import java.io.Serializable;
 import java.util.Map;
 
-import com.mysql.cj.conf.ConnectionUrlParser.Pair;
+import org.springframework.data.util.Pair;
 
 import acme.entities.patonages.PatronageStatus;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class PatronDashboard implements Serializable {
 
 	// Serialisation identifier -----------------------------------------------
@@ -15,7 +19,7 @@ public class PatronDashboard implements Serializable {
 
 	// Attributes -------------------------------------------------------------
 	
-	Map<String, Integer>		numberOfPatronageByStatus;
+	Map<PatronageStatus, Integer>		numberOfPatronageByStatus;
 	
 	Map<Pair<PatronageStatus, String>, Double> averageBudgetOfPatronageByCurrencyAndStatus;
 

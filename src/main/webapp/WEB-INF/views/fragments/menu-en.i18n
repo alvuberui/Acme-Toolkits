@@ -25,22 +25,29 @@ master.menu.anonymous.favourite-link-marrodgar62 = 77859215Y: Rodríguez García
 master.menu.anonymous.favourite-link-cargarrod12 = 49395514R: Garrido Rodríguez, Carlos
 master.menu.anonymous.favourite-link-alvuberui = 17480690T: Úbeda Ruiz, Álvaro
 master.menu.anonymous = Anonymous
+master.menu.anonymous.artefacts.list = Artefact List
 
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Components list
+master.menu.administrator.announcements.list = Announcements list
+
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.system-configuration = System Configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.artefacts.list = Artefact List
 
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.components.list = Components list
+master.menu.inventor.my-toolkits = My toolkit
 master.menu.inventor.patronages.list = Patronages list
 master.menu.inventor.list.own = Own artefacts
+master.menu.inventor.artefacts.list = Artefact List
+master.menu.inventor.announcements.list = Announcements list
 
 
 # master.menu.any ########################################################
@@ -49,13 +56,27 @@ master.menu.any = Any
 master.menu.any.announcements.list = Announcement list
 master.menu.any.chirps.list = Chirps List
 
+
 # master.menu.patron ########################################################
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
+master.menu.patron.patronages.list = Patronages list
+master.menu.patron.announcements.list = Announcements list
+master.menu.patron.dashboard = Patron dashboard
+master.menu.patron.patronage-report.list = Patronage Reports list
+master.menu.patron.artefacts.list = Artefact List
+master.menu.patron.announcements.list = Announcements list
+
+
+
+# master.menu.any ########################################################
+master.menu.any = Any
+master.menu.any.user-accounts = User Accounts List
+
+
 
 # master.menu.provider ########################################################
-
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
 
@@ -64,8 +85,15 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.authenticated ##########################################################
+
+master.menu.authenticated.artefacts.list = Artefact List
+
+
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Components list
+master.menu.user-account.toolkits.list = Toolkit list
+master.menu.user-account.announcements.list = Announcements list
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
@@ -73,5 +101,6 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.authenticated.system-configuration = System Configuration
 
 

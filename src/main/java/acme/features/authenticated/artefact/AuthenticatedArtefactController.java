@@ -13,18 +13,15 @@ import acme.framework.roles.Authenticated;
 public class AuthenticatedArtefactController extends AbstractController<Authenticated, Artefact> {
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected AuthenticatedComponentListAllService	componentListAllService;
+		@Autowired 
+		protected AuthenticatedArtefactListByToolkitService authenticatedArtefactListByToolkitService;
 		
-		@Autowired
-		protected AuthenticatedArtefactShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 		@PostConstruct
 		protected void initialise() {
-			super.addCommand("list-all-components", "list", this.componentListAllService);
-			super.addCommand("show", this.showService);
+			super.addCommand("list-artefact-toolkit","list", this.authenticatedArtefactListByToolkitService);
 		}
 }

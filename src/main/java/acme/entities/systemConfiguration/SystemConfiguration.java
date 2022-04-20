@@ -20,7 +20,6 @@ public class SystemConfiguration extends AbstractEntity{
 
 	private static final long serialVersionUID = 1L;
 	
-	
 	@NotBlank
 	private String currency;
 	
@@ -28,7 +27,7 @@ public class SystemConfiguration extends AbstractEntity{
 	private String currencies;
 	
 	@NotBlank
-	private String lenguage;
+	private String language;
 	
 	@NotBlank
 	private String weakTerms;
@@ -58,21 +57,21 @@ public class SystemConfiguration extends AbstractEntity{
 		return m;
 	}
 	
-	private String getWeakTerms() {
-		return this.getMapLenguajes(this.weakTerms).get(this.lenguage);
+	public String getWeakTerms() {
+		return this.getMapLenguajes(this.weakTerms).get(this.language.trim());
 	}
 	
-	private String getStrongTerms() {
-		return this.getMapLenguajes(this.strongTerms).get(this.lenguage);
+	public String getStrongTerms() {
+		return this.getMapLenguajes(this.strongTerms).get(this.language.trim());
 	}
-	private void setStrongTerms(final String strongTerms) {
+	public void setStrongTerms(final String strongTerms) {
 		this.strongTerms = strongTerms;
 	}
 	
-	private void setWeakTerms(final String weakTerms) {
+	public void setWeakTerms(final String weakTerms) {
 		this.weakTerms = weakTerms;
 	}
-
+	
 	
 	
 }
