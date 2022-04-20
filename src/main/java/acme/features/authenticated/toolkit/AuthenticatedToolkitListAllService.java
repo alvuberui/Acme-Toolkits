@@ -1,14 +1,12 @@
 package acme.features.authenticated.toolkit;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.base.Objects;
 
-import acme.entities.artefact.Artefact;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -26,7 +24,7 @@ public class AuthenticatedToolkitListAllService implements AbstractListService<A
 	
 	
 	@Override
-	public boolean authorise(Request<Toolkit> request) {
+	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
 		
@@ -34,7 +32,7 @@ public class AuthenticatedToolkitListAllService implements AbstractListService<A
 	}
 
 	@Override
-	public Collection<Toolkit> findMany(Request<Toolkit> request) {
+	public Collection<Toolkit> findMany(final Request<Toolkit> request) {
 		assert request != null;
 		
 		Collection<Toolkit> result;
@@ -54,7 +52,7 @@ public class AuthenticatedToolkitListAllService implements AbstractListService<A
 	}
 
 	@Override
-	public void unbind(Request<Toolkit> request, Toolkit entity, Model model) {
+	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;

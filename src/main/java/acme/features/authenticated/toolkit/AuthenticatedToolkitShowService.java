@@ -1,15 +1,14 @@
 package acme.features.authenticated.toolkit;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import acme.components.ExchangeRate;
-import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.artefact.Artefact;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
 import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
@@ -69,8 +68,8 @@ public class AuthenticatedToolkitShowService implements AbstractShowService<Auth
 		request.unbind(entity, model, "code", "title", "description", " assemblyNotes", "link");
 		model.setAttribute("toolkitId", entity.getId());
 		if(!artefacts.isEmpty() && systemConfiguration != null) {
-			Double price = artefacts.stream().map(x -> computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
-			Money money =  new Money();
+			final Double price = artefacts.stream().map(x -> this.computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
+			final Money money =  new Money();
 			money.setAmount(price);
 			money.setCurrency(systemConfiguration.getCurrency());
 			model.setAttribute("price",money);
