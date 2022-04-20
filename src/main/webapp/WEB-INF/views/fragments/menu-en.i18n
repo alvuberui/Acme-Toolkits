@@ -47,8 +47,7 @@ master.menu.inventor.components.list = Components list
 
 master.menu.inventor.my-toolkits = My toolkit
 
-master.menu.inventor.patronages.list = Patronages list
-master.menu.inventor.artefacts.list = Artefact List
+master.menu.inventor.patronages.list = My Patronages
 master.menu.inventor.announcements.list = Announcements list
 
 
@@ -63,7 +62,7 @@ master.menu.any.chirps.list = Chirps List
 
 master.menu.patron = Patron
 master.menu.patron.components.list = Components list
-master.menu.patron.patronages.list = Patronages list
+master.menu.patron.patronages.list = My patronages 
 master.menu.patron.announcements.list = Announcements list
 master.menu.patron.dashboard = Patron dashboard
 master.menu.patron.patronage-report.list = Patronage Reports list

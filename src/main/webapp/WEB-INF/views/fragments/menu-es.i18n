@@ -46,13 +46,12 @@ master.menu.administrator.shut-down = Parar el sistema
 
 # master.menu.inventor ########################################################
 master.menu.inventor = Inventor
-master.menu.inventor.artefacts.list = Lista de Artefactos
 master.menu.inventor.components.list = Lista de componentes
 
 master.menu.inventor.my-toolkits = Mi herramienta
 
 
-master.menu.inventor.patronages.list = Lista de patrocinios
+master.menu.inventor.patronages.list = Mis patrocinios
 master.menu.inventor.announcements.list = Lista de anuncios
 
 
@@ -60,7 +59,7 @@ master.menu.inventor.announcements.list = Lista de anuncios
 master.menu.patron = Patrocinador
 master.menu.patron.artefacts.list = Lista de Artefactos
 master.menu.patron.components.list = Lista de componentes
-master.menu.patron.patronages.list = Lista de Patrocinios
+master.menu.patron.patronages.list = Mis Patrocinios
 master.menu.patron.dashboard = Panel del patrón
 master.menu.patron.patronage-report.list = Lista de Patronage Reports
 master.menu.patron.announcements.list = Lista de anuncios
