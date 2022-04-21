@@ -17,7 +17,7 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous.components.list = Lista de componentes
-master.menu.anonymous.chirps.list = Lista de Chirridos
+master.menu.anonymous.chirps.list = Lista de Mensajes
 master.menu.anonymous.artefacts.list = Lista de Artefactos
 
 
@@ -50,6 +50,7 @@ master.menu.inventor.artefacts.list = Lista de Artefactos
 master.menu.inventor.my-toolkits = Mi herramienta
 master.menu.inventor.patronages.list = Lista de patrocinios
 master.menu.inventor.list.own = Artefactos propios
+master.menu.inventor.patronages.list = Mis patrocinios
 master.menu.inventor.announcements.list = Lista de anuncios
 
 
@@ -57,7 +58,7 @@ master.menu.inventor.announcements.list = Lista de anuncios
 master.menu.patron = Patrocinador
 master.menu.patron.artefacts.list = Lista de Artefactos
 master.menu.patron.components.list = Lista de componentes
-master.menu.patron.patronages.list = Lista de Patrocinios
+master.menu.patron.patronages.list = Mis Patrocinios
 master.menu.patron.dashboard = Panel del patrón
 master.menu.patron.patronage-report.list = Lista de Patronage Reports
 master.menu.patron.announcements.list = Lista de anuncios
@@ -66,7 +67,7 @@ master.menu.patron.announcements.list = Lista de anuncios
 # master.menu.any ########################################################
 master.menu.any = Cualquiera
 master.menu.any.announcements.list = Lista de anuncios
-master.menu.any.chirps.list = Lista de Chirridos
+master.menu.any.chirps.list = Lista de Mensajes
 
 
 

@@ -56,7 +56,8 @@ ToolKit
 + title: String {NotBlank, Lenght(0,101)}
 + description: String {NotBlank, Lenght(0,256)}
 + assemblyNotes: String {NotBlank, Lenght(0,256)}
-+ link: String {URL}</panel_attributes>
++ link: String {URL}
++ published: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
