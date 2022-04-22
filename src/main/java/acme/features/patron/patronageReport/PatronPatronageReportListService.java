@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.patronageReport.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
 
@@ -20,9 +21,18 @@ public class PatronPatronageReportListService implements AbstractListService<Pat
 	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
-		assert request != null;
+		boolean result;
+		int patronageId;
+		Principal principal;
 		
-		return true;
+		
+		patronageId = request.getModel().getInteger("id");
+		principal = request.getPrincipal();
+		final Patron patron = this.repository.findPatronByPatronageId(patronageId);
+		
+		result = principal.getActiveRoleId()==patron.getId();
+			
+		return result;
 	}
 
 	@Override
@@ -31,11 +41,13 @@ public class PatronPatronageReportListService implements AbstractListService<Pat
 
 		Collection<PatronageReport> result;
 		int patronId;
+		int patronageId;
 		
+		patronageId = request.getModel().getInteger("id");
 		patronId = request.getPrincipal().getActiveRoleId();
 		
 
-		result = this.repository.findManyPatronageReportsByPatronId(patronId);
+		result = this.repository.findManyPatronagesReportsByPatronageAndPatronId(patronageId, patronId);
 
 		return result;
 	}
