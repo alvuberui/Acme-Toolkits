@@ -10,6 +10,7 @@
 	<acme:input-textbox code="inventor.toolkit.form.label.description" path="description"/>	
 	<acme:input-textbox code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-textbox code="inventor.toolkit.form.label.link" path="link"/>
+	<acme:input-textbox code="inventor.toolkit.form.label.published" path="published"/>
 	
 	<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/inventor/artefact/list-artefact-toolkit?masterId=${id}"/>
 	
