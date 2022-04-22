@@ -8,7 +8,7 @@ any.artefact.list.label.retail-price = Retail price
 any.artefact.list.label.more-info = More info
 
 any.artefact.form.label.type = Type:
-any.artefact.form.form.label.name = Name:
+any.artefact.form.label.name = Name:
 any.artefact.form.label.code = Code:
 any.artefact.form.label.technology = Technology:
 any.artefact.form.label.description = Description:
