@@ -9,6 +9,7 @@ patron.patronage.form.label.username = Nombre de Inventor
 patron.patronage.form.label.company = Compañía
 patron.patronage.form.label.statement = Declaración
 patron.patronage.form.label.inventor-link = Enlace
+patron.patronage-reports.form.button.list-reports = Reportes de Patrocinios
 
 
 patron.patronages.list.label.code = Código

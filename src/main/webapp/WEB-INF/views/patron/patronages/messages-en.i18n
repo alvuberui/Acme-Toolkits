@@ -9,7 +9,7 @@ patron.patronage.form.label.username = Username
 patron.patronage.form.label.company = Company
 patron.patronage.form.label.statement = Statement
 patron.patronage.form.label.inventor-link = Link
-
+patron.patronage-reports.form.button.list-reports = Patronage Reports
 
 patron.patronages.list.label.code = Code
 patron.patronages.list.label.status = Status
