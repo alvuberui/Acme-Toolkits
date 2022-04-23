@@ -7,3 +7,4 @@ user-account-patron-03,true,"UserIdentity{name: 'Patron-03', surname: 'Acme', em
 user-account-inventor-01,true,"UserIdentity{name: 'inventor1', surname: 'inventor', email: 'inventor1@acme.com'}",inventor1,inventor1
 user-account-inventor-02,true,"UserIdentity{name: 'inventor2', surname: 'inventor', email: 'inventor2@acme.com'}",inventor2,inventor2
 user-account-inventor-03,true,"UserIdentity{name: 'inventor3', surname: 'inventor', email: 'inventor3@acme.com'}",inventor3,inventor3
+user-account-inventor-04,true,"UserIdentity{name: 'inventor4', surname: 'inventor', email: 'inventor4@acme.com'}",inventor4,inventor4
