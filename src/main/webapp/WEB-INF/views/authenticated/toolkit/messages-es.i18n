@@ -12,7 +12,5 @@ authenticated.toolkit.form.label.description = Descripcion
 authenticated.toolkit.form.label.assemblyNotes = Notas
 authenticated.toolkit.form.label.link = Link
 
-
-authenticated.toolkit.form.button.component = Componentes
-authenticated.toolkit.form.button.tool = Herramienta
+authenticated.toolkit.form.button.artefact = Artefactos
 authenticated.toolkit.form.label.price = Precio
