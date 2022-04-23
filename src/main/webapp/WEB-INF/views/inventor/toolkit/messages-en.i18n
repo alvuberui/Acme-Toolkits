@@ -13,5 +13,7 @@ inventor.toolkit.form.label.assemblyNotes = Assembly Notes
 inventor.toolkit.form.label.link = Link
 inventor.toolkit.form.label.published = Published
 
+inventor.toolkit.form.label.price = Total price
+
 
 inventor.toolkit.form.button.toolkits-artefact = Artefacts

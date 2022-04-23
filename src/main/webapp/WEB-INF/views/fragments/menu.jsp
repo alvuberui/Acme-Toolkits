@@ -21,7 +21,6 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.chirps.list" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.artefacts.list" action="/any/artefact/list?artefactType=0"/>
-			<acme:menu-suboption code="master.menu.any.chirps.list" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list-enabled-user-accounts"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marpercor8" action="https://github.com/marpercor8"/>
@@ -65,7 +64,6 @@
 		
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.patronages.list" action="/patron/patronages/list"/>
-			<acme:menu-suboption code="master.menu.patron.patronage-report.list" action="/patron/patronage-report/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/patron/patron-dashboard/show"/>			
 		</acme:menu-option>

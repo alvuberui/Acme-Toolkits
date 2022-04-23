@@ -19,10 +19,7 @@
 	</jstl:if>
 	<acme:box code="">
 		<jstl:if test="${toolkitId!=null}">
-				<acme:button action="/authenticated/artefact/list-artefact-toolkit?artefactType=1&masterId=${toolkitId}" code="authenticated.toolkit.form.button.tool"/>
-		</jstl:if>
-		<jstl:if test="${toolkitId!=null}">
-			<acme:button action="/authenticated/artefact/list-artefact-toolkit?artefactType=0&masterId=${toolkitId}" code="authenticated.toolkit.form.button.component"/>
+			<acme:button action="/authenticated/artefact/list-artefact-toolkit?masterId=${toolkitId}" code="authenticated.toolkit.form.button.artefact"/>
 		</jstl:if>
 	</acme:box>
 </acme:form>
