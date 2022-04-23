@@ -57,7 +57,7 @@ public class AuthenticatedToolkitListAllService implements AbstractListService<A
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "code", "title", "description", " assemblyNotes", "link");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 
 	}
 	

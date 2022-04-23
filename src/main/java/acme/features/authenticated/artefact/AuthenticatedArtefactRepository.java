@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AuthenticatedArtefactRepository extends AbstractRepository{
 
 
-	@Query("select a from Artefact a, Quantity q, Toolkit t where q.artefact = a and q.toolkit=t and t.id = :toolkitId")
+	@Query("select a from Artefact a, Quantity q, Toolkit t where q.artefact = a and q.toolkit=t and t.id = :toolkitId and a.published = true")
 	Collection<Artefact> findToolsAndComponetsByToolkitId(int toolkitId);
 
 	@Query("select a from Artefact a where a.id = :id and a.published = true")
