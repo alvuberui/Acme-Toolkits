@@ -32,19 +32,11 @@ public class AuthenticatedArtefactListByToolkitService implements AbstractListSe
 		assert request != null;
 		
 		Collection<Artefact> result;
-		final int artefactTypeToParse;
 		final int masterId;
 		
 	
 		masterId = request.getModel().getInteger("masterId");
-		artefactTypeToParse = request.getModel().getInteger("artefactType");
-		
-		if (artefactTypeToParse == 0 || artefactTypeToParse < 0 || artefactTypeToParse >1) {
-			result = this.repository.findComponentsByToolkitId(masterId); //
-		} else {
-			result = this.repository.findToolsByToolkitId(masterId); //	
-		}
-		
+		result = this.repository.findToolsAndComponetsByToolkitId(masterId);
 
 		
 		return result;

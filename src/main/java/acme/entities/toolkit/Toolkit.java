@@ -44,6 +44,7 @@ public class Toolkit extends AbstractEntity {
 	protected String link;
 	
 	protected boolean published;
+
 	
 	// Derived attributes -----------------------------------------------------
 	
