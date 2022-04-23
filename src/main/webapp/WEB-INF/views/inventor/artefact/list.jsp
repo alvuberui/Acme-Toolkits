@@ -13,3 +13,4 @@
 	<acme:list-column code="inventor.artefact.list.label.more-info" path="moreInfo" width="80%"/>	
 </acme:list>
 
+

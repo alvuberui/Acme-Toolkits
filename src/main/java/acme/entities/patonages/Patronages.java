@@ -55,17 +55,17 @@ public class Patronages extends AbstractEntity {
 	@NotNull
 	private Money budget;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Transient
 	@CreatedDate
 	private Date creationTime;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Date initPeriod;
 	
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Date finalPeriod;
 	
