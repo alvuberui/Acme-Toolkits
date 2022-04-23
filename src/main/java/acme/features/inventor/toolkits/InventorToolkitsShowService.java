@@ -1,12 +1,21 @@
 package acme.features.inventor.toolkits;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import acme.components.ExchangeRate;
+import acme.entities.artefact.Artefact;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
+import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.entities.Principal;
+import acme.framework.helpers.StringHelper;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -56,8 +65,73 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 		assert entity != null;
 		assert model != null;
 		
+		Collection<Artefact> artefacts;
+		int id;
+		SystemConfiguration systemConfiguration;
+		id = request.getModel().getInteger("id");
+		artefacts = this.repository.ArtefactByToolkitId(id);
 		
-		request.unbind(entity, model, "code","title","description","assemblyNotes","link");
+		systemConfiguration = this.repository.findSystemConfuration();
+	
+		
+		
+		// Model attributes
+		
+		request.unbind(entity, model, "code","title","description","assemblyNotes","link", "published");
+		model.setAttribute("toolkitId", entity.getId());
+		if(!artefacts.isEmpty() && systemConfiguration != null) {
+			final Double price = artefacts.stream().map(x -> this.computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
+			final Money money =  new Money();
+			money.setAmount(price);
+			money.setCurrency(systemConfiguration.getCurrency());
+			model.setAttribute("price",money);
+		}
 
+		
+
+	}
+	
+	public MoneyExchange computeMoneyExchange(final Money source, final String targetCurrency) {
+		assert source != null;
+		assert !StringHelper.isBlank(targetCurrency);
+
+		MoneyExchange result;
+		RestTemplate api;
+		ExchangeRate record;
+		String sourceCurrency;
+		Double sourceAmount, targetAmount, rate;
+		Money target;
+
+		try {
+			api = new RestTemplate();
+
+			sourceCurrency = source.getCurrency();
+			sourceAmount = source.getAmount();
+
+			record = api.getForObject( //
+				"https://api.exchangerate.host/latest?base={0}&symbols={1}", //
+				ExchangeRate.class, //
+				sourceCurrency, //
+				targetCurrency //
+			);
+
+			assert record != null;
+			rate = record.getRates().get(targetCurrency);
+			targetAmount = rate * sourceAmount;
+
+			target = new Money();
+			target.setAmount(targetAmount);
+			target.setCurrency(targetCurrency);
+
+			result = new MoneyExchange();
+			result.setSource(source);
+			result.setTargetCurrency(targetCurrency);
+			result.setDate(record.getDate());
+			result.setTarget(target);
+		} catch (final Throwable oops) {
+			result = null;
+		}
+
+		return result;
 	}
 }

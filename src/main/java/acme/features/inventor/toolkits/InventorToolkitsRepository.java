@@ -5,6 +5,8 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.artefact.Artefact;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 
@@ -21,5 +23,9 @@ public interface InventorToolkitsRepository extends AbstractRepository{
 	@Query("select a.inventor.id from Toolkit t join Quantity q on q.toolkit.id = t.id join Artefact a on a.id = q.artefact.id where t.id = :id")
 	Integer findInventorIdByToolkitId(int id);
 	
-
+	@Query("select distinct a from Toolkit t join Quantity q on q.toolkit.id  = t.id join Artefact a on a.id = q.artefact.id where t.id  = :id")
+	Collection<Artefact> ArtefactByToolkitId(int id);
+	
+	@Query("Select c from SystemConfiguration c")
+	SystemConfiguration findSystemConfuration();
 }
