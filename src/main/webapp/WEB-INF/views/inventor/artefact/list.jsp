@@ -14,6 +14,4 @@
 </acme:list>
 
 
-<acme:button code="inventor.artefact.list.button.component" action="/inventor/artefact/list-own?artefactType=${0}"/>
-<acme:button code="inventor.artefact.list.button.tool" action="/inventor/artefact/list-own?artefactType=${1}"/>
 
