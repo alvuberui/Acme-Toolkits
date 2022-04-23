@@ -56,6 +56,8 @@ public class Artefact extends AbstractEntity {
 	@URL
 	protected String moreInfo;
 	
+	private boolean published;
+	
 	// Derived attributes -------------------------------------------------------------
 	
 	// Relationships  -------------------------------------------------------------
