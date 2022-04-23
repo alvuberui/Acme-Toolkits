@@ -16,16 +16,20 @@ public class InventorArtefactListAllTest extends TestHarness{
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "Own artefacts");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
-
+		super.sortListing(1, "asc");
 		
+
+
+		//Revisar que la cabecera esta bien
 		super.checkColumnHasValue(recordIndex, 0, type);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
 		super.checkColumnHasValue(recordIndex, 3, techonology);
 		super.checkColumnHasValue(recordIndex, 4, description);
 		super.checkColumnHasValue(recordIndex, 5, retailPrice);
+		super.checkColumnHasValue(recordIndex, 6, moreInfo);
 		
+		//Revisamos que el show va bien y tiene todo
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("type", type);
@@ -34,6 +38,7 @@ public class InventorArtefactListAllTest extends TestHarness{
 		super.checkInputBoxHasValue("technology", techonology);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
+		super.checkInputBoxHasValue("moreInfo", moreInfo);
 
 	}
 
