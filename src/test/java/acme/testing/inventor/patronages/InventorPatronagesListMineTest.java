@@ -15,7 +15,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveArtefactInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void positivePatronagesInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
 		
 		super.signIn("inventor1", "inventor1");
@@ -49,7 +49,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void NegativeArtefactListAnonymousTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesListAnonymousTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
 		
 		super.navigate("/inventor/patronages/list-mine");
@@ -59,7 +59,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	
 
 	@Order(40)
-	public void NegativeArtefactListPatronTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesListPatronTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		super.signIn("patron1", "patron1");
 		
 		super.navigate("/inventor/patronages/list-mine");
@@ -71,7 +71,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	
 
 	@Order(50)
-	public void NegativeArtefactListAdministratorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesListAdministratorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		super.signIn("administrator", "administrator");
 		
 		super.navigate("/inventor/patronages/list-mine");
@@ -84,7 +84,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	
 
 	@Order(60)
-	public void NegativeArtefactShowAnonymousTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesShowAnonymousTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
 		super.signIn("inventor1", "inventor1");
 		
@@ -109,7 +109,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	
 
 	@Order(70)
-	public void NegativeArtefactShowInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesShowInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
 		super.signIn("inventor1", "inventor1");
 		
@@ -132,7 +132,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	
 
 	@Order(80)
-	public void NegativeArtefactShowPatronTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesShowPatronTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
 		super.signIn("inventor1", "inventor1");
 		
@@ -154,7 +154,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	}
 
 	@Order(90)
-	public void NegativeArtefactShowAdministratorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void NegativePatronagesShowAdministratorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
 		super.signIn("inventor1", "inventor1");
 		
