@@ -20,9 +20,7 @@ public class AuthenticatedArtefactListByToolkitService implements AbstractListSe
 
 	@Override
 	public boolean authorise(final Request<Artefact> request) {
-		assert request != null;
-		
-			
+		assert request != null;	
 		return true;
 	}
 
@@ -51,7 +49,6 @@ public class AuthenticatedArtefactListByToolkitService implements AbstractListSe
 		
 		request.unbind(entity, model, "type", "name", "code", "technology",
 			"description","retailPrice", "moreInfo");
-		
 	}
 	
 }
