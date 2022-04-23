@@ -58,7 +58,6 @@ public class Artefact extends AbstractEntity {
 
 	protected boolean published;
 	
-	private boolean published;
 	
 	// Derived attributes -------------------------------------------------------------
 	
