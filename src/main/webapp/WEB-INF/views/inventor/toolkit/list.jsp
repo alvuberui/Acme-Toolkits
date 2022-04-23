@@ -9,4 +9,6 @@
 	<acme:list-column code="inventor.toolkit.list.label.description" path="description" width="20%"/>	
 	<acme:list-column code="inventor.toolkit.list.label.assemblyNotes" path="assemblyNotes" width="20%"/>
 	<acme:list-column code="inventor.toolkit.list.label.link" path="link" width="20%"/>	
+	<acme:list-column code="inventor.toolkit.list.label.published" path="published" width="20%"/>	
+	
 </acme:list>

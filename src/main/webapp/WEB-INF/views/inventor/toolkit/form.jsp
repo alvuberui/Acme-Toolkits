@@ -11,6 +11,7 @@
 	<acme:input-textbox code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-textbox code="inventor.toolkit.form.label.link" path="link"/>
 	<acme:input-textbox code="inventor.toolkit.form.label.published" path="published"/>
+
 	<jstl:if test="${price!=null}">
 		<acme:box code="">
 			<acme:message code="inventor.toolkit.form.label.price" />

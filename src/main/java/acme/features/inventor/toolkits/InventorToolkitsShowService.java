@@ -77,6 +77,7 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 		
 		// Model attributes
 		
+
 		request.unbind(entity, model, "code","title","description","assemblyNotes","link", "published");
 		model.setAttribute("toolkitId", entity.getId());
 		if(!artefacts.isEmpty() && systemConfiguration != null) {
@@ -107,6 +108,7 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 
 			sourceCurrency = source.getCurrency();
 			sourceAmount = source.getAmount();
+
 
 			record = api.getForObject( //
 				"https://api.exchangerate.host/latest?base={0}&symbols={1}", //
