@@ -13,5 +13,3 @@
 	<acme:list-column code="any.artefact.list.label.more-info" path="moreInfo" width="80%"/>	
 </acme:list>
 
-<acme:button code="any.artefact.list.button.component" action="/any/artefact/list?artefactType=${0}"/>
-<acme:button code="any.artefact.list.button.tool" action="/any/artefact/list?artefactType=${1}"/>
