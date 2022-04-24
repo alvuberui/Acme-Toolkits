@@ -57,7 +57,8 @@ public class InventorPatronagesListMineTest extends TestHarness {
 		super.checkPanicExists();
 	}
 	
-
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(40)
 	public void NegativePatronagesListPatronTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		super.signIn("patron1", "patron1");
@@ -69,7 +70,8 @@ public class InventorPatronagesListMineTest extends TestHarness {
 		super.signOut();
 	}
 	
-
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(50)
 	public void NegativePatronagesListAdministratorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		super.signIn("administrator", "administrator");
@@ -82,7 +84,8 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	}
 	
 	
-
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)
 	public void NegativePatronagesShowAnonymousTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
@@ -107,7 +110,8 @@ public class InventorPatronagesListMineTest extends TestHarness {
 		super.checkPanicExists();
 	}
 	
-
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(70)
 	public void NegativePatronagesShowInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
@@ -130,7 +134,8 @@ public class InventorPatronagesListMineTest extends TestHarness {
 		super.signOut();
 	}
 	
-
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(80)
 	public void NegativePatronagesShowPatronTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
@@ -152,7 +157,9 @@ public class InventorPatronagesListMineTest extends TestHarness {
 
 		super.signOut();
 	}
-
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(90)
 	public void NegativePatronagesShowAdministratorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
 		
