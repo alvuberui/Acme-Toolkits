@@ -64,20 +64,22 @@ public class AuthenticatedToolkitShowService implements AbstractShowService<Auth
 		
 		// Model attributes
 		
-		
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		model.setAttribute("toolkitId", entity.getId());
-		if(!artefacts.isEmpty() && systemConfiguration != null) {
-			final Double price = artefacts.stream().map(x -> this.computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
-			final Money money =  new Money();
-			money.setAmount(price);
-			money.setCurrency(systemConfiguration.getCurrency());
-			model.setAttribute("price",money);
-		}else {
-			final Money money =  new Money();
-			money.setAmount(0.0);
-			money.setCurrency(systemConfiguration.getCurrency());
-			model.setAttribute("price",money);
+		if(systemConfiguration != null && systemConfiguration.getCurrency() != null) {
+			if(!artefacts.isEmpty()) {
+				final Double price = artefacts.stream().map(x -> this.computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
+				final Money money =  new Money();
+				money.setAmount(price);
+				money.setCurrency(systemConfiguration.getCurrency());
+				model.setAttribute("price",money);
+			}else {
+				final Money money =  new Money();
+				money.setAmount(0.0);
+				money.setCurrency(systemConfiguration.getCurrency());
+				model.setAttribute("price",money);
+			}
+			
 		}
 		
 		
