@@ -59,7 +59,7 @@ public class AuthenticatedToolkitShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(30)
-	public void positiveArtefactAnonymousTest(final int recordIndex,final int recordIndex2, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
+	public void positiveArtefactOfToolkitTest(final int recordIndex,final int recordIndex2, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
 		
 		super.signIn("patron1", "patron1");
 		
@@ -88,7 +88,7 @@ public class AuthenticatedToolkitShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(40)
-	public void negativeShowToolkitPatronTest(final int recordIndex, final String title,final String code, final String description, final String assemblyNotes, final String link, final String price) {
+	public void negativeShowToolkitTest(final int recordIndex, final String title,final String code, final String description, final String assemblyNotes, final String link, final String price) {
 	
 		super.signIn("patron1", "patron1");
 		
@@ -112,7 +112,7 @@ public class AuthenticatedToolkitShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(50)
-	public void negativeListArtefactToolkitPatronTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link, final String price) {
+	public void negativeListArtefactToolkitTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link, final String price) {
 	
 		super.signIn("patron1", "patron1");
 		
@@ -136,7 +136,7 @@ public class AuthenticatedToolkitShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)
-	public void negativeArtefactAnonymousTest(final int recordIndex,final int recordIndex2, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
+	public void negativeShowArtefactTest(final int recordIndex,final int recordIndex2, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
 		
 		super.signIn("patron1", "patron1");
 		
@@ -165,8 +165,6 @@ public class AuthenticatedToolkitShowTest extends TestHarness {
 	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-artefact-not-published.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)
 	public void negativeNotPublishedArtefactTest(final int recordIndex) {
-		
-		
 		
 		super.signIn("patron1", "patron1");
 		
