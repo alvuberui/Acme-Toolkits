@@ -1,4 +1,4 @@
-package acme.features.authenticated.artefact;
+package acme.features.any.artefact;
 
 import java.util.Collection;
 
@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 import acme.entities.artefact.Artefact;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.roles.Authenticated;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 
 @Service
-public class AuthenticatedArtefactListByToolkitService implements AbstractListService<Authenticated, Artefact>{
+public class AnyArtefactListByToolkitService implements AbstractListService<Any, Artefact>{
 
 	@Autowired
-	protected AuthenticatedArtefactRepository repository;
+	protected AnyArtefactRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Artefact> request) {

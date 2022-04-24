@@ -21,6 +21,7 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.chirps.list" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.artefacts.list" action="/any/artefact/list?artefactType=0"/>
+			<acme:menu-suboption code="master.menu.user-account.toolkits.list" action="/any/toolkit/list-all"/>
 			<acme:menu-suboption code="master.menu.any.user-accounts" action="/any/user-account/list-enabled-user-accounts"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-marpercor8" action="https://github.com/marpercor8"/>
@@ -35,7 +36,7 @@
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.artefacts.list" action="/any/artefact/list?artefactType=0"/>
-			<acme:menu-suboption code="master.menu.user-account.toolkits.list" action="/authenticated/toolkit/list-all"/>
+			<acme:menu-suboption code="master.menu.user-account.toolkits.list" action="/any/toolkit/list-all"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.any.chirps.list" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.user-account.announcements.list" action="/authenticated/announcement/list-all-announcements"/>

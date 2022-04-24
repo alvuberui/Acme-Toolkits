@@ -1,4 +1,4 @@
-package acme.features.authenticated.toolkit;
+package acme.features.any.toolkit;
 
 import java.util.Collection;
 
@@ -15,15 +15,17 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.helpers.StringHelper;
+import acme.framework.roles.Any;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 
 @Service
-public class AuthenticatedToolkitShowService implements AbstractShowService<Authenticated, Toolkit>{
+public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
+	
 
 	@Autowired
-	protected AuthenticatedToolkitRepository repository;
+	protected AnyToolkitRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {

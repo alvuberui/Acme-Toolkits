@@ -91,7 +91,7 @@ master.menu.authenticated.artefacts.list = Lista de artefactos
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Lista de componentes
-master.menu.user-account.toolkits.list = Kit de herramientas
+master.menu.user-account.toolkits.list = Lista de herramientas
 master.menu.user-account.announcements.list = Lista de anuncios
 
 master.menu.user-account = Cuenta

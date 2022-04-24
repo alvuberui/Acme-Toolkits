@@ -1,4 +1,4 @@
-package acme.testing.authenticated.toolkit;
+package acme.testing.any.toolkit;
 
 
 import org.junit.jupiter.api.Order;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AuthenticatedToolkitListAllTest extends TestHarness {
+public class AnyToolkitListAllTest extends TestHarness {
 	
 	// Lifecycle management ---------------------------------------------------
 
@@ -21,6 +21,27 @@ public class AuthenticatedToolkitListAllTest extends TestHarness {
 		super.signIn("patron1", "patron1");
 		
 		super.clickOnMenu("Authenticated", "Toolkit list");
+		
+		super.checkListingExists();
+	
+		super.sortListing(0, "asc");
+		
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 1, title);
+		super.checkColumnHasValue(recordIndex, 2, description);
+		super.checkColumnHasValue(recordIndex, 3, assemblyNotes);
+		super.checkColumnHasValue(recordIndex, 4, link);
+	
+	}
+	
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void positiveListToolkitAnonymousTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link) {
+	
+		
+		super.clickOnMenu("Anonymous", "Toolkit list");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -41,6 +62,29 @@ public class AuthenticatedToolkitListAllTest extends TestHarness {
 		super.signIn("patron1", "patron1");
 		
 		super.clickOnMenu("Authenticated", "Toolkit list");
+		super.checkListingExists();
+		
+		super.fillInputBoxIn("artefactName", queryArtefactName);
+		super.clickOnSubmit("Filter");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(recordIndex);
+		super.clickOnButton("Artefact");
+		
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+		super.checkColumnHasValue(recordIndex2, 1, artefactName);
+		
+	}
+	
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-filter.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(20)
+	public void positiveListToolkitByQueryAnonymousTest(final int recordIndex, final int recordIndex2, final String queryArtefactName, final String artefactName) {
+	
+		
+		super.clickOnMenu("Anonymous", "Toolkit list");
 		super.checkListingExists();
 		
 		super.fillInputBoxIn("artefactName", queryArtefactName);
