@@ -1,4 +1,4 @@
-package acme.features.authenticated.toolkit;
+package acme.features.any.toolkit;
 
 import java.util.Collection;
 
@@ -10,16 +10,17 @@ import com.google.common.base.Objects;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.roles.Any;
 import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractListService;
 
 
 @Service
-public class AuthenticatedToolkitListAllService implements AbstractListService<Authenticated, Toolkit>{
+public class AnyToolkitListAllService implements AbstractListService<Any, Toolkit>{
 
 	
 	@Autowired
-	protected AuthenticatedToolkitRepository repository;
+	protected AnyToolkitRepository repository;
 	
 	
 	

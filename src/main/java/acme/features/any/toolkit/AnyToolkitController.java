@@ -1,4 +1,4 @@
-package acme.features.authenticated.toolkit;
+package acme.features.any.toolkit;
 
 import javax.annotation.PostConstruct;
 
@@ -7,17 +7,18 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.toolkit.Toolkit;
 import acme.framework.controllers.AbstractController;
+import acme.framework.roles.Any;
 import acme.framework.roles.Authenticated;
 
 
 @Controller
-public class AuthenticatedToolkitController extends AbstractController<Authenticated, Toolkit>{
+public class AnyToolkitController extends AbstractController<Any, Toolkit>{
 	
 	@Autowired
-	protected AuthenticatedToolkitListAllService listAllService;
+	protected AnyToolkitListAllService listAllService;
 	
 	@Autowired 
-	protected AuthenticatedToolkitShowService showService;
+	protected AnyToolkitShowService showService;
 	
 	
 	@PostConstruct
