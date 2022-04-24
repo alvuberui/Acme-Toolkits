@@ -69,7 +69,7 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 		int id;
 		SystemConfiguration systemConfiguration;
 		id = request.getModel().getInteger("id");
-		artefacts = this.repository.ArtefactByToolkitId(id);
+		artefacts = this.repository.artefactByToolkitId(id);
 		
 		systemConfiguration = this.repository.findSystemConfuration();
 	
@@ -80,16 +80,20 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 
 		request.unbind(entity, model, "code","title","description","assemblyNotes","link", "published");
 		model.setAttribute("toolkitId", entity.getId());
-		if(!artefacts.isEmpty() && systemConfiguration != null) {
-			final Double price = artefacts.stream().map(x -> this.computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
-			final Money money =  new Money();
-			money.setAmount(price);
-			money.setCurrency(systemConfiguration.getCurrency());
-			model.setAttribute("price",money);
+		if(systemConfiguration != null && systemConfiguration.getCurrency() != null) {
+			if(!artefacts.isEmpty()) {
+				final Double price = artefacts.stream().map(x -> this.computeMoneyExchange(x.getRetailPrice(), systemConfiguration.getCurrency()).getTarget().getAmount()).reduce(0.0, (a, b) -> a + b);
+				final Money money =  new Money();
+				money.setAmount(price);
+				money.setCurrency(systemConfiguration.getCurrency());
+				model.setAttribute("price",money);
+			}else {
+				final Money money =  new Money();
+				money.setAmount(0.0);
+				money.setCurrency(systemConfiguration.getCurrency());
+				model.setAttribute("price",money);
+			}
 		}
-
-		
-
 	}
 	
 	public MoneyExchange computeMoneyExchange(final Money source, final String targetCurrency) {
