@@ -13,4 +13,7 @@ any.chirp.form.label.email= Email
 
 any.chirp.list.button.create= Create
 
+any.chirp.form.label.confirmation = Confirm that the chirp is correct
+
+
 any.chirp.form.button.create = Create
