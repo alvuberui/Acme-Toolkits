@@ -17,3 +17,19 @@ inventor.toolkit.form.label.price = Total price
 
 
 inventor.toolkit.form.button.toolkits-artefact = Artefacts
+
+
+inventor.toolkit.form.button.update = Update
+inventor.toolkit.form.button.create.toolkit = Add artefact
+inventor.toolkit.form.label.quantity = Quantity
+inventor.toolkit.form.label.new.artefact = Select new artefact
+
+inventor.toolkit.form.empty.list = There are any artefact for this toolkit
+inventor.toolkit.form.submit.add = Add
+inventor.toolkit.form.submit.create= Create
+inventor.toolkit.form.submit.update = Update
+inventor.toolkit.form.submit.delete = Delete
+
+
+inventor.toolkit.form.label.published.false = False
+inventor.toolkit.form.label.published.true = True
