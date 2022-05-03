@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.artefact.Artefact;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 @Repository
 public interface InventorArtefactRepository extends AbstractRepository{
@@ -16,7 +17,7 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	@Query("select a from Artefact a where a.id = :id")
 	Artefact findArtefactById(int id);
 	
-	@Query ("select a from Artefact a where a.inventor.id = :inventorId and a.published = true")
+	@Query ("select a from Artefact a where a.inventor.id = :inventorId")
 	Collection<Artefact> findArtefactsFromInventor(int inventorId);
 	
 
@@ -28,4 +29,10 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	
 	@Query("select distinct a.id from Toolkit t join Quantity q on q.toolkit.id  = t.id join Artefact a on a.id = q.artefact.id where t.id  = :id")
 	List<Integer> findArtefactIdByToolkitId(int id);
+	
+	@Query("select a from Artefact a where a.code = :code")
+	Artefact findOneByCode(String code);
+	
+	@Query("select i from Inventor i where i.id = :id")
+	Inventor findInventorIdById(int id);
 }

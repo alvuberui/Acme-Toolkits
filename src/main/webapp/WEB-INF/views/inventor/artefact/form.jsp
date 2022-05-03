@@ -12,4 +12,17 @@
 	<acme:input-textarea code="inventor.artefact.form.label.description" path="description"/>	
 	<acme:input-money code="inventor.artefact.form.label.retail-price" path="retailPrice"/>
 	<acme:input-url code="inventor.artefact.form.label.more-info" path="moreInfo"/>	
+	
+	<jstl:choose>	 
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && published == false}">
+			<acme:submit code="inventor.artefact.form.button.update" action="/inventor/artefact/update"/>
+			<acme:submit code="inventor.artefact.form.button.delete" action="/inventor/artefact/delete"/>
+			<acme:submit code="inventor.artefact.form.button.publish" action="/inventor/artefact/publish"/>
+		</jstl:when>
+		<jstl:when test="${command == 'create'}">
+			<acme:submit code="inventor.artefact.form.button.create" action="/inventor/artefact/create"/>
+		</jstl:when>		
+	</jstl:choose>
+	
 </acme:form>
+
