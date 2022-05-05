@@ -20,3 +20,7 @@ inventor.patronages.patron.form.label.username = Usuario
 inventor.patronages.patron.form.label.company = Empresa
 
 inventor.patronage-reports.form.button.list-mine-reports = Reportes de Patrocinios
+
+inventor.patronages.form.button.update.accept = Aceptar
+inventor.patronages.form.button.update.deny = Rechazar
+inventor.patronage.form.error.status = Estado Incorrecto

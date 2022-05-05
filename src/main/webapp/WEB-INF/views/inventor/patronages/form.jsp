@@ -25,5 +25,12 @@
 	<acme:input-textbox code="inventor.patronages.patron.form.label.username" path="username"/>		
 	<acme:input-textbox code="inventor.patronages.patron.form.label.company" path="company"/>		
 	
+	<br></br>
+	<jstl:choose>
+		<jstl:when test="${status == 'PROPOSED'}">
+			<acme:submit code="inventor.patronages.form.button.update.accept" action="/inventor/patronages/update?status=${'ACCEPTED'}"/>
+			<acme:submit code="inventor.patronages.form.button.update.deny" action="/inventor/patronages/update?status=${'DENIED'}"/>
+		</jstl:when>
+	</jstl:choose>
 	
 </acme:form>
