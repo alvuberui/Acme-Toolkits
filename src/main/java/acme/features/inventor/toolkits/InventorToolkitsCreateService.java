@@ -1,5 +1,8 @@
 package acme.features.inventor.toolkits;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,16 +26,7 @@ public class InventorToolkitsCreateService implements AbstractCreateService<Inve
 	public boolean authorise(Request<Toolkit> request) {
 		assert request != null;
 		
-		int masterId;
-		Artefact artefact;
-		Inventor inventor;
-		
-		masterId = request.getModel().getInteger("masterId");
-		artefact = this.repository.findArtefactById(masterId);
-		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
-		
-	
-		return artefact != null && artefact.getInventor() == inventor;
+		return true;
 	}
 
 	@Override
@@ -50,14 +44,11 @@ public class InventorToolkitsCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		int masterId;
-
-		
-		masterId = request.getModel().getInteger("masterId");
+		Collection<Artefact> artefacts;
+		artefacts = this.repository.findArtefactsFromInventor(request.getPrincipal().getActiveRoleId());
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "published");
 		model.setAttribute("quantity", 1);
-		model.setAttribute("masterId", masterId);
-		
+		model.setAttribute("artefacts", artefacts);
 		
 	}
 
@@ -68,6 +59,18 @@ public class InventorToolkitsCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert errors != null;
 		
+	
+		boolean isDuplicatedCode, isValidQuantity;
+		if(!errors.hasErrors("code")) {
+			isDuplicatedCode = this.repository.findAllToolkits().stream().noneMatch(x-> x.getCode().equals(entity.getCode()));
+			errors.state(request, isDuplicatedCode , "code", "inventor.toolkit.form.label.code.duplicate.error");
+		}
+		
+		if(!errors.hasErrors("quantity")) {
+			isValidQuantity = request.getModel().hasAttribute("quantity") && !"".equals(request.getModel().getString("quantity").trim()) && request.getModel().getInteger("quantity") > 0;
+			errors.state(request, isValidQuantity , "quantity", "inventor.toolkit.form.label.quantity.error");
+		}
+
 		//Sin terminar
 	}
 
@@ -89,13 +92,14 @@ public class InventorToolkitsCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 
-		int masterId;
+
+		int artefactId;
 		Artefact artefact;
 		Quantity quantity;
 		Integer number;
 		
-		masterId = request.getModel().getInteger("masterId");
-		artefact = this.repository.findArtefactById(masterId);
+		artefactId = request.getModel().getInteger("artefactId");
+		artefact = this.repository.findArtefactById(artefactId);
 		
 		quantity = new Quantity();
 		quantity.setArtefact(artefact);
@@ -103,11 +107,10 @@ public class InventorToolkitsCreateService implements AbstractCreateService<Inve
 		number = request.getModel().getInteger("quantity");
 		
 		quantity.setNumber(number);
-		
-	
 
 		this.repository.save(entity);
 		quantity.setToolkit(entity);
+		this.repository.save(quantity);
 		this.repository.save(quantity);
 		
 	}

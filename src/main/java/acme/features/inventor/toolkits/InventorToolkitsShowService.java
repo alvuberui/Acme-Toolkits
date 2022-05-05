@@ -70,7 +70,7 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 		SystemConfiguration systemConfiguration;
 		id = request.getModel().getInteger("id");
 		artefacts = this.repository.artefactByToolkitId(id);
-		
+
 		systemConfiguration = this.repository.findSystemConfuration();
 	
 		

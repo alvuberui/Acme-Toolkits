@@ -60,7 +60,6 @@ public class InventorArtefactShowService implements AbstractShowService<Inventor
 
 			request.unbind(entity, model, "type", "name", "code", "technology",
 				"description","retailPrice", "moreInfo");
-			model.setAttribute("artefactId", entity.getId());
 			
 		}
 }

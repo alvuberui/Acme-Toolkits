@@ -40,7 +40,7 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		
 		
-		Collection<Toolkit> toolkits = this.repository.findToolkits(request.getPrincipal().getActiveRoleId());
+		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
 		
 		
 		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
@@ -70,8 +70,7 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		artefactsOfToolkit = this.repository.findComponentsAndToolsByToolkitId(entity.getId());
 		
-		
-		artefacts.stream().filter(x-> !artefactsOfToolkit.contains(x)).collect(Collectors.toList());
+	
 		request.unbind(entity, model, "code", "title");
 		model.setAttribute("quantity", 1);
 		model.setAttribute("artefacts", artefacts.stream().filter(x-> !artefactsOfToolkit.contains(x)).collect(Collectors.toList()));

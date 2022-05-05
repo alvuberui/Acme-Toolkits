@@ -36,7 +36,7 @@ public class InventorToolkitsDeleteService implements AbstractDeleteService<Inve
 		
 		
 		
-		Collection<Toolkit> toolkits = this.repository.findToolkits(request.getPrincipal().getActiveRoleId());
+		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
 		
 		
 		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
@@ -95,6 +95,5 @@ public class InventorToolkitsDeleteService implements AbstractDeleteService<Inve
 			this.repository.delete(q);
 		}
 		this.repository.delete(entity);
-		System.out.println(request.getServletResponse().encodeURL("/list-mine"));
 	}
 }

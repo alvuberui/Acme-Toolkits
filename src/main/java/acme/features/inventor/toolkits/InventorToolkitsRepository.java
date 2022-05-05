@@ -17,7 +17,10 @@ public interface InventorToolkitsRepository extends AbstractRepository{
 
 	
 	@Query("select distinct t from Toolkit t join Quantity q on q.toolkit.id = t.id join Artefact a on a.id = q.artefact.id where a.inventor.id = :id")
-	Collection<Toolkit> findToolkits(int id);
+	Collection<Toolkit> findToolkitsByInventorId(int id);
+	
+	@Query("select t from Toolkit t")
+	Collection<Toolkit>  findAllToolkits();
 	
 	@Query("select t from Toolkit t where t.id = :id")
 	Toolkit findToolkitById(int id);
@@ -27,6 +30,7 @@ public interface InventorToolkitsRepository extends AbstractRepository{
 	
 	@Query("select distinct a from Toolkit t join Quantity q on q.toolkit.id  = t.id join Artefact a on a.id = q.artefact.id where t.id  = :id")
 	Collection<Artefact> artefactByToolkitId(int id);
+	
 	
 	@Query("Select c from SystemConfiguration c")
 	SystemConfiguration findSystemConfuration();

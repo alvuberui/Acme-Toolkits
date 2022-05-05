@@ -12,7 +12,4 @@
 	<acme:input-textarea code="inventor.artefact.form.label.description" path="description"/>	
 	<acme:input-money code="inventor.artefact.form.label.retail-price" path="retailPrice"/>
 	<acme:input-url code="inventor.artefact.form.label.more-info" path="moreInfo"/>	
-	<jstl:if test="${command == 'show'}">
-		<acme:button code="inventor.artefact.form.button.create.toolkit" action="/inventor/toolkit/create?masterId=${artefactId}"/>
-	</jstl:if>
 </acme:form>

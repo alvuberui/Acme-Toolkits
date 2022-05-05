@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.artefact.Artefact;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -13,7 +14,7 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorToolkitsUpdateService implements AbstractUpdateService<Inventor, Toolkit>{
+public class InventorToolkitsPublishService implements AbstractUpdateService<Inventor, Toolkit>{
 
 	@Autowired
 	protected InventorToolkitsRepository repository;
@@ -85,7 +86,20 @@ public class InventorToolkitsUpdateService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		
-	
+		
+		Collection<Artefact> artefacts;
+		
+		entity.setPublished(true);
+		
+		artefacts = this.repository.artefactByToolkitId(entity.getId());
+		
+		
+		for(Artefact a : artefacts) {
+			if(!a.isPublished()) {
+				a.setPublished(true);
+				this.repository.save(a);
+			}
+		}
 		
 		this.repository.save(entity);
 	}
