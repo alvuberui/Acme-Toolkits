@@ -17,3 +17,6 @@ patron.patronages.list.label.status = Estado
 patron.patronages.list.label.legalStuff = Cosas Legales
 patron.patronages.list.label.budget = Presupuesto
 patron.patronages.list.label.username = Inventor 
+
+
+patron.patronage.form.label.money-exchange = Moneda del sistema
