@@ -14,7 +14,8 @@
 	</acme:input-select>
 	<acme:input-url code="administrator.announcement.form.label.url" path="url"/>	
 		
-		
+	<acme:input-checkbox code="administrator.announcement.form.label.confirmation" path="confirmation"/>
+	
 	<acme:submit code="administrator.announcement.form.button.create" action="/administrator/announcement/create"/>
 </acme:form>
 

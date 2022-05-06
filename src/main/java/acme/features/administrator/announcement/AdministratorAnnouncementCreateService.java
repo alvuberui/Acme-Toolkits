@@ -74,6 +74,11 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 		
+		boolean confirmation;
+
+		confirmation = request.getModel().getBoolean("confirmation");
+		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		
 	}
 
 	@Override

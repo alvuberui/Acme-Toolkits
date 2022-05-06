@@ -12,7 +12,5 @@ authenticated.announcement.form.label.body = Body:
 authenticated.announcement.form.label.flag = Flag:
 authenticated.announcement.form.label.url = Url:
 
-administrator.announcement.list.button.create= Create
 
-administrator.announcement.form.button.create= Create
 

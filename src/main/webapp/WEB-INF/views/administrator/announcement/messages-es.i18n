@@ -13,5 +13,7 @@ administrator.announcement.form.label.url = Url:
 
 administrator.announcement.list.button.create = Crear
 
+administrator.announcement.form.label.confirmation = Confirma que el anuncio es correcto
+
 administrator.announcement.form.button.create=Crear
 

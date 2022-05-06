@@ -11,7 +11,4 @@ authenticated.announcement.form.label.body = Cuerpo:
 authenticated.announcement.form.label.flag = Bandera:
 authenticated.announcement.form.label.url = Url:
 
-administrator.announcement.list.button.create = Crear
-
-administrator.announcement.form.button.create=Crear
 

@@ -10,6 +10,7 @@
 	<acme:list-column code="authenticated.announcement.list.label.flag" path="flag" width="20%"/>
 	<acme:list-column code="authenticated.announcement.list.label.url" path="url" width="20%"/>	
 	
-</acme:list>
+</acme:list> 
 
-<acme:button code="administrator.announcement.list.button.create" action="/administrator/announcement/create"/>
+
+
