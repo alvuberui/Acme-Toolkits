@@ -30,9 +30,9 @@ master.menu.anonymous.artefacts.list = Artefact List
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Components list
 master.menu.administrator.announcements.list = Announcements list
+master.menu.administrator.administrator-dashboard = Administrator Dashboard
 
 master.menu.administrator = Administrator
-master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.system-configuration = System Configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
