@@ -13,6 +13,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
+import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service
@@ -33,7 +34,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "status","code","legalStuff","budget","initPeriod","finalPeriod","link");
+		request.bind(entity, errors, "code", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
+		
+		final String userName = request.getModel().getString("inventor");
+		final Inventor inventor = this.repository.findInventorByUserName(userName);
+		
+		entity.setInventor(inventor);
 		
 	}
 
@@ -43,7 +49,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "status","code","legalStuff","budget","initPeriod","finalPeriod","link");
+		request.unbind(entity, model, "code", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
 		
 	}
 	
@@ -72,8 +78,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			Patronages exists;
 			
 			exists = this.repository.findPatronageByCode(entity.getCode());
-			System.out.println(exists);
-			System.out.println(exists==null);
 			errors.state(request, exists == null, "code", "patron.patronages.form.error.duplicated-code");
 		}
 		
@@ -81,39 +85,44 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			Double budget;
 			
 			budget = entity.getBudget().getAmount();
+			System.out.println(budget);
+			System.out.println(entity.getBudget().getCurrency());
 			errors.state(request, budget != null && budget > 0, "code", "patron.patronages.form.error.budget-negative");
 		}
 		
 		if(!errors.hasErrors("initPeriod")) {
-			Date initPeriod;
 			Calendar actualDate;
 			Date prueba;
-			
-			initPeriod = entity.getInitPeriod();
+
 			actualDate = new GregorianCalendar();
 			actualDate.add(Calendar.MONTH, 1);
 			prueba = actualDate.getTime();
 			
-			errors.state(request, initPeriod != null && entity.getInitPeriod().after(prueba), "initPeriod", "patron.patronages.form.error.initPeriod-too-close");
+			errors.state(request, entity.getInitPeriod() != null && entity.getInitPeriod().after(prueba), "initPeriod", "patron.patronages.form.error.initPeriod-too-close");
 		}
 		
 		if (!errors.hasErrors("finalPeriod")) {
-				Date finalPeriod;
-				Date initialPeriod;
-				Calendar monthDate;
-				Date prueba;
-				
-				initialPeriod = entity.getInitPeriod();
-				finalPeriod = entity.getFinalPeriod();
-				monthDate = new GregorianCalendar();
-				monthDate.setTime(initialPeriod);
-				monthDate.add(Calendar.MONTH, 1);
-				
-				prueba = monthDate.getTime();
-				
-				errors.state(request, finalPeriod != null && finalPeriod.after(prueba), "finalPeriod", "patron.patronages.form.error.finalPeriod-too-close");
+			Date finalPeriod;
+			Date initialPeriod;
+			Calendar monthDate;
+			Date prueba;
+			
+			initialPeriod = entity.getInitPeriod();
+			finalPeriod = entity.getFinalPeriod();
+			monthDate = new GregorianCalendar();
+			monthDate.setTime(initialPeriod);
+			monthDate.add(Calendar.MONTH, 1);
+			
+			prueba = monthDate.getTime();
+			
+			errors.state(request, finalPeriod != null && finalPeriod.after(prueba), "finalPeriod", "patron.patronages.form.error.finalPeriod-too-close");
 		}
 		
+		if (!errors.hasErrors("inventor")) {
+			final String userName = request.getModel().getString("inventor");
+			final Inventor inventor = this.repository.findInventorByUserName(userName);
+			errors.state(request, inventor!=null || !userName.equals(""), "inventor", "patron.patronages.form.error.invalid.inventor-username");
+		}
 		
 	}
 

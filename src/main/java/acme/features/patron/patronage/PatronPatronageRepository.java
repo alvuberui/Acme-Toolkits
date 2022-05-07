@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.patonages.Patronages;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Repository
@@ -24,5 +25,9 @@ public interface PatronPatronageRepository extends AbstractRepository{
 	
 	@Query("Select p from Patronages p where p.code = :code")
 	Patronages findPatronageByCode(String code);
+
+	@Query("Select i from Inventor i where i.userAccount.username = :userName")
+	Inventor findInventorByUserName(String userName);
+
 
 }
