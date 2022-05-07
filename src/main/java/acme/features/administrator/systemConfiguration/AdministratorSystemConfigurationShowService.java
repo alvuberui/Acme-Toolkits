@@ -12,36 +12,36 @@ import acme.framework.services.AbstractShowService;
 
 
 @Service
-public class AdministratorSystemConfigurationService implements AbstractShowService<Administrator, SystemConfiguration> {
+public class AdministratorSystemConfigurationShowService implements AbstractShowService<Administrator, SystemConfiguration> {
 
 	@Autowired
 	protected AdministratorSystemConfigurationRepository repository;
 	
 	@Override
-	public boolean authorise(Request<SystemConfiguration> request) {
+	public boolean authorise(final Request<SystemConfiguration> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public SystemConfiguration findOne(Request<SystemConfiguration> request) {
+	public SystemConfiguration findOne(final Request<SystemConfiguration> request) {
 		assert request != null;
 
 		SystemConfiguration result;
 
-		result = repository.getSystemConfiguration();
+		result = this.repository.getSystemConfiguration();
 
 		return result;
 	}
 
 	@Override
-	public void unbind(Request<SystemConfiguration> request, SystemConfiguration entity, Model model) {
+	public void unbind(final Request<SystemConfiguration> request, final SystemConfiguration entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "currency", "language","strongTerms","weakTerms",
+		request.unbind(entity, model, "currency","currencies", "language","strongTerms","weakTerms",
 				"weakThreshold","strongThreshold");
 		
 	}

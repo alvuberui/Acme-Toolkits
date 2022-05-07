@@ -64,6 +64,20 @@ public class SystemConfiguration extends AbstractEntity{
 	public String getStrongTerms() {
 		return this.getMapLenguajes(this.strongTerms).get(this.language.trim());
 	}
+	
+	public String getStrongTermsSpanish() {
+		return this.getMapLenguajes(this.strongTerms).get("SPANISH");
+	}
+	public String getStrongTermsEnglish() {
+		return this.getMapLenguajes(this.strongTerms).get("ENGLISH");
+	}
+	public String getWeakTermsSpanish() {
+		return this.getMapLenguajes(this.weakTerms).get("SPANISH");
+	}
+	public String getWeakTermsEnglish() {
+		return this.getMapLenguajes(this.weakTerms).get("ENGLISH");
+	}
+	
 	public void setStrongTerms(final String strongTerms) {
 		this.strongTerms = strongTerms;
 	}
