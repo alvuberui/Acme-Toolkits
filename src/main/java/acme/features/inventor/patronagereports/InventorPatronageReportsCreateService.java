@@ -12,24 +12,27 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
+
 @Service
 public class InventorPatronageReportsCreateService implements AbstractCreateService<Inventor, PatronageReport>{
 
 	@Autowired
 	protected InventorPatronageReportsRepository repository;
-	
+
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
 		
 		boolean result;
-		int masterId;
-		Patronages patronage;
 		
-		masterId = request.getModel().getInteger("id");
-		patronage = 
-		result = request.getPrincipal().hasRole(Inventor.class);
+		int patronageId;
+		Inventor inventor;
 		
+		patronageId = request.getModel().getInteger("id");
+		inventor = this.repository.findInventorByPatronageId(patronageId);
+		
+		result = request.getPrincipal().getActiveRoleId() == inventor.getId();
+			
 		return result;
 	}
 
@@ -39,7 +42,7 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "memorandum","link");
+		request.bind(entity, errors, "creationMoment", "memorandum", "link");
 		
 	}
 
@@ -49,7 +52,7 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "memorandum","link");
+		request.unbind(entity, model, "creationMoment", "memorandum", "link");
 		
 	}
 
@@ -58,14 +61,15 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		assert request != null;
 		
 		PatronageReport result;
+		Patronages patronage;
 		Date creationMoment;
 		
-		creationMoment = new Date();
+		creationMoment = new Date(System.currentTimeMillis() -1);
 		
+		patronage = this.repository.findPatronageById(request.getModel().getInteger("id"));
 		result = new PatronageReport();
+		result.setPatronage(patronage);
 		result.setCreationMoment(creationMoment);
-		result.setMemorandum("");
-		result.setLink("");
 		
 		return result;
 	}
@@ -90,10 +94,11 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		
 		Date creationMoment;
 		
-		creationMoment = new Date();
+		creationMoment = new Date(System.currentTimeMillis() -1);
 		entity.setCreationMoment(creationMoment);
 		this.repository.save(entity);
 		
 	}
-
+	
+	
 }
