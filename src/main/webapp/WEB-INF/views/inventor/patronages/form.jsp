@@ -28,8 +28,8 @@
 	<br></br>
 	<jstl:choose>
 		<jstl:when test="${status == 'PROPOSED'}">
-			<acme:submit code="inventor.patronages.form.button.update.accept" action="/inventor/patronages/update?new-status=${'ACCEPTED'}"/>
-			<acme:submit code="inventor.patronages.form.button.update.deny" action="/inventor/patronages/update?new-status=${'DENIED'}"/>
+			<acme:submit code="inventor.patronages.form.button.accept" action="/inventor/patronages/update?new-status=${'ACCEPTED'}"/>
+			<acme:submit code="inventor.patronages.form.button.denied" action="/inventor/patronages/update?new-status=${'DENIED'}"/>
 		</jstl:when>
 	</jstl:choose>
 	

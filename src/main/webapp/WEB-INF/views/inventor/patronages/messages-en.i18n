@@ -21,6 +21,6 @@ inventor.patronages.patron.form.label.company = Company
 
 inventor.patronage-reports.form.button.list-mine-reports = Patronage Reports
 
-inventor.patronages.form.button.update.accept = Accept
-inventor.patronages.form.button.update.deny = Denied
+inventor.patronages.form.button.accept = Accept
+inventor.patronages.form.button.denied = Denied
 inventor.patronage.form.error.status = Wrong Status
