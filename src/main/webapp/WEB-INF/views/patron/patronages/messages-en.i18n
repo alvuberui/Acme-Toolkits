@@ -16,3 +16,10 @@ patron.patronages.list.label.status = Status
 patron.patronages.list.label.legalStuff = Legal Stuff
 patron.patronages.list.label.budget = Budget
 patron.patronages.list.label.username = Inventor 
+
+patron.patronage.form.button.update = Update Patronage
+patron.patronage.form.button.create = Create Patronage
+patron.patronage.form.button.delete = Delete Patronage
+patron.patronage.form.button.publish = Publish Patronage
+
+patron.patronages.list.button.create = Create Patronage
