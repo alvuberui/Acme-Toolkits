@@ -22,8 +22,8 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 	public boolean authorise(final Request<Patronages> request) {
 		final int id = request.getModel().getInteger("id");
 		final Patronages patronage = this.repository.findPatronagesById(id);
-		System.out.println(request.getModel().getAttribute("status"));
-		return patronage.getInventor().getId() == request.getPrincipal().getActiveRoleId();
+		System.out.println(request.getModel().hasAttribute("status"));
+		return patronage.getInventor().getId() == request.getPrincipal().getActiveRoleId() && request.getModel().hasAttribute("status") && request.getModel().getAttribute("status").equals("PROPOSED");
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert entity != null;
 		assert errors != null;
 		
-		if(!errors.hasErrors("status")) {
-			errors.state(request,request.getModel().getString("status").equals("ACCEPTED") || request.getModel().getString("status").equals("DENIED"), "status", "inventor.patronage.form.error.status");
+		if(!errors.hasErrors("new-status")) {
+			errors.state(request,request.getModel().getString("new-status").equals("ACCEPTED") || request.getModel().getString("new-status").equals("DENIED"), "new-status", "inventor.patronage.form.error.status");
 		}
 		
 		
@@ -69,7 +69,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 	public void update(final Request<Patronages> request, final Patronages entity) {
 		assert request != null;
 		assert entity != null;
-		final PatronageStatus status = PatronageStatus.valueOf(request.getModel().getString("status"));
+		final PatronageStatus status = PatronageStatus.valueOf(request.getModel().getString("new-status"));
 		System.out.println(status);
 		entity.setStatus(status);
 		this.repository.save(entity);
