@@ -50,7 +50,7 @@ public class InventorArtefactUpdateService implements AbstractUpdateService<Inve
 			}
 			
 			if (!errors.hasErrors("retailPrice")) {
-				errors.state(request, entity.getRetailPrice().getAmount() > 0, "salary", "inventor.artefact.form.error.negative-salary");
+				errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.artefact.form.error.negative-salary");
 			}
 			
 

@@ -18,3 +18,6 @@ inventor.artefact.form.button.update = Actualizar
 inventor.artefact.form.button.delete = Borrar
 inventor.artefact.form.button.publish = Publicar
 inventor.artefact.form.button.create = Crear
+
+inventor.artefact.error.duplicated = Código duplicado, ya existe uno
+inventor.artefact.form.error.negative-salary = No es posible asignar una cantidad negativa

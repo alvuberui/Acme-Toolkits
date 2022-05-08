@@ -5,7 +5,10 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="inventor.artefact.form.label.type" path="type"/>
+	<acme:input-select code="inventor.artefact.form.label.type" path="type">	
+		<acme:input-option code="TOOL" value="TOOL" selected="${type == 'TOOL'}"/>
+		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
+	</acme:input-select>
 	<acme:input-textbox code="inventor.artefact.form.label.name" path="name"/>
 	<acme:input-textbox code="inventor.artefact.form.label.code" path="code"/>	
 	<acme:input-textbox code="inventor.artefact.form.label.technology" path="technology"/>

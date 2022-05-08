@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -78,6 +79,11 @@ public class InventorArtefactDeleteService implements AbstractDeleteService <Inv
 		public void delete(final Request<Artefact> request, final Artefact entity) {
 			assert request != null;
 			assert entity != null;
+			final Quantity q = this.repository.findQuantityByArtefactId(request.getModel().getInteger("id"));
+			if(q != null ) {
+				this.repository.delete(q);
+			}
+			
 			this.repository.delete(entity);
 		}
 	

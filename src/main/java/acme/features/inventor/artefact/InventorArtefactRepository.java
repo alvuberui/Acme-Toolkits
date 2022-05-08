@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.Quantity;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
 
@@ -35,4 +36,7 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	
 	@Query("select i from Inventor i where i.id = :id")
 	Inventor findInventorIdById(int id);
+	
+	@Query("select q from Quantity q where q.artefact.id = :id")
+	Quantity findQuantityByArtefactId(int id);
 }
