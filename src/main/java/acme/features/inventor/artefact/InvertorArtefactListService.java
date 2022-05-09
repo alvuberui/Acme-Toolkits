@@ -49,7 +49,7 @@ public class InvertorArtefactListService implements AbstractListService<Inventor
 		assert model != null;
 		
 		request.unbind(entity, model, "type", "name", "code", "technology",
-			"description","retailPrice", "moreInfo");
+			"retailPrice", "published");
 		
 	}
 

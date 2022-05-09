@@ -49,7 +49,7 @@ master.menu.inventor = Inventor
 master.menu.inventor.artefacts.list = Lista de Artefactos
 master.menu.inventor.my-toolkits = Mi herramienta
 master.menu.inventor.patronages.list = Lista de patrocinios
-master.menu.inventor.list.own = Artefactos propios
+master.menu.inventor.artefact.list = Artefactos propios
 master.menu.inventor.patronages.list = Mis patrocinios
 master.menu.inventor.announcements.list = Lista de anuncios
 

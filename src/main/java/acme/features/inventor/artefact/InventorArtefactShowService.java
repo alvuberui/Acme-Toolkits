@@ -59,7 +59,7 @@ public class InventorArtefactShowService implements AbstractShowService<Inventor
 			assert model != null;
 
 			request.unbind(entity, model, "type", "name", "code", "technology",
-				"description","retailPrice", "moreInfo");
+				"description","retailPrice", "moreInfo", "published");
 			
 		}
 }
