@@ -21,6 +21,7 @@ inventor.toolkit.form.button.toolkits-artefact = Artefacts
 
 inventor.toolkit.form.button.update = Update
 inventor.toolkit.form.button.add-artefact = Add artefact
+inventor.toolkit.form.button.delete-artefact = Delete artefact
 inventor.toolkit.form.button.create.toolkit = Create toolkit
 inventor.toolkit.form.label.quantity = Quantity
 inventor.toolkit.form.label.new.artefact = Select new artefact

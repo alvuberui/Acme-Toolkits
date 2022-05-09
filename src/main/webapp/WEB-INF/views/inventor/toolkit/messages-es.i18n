@@ -20,7 +20,7 @@ inventor.toolkit.form.button.toolkits-artefact = Artefactos
 
 
 inventor.toolkit.form.button.update = Actualizar
-inventor.toolkit.form.button.add-artefact == Añadir artefact
+inventor.toolkit.form.button.add-artefact = Añadir artefact
 inventor.toolkit.form.button.create.toolkit = Crear toolkit
 inventor.toolkit.form.label.quantity = Cantidad
 inventor.toolkit.form.label.new.artefact = Seleccion un nuevo artefacto

@@ -35,6 +35,9 @@ public class InventorToolkitsController extends AbstractController<Inventor, Too
 	protected InventorToolkitsAddArtefactService addArtefactService;
 	
 	@Autowired
+	protected InventorToolkitsDeleteArtefactService deleteArtefactService;
+	
+	@Autowired
 	protected InventorToolkitsDeleteService deleteService;
 	
 	// Constructors -------------------------------------------------------------------
@@ -48,6 +51,7 @@ public class InventorToolkitsController extends AbstractController<Inventor, Too
 		super.addCommand("publish","update", this.publishService);
 		super.addCommand("create", this.createService);
 		super.addCommand("add-artefact","update", this.addArtefactService);
+		super.addCommand("delete-artefact","update", this.deleteArtefactService);
 	}
 	
 	
