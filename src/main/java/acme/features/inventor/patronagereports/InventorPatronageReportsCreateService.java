@@ -30,7 +30,6 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		
 		patronageId = request.getModel().getInteger("id");
 		inventor = this.repository.findInventorByPatronageId(patronageId);
-		
 		result = request.getPrincipal().getActiveRoleId() == inventor.getId();
 			
 		return result;
@@ -53,7 +52,7 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		assert model != null;
 		
 		request.unbind(entity, model, "creationMoment", "memorandum", "link");
-		
+		model.setAttribute("patronageId", request.getModel().getInteger("id"));
 	}
 
 	@Override

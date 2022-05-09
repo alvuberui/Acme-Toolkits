@@ -19,7 +19,7 @@ public interface InventorPatronageReportsRepository  extends AbstractRepository 
 	@Query("select distinct pr from PatronageReport pr join Patronages p on pr.patronage.id = p.id join Inventor i on i.id = p.inventor.id where pr.patronage.id = :patronageId and i.id = :inventorId ")
 	Collection<PatronageReport> findManyPatronagesReportsByPatronageAndInventorId(int patronageId, int inventorId);	
 
-	@Query("Select p.inventor from Patronages p where p.id = :patronageId")
+	@Query("Select i from Inventor i, Patronages p where p.inventor = i and p.id = :patronageId")
 	Inventor findInventorByPatronageId(int patronageId);
 	
 	@Query("Select p.inventor from PatronageReport pr join Patronages p on pr.patronage.id= p.id where pr.id = :patronageReportId")
