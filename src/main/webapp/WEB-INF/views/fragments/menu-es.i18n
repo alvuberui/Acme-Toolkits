@@ -32,7 +32,7 @@ master.menu.anonymous = Anónimo
 
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Lista de componentes
-
+master.menu.administrator.administrator-dashboard = Panel administración
 master.menu.administrator.artefacts.list = Lista de Artefactos
 master.menu.administrator.announcements.list = Lista de anuncios
 
