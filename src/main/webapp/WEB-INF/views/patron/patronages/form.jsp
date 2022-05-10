@@ -16,8 +16,8 @@
 	<acme:input-textbox code="patron.patronage.form.label.code" path="code"/>
 	
 	<jstl:choose>
-		<jstl:when test="${command == 'show'}">
-		<acme:input-textbox code="patron.patronage.form.label.status" path="status"/>
+		<jstl:when test="${command == 'create'}">
+		<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="${true}"/>
 		</jstl:when>
 		
 		<jstl:when test="${acme:anyOf(command, 'show, delete, publish') && published == false}">
@@ -30,7 +30,7 @@
 	</jstl:choose>
 	
 	
-	<acme:input-textbox code="patron.patronage.form.label.status" path="status"/>
+
 	<acme:input-moment code="patron.patronage.form.label.initPeriod" path="initPeriod"/>
 	<acme:input-moment code="patron.patronage.form.label.finalPeriod" path="finalPeriod"/>
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
@@ -45,9 +45,11 @@
 			<acme:submit code="patron.patronage.form.button.delete" action="/patron/patronages/delete"/>
 			<acme:submit code="patron.patronage.form.button.publish" action="/patron/patronages/publish"/>
 		</jstl:when>
-		<jstl:when test="${command == 'create'}">
-			<acme:submit code="patron.patronage.form.button.create" action="/patron/patronages/create"/>
-		</jstl:when>
+		
 	</jstl:choose>
+	
+	<jstl:if test="${command == 'create'}">
+			<acme:submit code="patron.patronage.form.button.create" action="/patron/patronages/create"/>
+	</jstl:if>
 	
 </acme:form>

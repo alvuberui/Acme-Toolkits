@@ -25,7 +25,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	@Override
 	public boolean authorise(final Request<Patronages> request) {
 		assert request != null;
-		return true;
+		
+		boolean result;
+		result = request.getPrincipal().hasRole(Patron.class);
+		
+		return result;
 	}
 
 	@Override
@@ -34,13 +38,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "code", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
-		
-		final String userName = request.getModel().getString("inventor");
-		final Inventor inventor = this.repository.findInventorByUserName(userName);
-		
-		entity.setInventor(inventor);
-		
+		request.bind(entity, errors, "code","status", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
+
 	}
 
 	@Override
@@ -49,20 +48,25 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "code", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
+		request.unbind(entity, model, "code", "status", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
 		
 	}
 	
 	@Override
 	public Patronages instantiate(final Request<Patronages> request) {
-		final Patronages result;
-		Patron patron;
 		
-		patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getActiveRoleId());
+		Patronages result;
 		result = new Patronages();
-		result.setStatus(PatronageStatus.PROPOSED);
-		result.setCreationTime(new Date());
+		
+		Patron patron;
+		patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getActiveRoleId());
 		result.setPatron(patron);
+		
+		Date creationMoment;
+		creationMoment = new Date(System.currentTimeMillis()-1);
+		result.setCreationTime(creationMoment);
+		
+		result.setStatus(PatronageStatus.PROPOSED);
 		result.setPublished(false);
 		
 		return result;
@@ -85,8 +89,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			Double budget;
 			
 			budget = entity.getBudget().getAmount();
-			System.out.println(budget);
-			System.out.println(entity.getBudget().getCurrency());
 			errors.state(request, budget != null && budget > 0, "code", "patron.patronages.form.error.budget-negative");
 		}
 		
@@ -119,9 +121,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		}
 		
 		if (!errors.hasErrors("inventor")) {
-			final String userName = request.getModel().getString("inventor");
-			final Inventor inventor = this.repository.findInventorByUserName(userName);
-			errors.state(request, inventor!=null || !userName.equals(""), "inventor", "patron.patronages.form.error.invalid.inventor-username");
+			String userName;
+			Inventor inventor;
+			
+			userName = request.getModel().getString("inventor");
+			inventor = this.repository.findInventorByUserName(userName);
+			errors.state(request, inventor!=null && !userName.equals(""), "inventor", "patron.patronages.form.error.invalid.inventor-username");
 		}
 		
 	}
@@ -130,6 +135,25 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 	public void create(final Request<Patronages> request, final Patronages entity) {
 		assert request != null;
 		assert entity != null;
+		
+		final String userName = request.getModel().getString("inventor");
+		
+		final Inventor inventor = this.repository.findInventorByUserName(userName);
+		
+		final Patron patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getActiveRoleId());
+		
+		
+		entity.setInventor(inventor);
+		this.repository.save(entity);
+		
+		entity.setPatron(patron);
+		this.repository.save(entity);
+		
+		entity.setStatus(PatronageStatus.PROPOSED);
+		this.repository.save(entity);
+		
+		entity.setPublished(false);
+		this.repository.save(entity);
 		
 		this.repository.save(entity);
 		
