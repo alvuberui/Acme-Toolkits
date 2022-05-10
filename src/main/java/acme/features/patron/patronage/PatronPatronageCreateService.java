@@ -1,8 +1,11 @@
 package acme.features.patron.patronage;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +42,8 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert errors != null;
 		
 		request.bind(entity, errors, "code","status", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
-
+		Integer inventorId = request.getModel().getInteger("inventor");
+		entity.setInventor(this.repository.findInventorById(inventorId));
 	}
 
 	@Override
@@ -50,6 +54,12 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		request.unbind(entity, model, "code", "status", "legalStuff", "budget", "initPeriod", "finalPeriod", "link");
 		
+		Collection<Inventor> inventors;
+		
+		inventors = this.repository.findAllInventors();
+		model.setAttribute("inventors", inventors);
+		
+
 	}
 	
 	@Override
@@ -59,16 +69,15 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		result = new Patronages();
 		
 		Patron patron;
-		patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getActiveRoleId());
+		patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getAccountId());
 		result.setPatron(patron);
+		
 		
 		Date creationMoment;
 		creationMoment = new Date(System.currentTimeMillis()-1);
 		result.setCreationTime(creationMoment);
-		
 		result.setStatus(PatronageStatus.PROPOSED);
 		result.setPublished(false);
-		
 		return result;
 	}
 
@@ -77,6 +86,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		System.out.println(	errors.getErroneousAttributes());
 		
 		if(!errors.hasErrors("code")) {
 			Patronages exists;
@@ -119,42 +129,16 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			
 			errors.state(request, finalPeriod != null && finalPeriod.after(prueba), "finalPeriod", "patron.patronages.form.error.finalPeriod-too-close");
 		}
-		
-		if (!errors.hasErrors("inventor")) {
-			String userName;
-			Inventor inventor;
-			
-			userName = request.getModel().getString("inventor");
-			inventor = this.repository.findInventorByUserName(userName);
-			errors.state(request, inventor!=null && !userName.equals(""), "inventor", "patron.patronages.form.error.invalid.inventor-username");
-		}
-		
+	
 	}
 
 	@Override
 	public void create(final Request<Patronages> request, final Patronages entity) {
 		assert request != null;
 		assert entity != null;
-		
-		final String userName = request.getModel().getString("inventor");
-		
-		final Inventor inventor = this.repository.findInventorByUserName(userName);
-		
-		final Patron patron = this.repository.findPatronByUserAccountId(request.getPrincipal().getActiveRoleId());
-		
-		
-		entity.setInventor(inventor);
-		this.repository.save(entity);
-		
-		entity.setPatron(patron);
-		this.repository.save(entity);
-		
-		entity.setStatus(PatronageStatus.PROPOSED);
-		this.repository.save(entity);
-		
-		entity.setPublished(false);
-		this.repository.save(entity);
-		
+	
+
+
 		this.repository.save(entity);
 		
 	}
