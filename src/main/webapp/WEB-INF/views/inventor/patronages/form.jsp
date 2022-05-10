@@ -8,6 +8,7 @@
 	<acme:button code="inventor.patronage-reports.form.button.list-mine-reports" action="/inventor/patronage-report/list-mine-reports?id=${id}"/>
 
 	<acme:button code="inventor.patronage-reports.list.button.create.patronage-report" action="/inventor/patronage-report/create?id=${id}"/>
+	
 	<acme:input-select code="inventor.patronages.form.label.status" path="status">	
 		<acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
 		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>

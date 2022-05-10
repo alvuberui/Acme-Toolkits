@@ -4,8 +4,6 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 
-
-
 <br />
 <acme:list>
 	<acme:list-column code="inventor.patronage-report.list.label.creation-moment" path="creationMoment" width="20%"/>	
