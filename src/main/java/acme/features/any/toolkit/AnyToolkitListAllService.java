@@ -11,7 +11,6 @@ import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
-import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractListService;
 
 
