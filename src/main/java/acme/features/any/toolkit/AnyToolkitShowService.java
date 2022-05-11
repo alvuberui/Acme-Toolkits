@@ -16,7 +16,6 @@ import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.helpers.StringHelper;
 import acme.framework.roles.Any;
-import acme.framework.roles.Authenticated;
 import acme.framework.services.AbstractShowService;
 
 

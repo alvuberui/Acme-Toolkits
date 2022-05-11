@@ -8,9 +8,11 @@
 	<acme:list-column code="inventor.artefact.list.label.name" path="name" width="20%"/>
 	<acme:list-column code="inventor.artefact.list.label.code" path="code" width="20%"/>	
 	<acme:list-column code="inventor.artefact.list.label.technology" path="technology" width="20%"/>
-	<acme:list-column code="inventor.artefact.list.label.description" path="description" width="20%"/>	
 	<acme:list-column code="inventor.artefact.list.label.retail-price" path="retailPrice" width="20%"/>
-	<acme:list-column code="inventor.artefact.list.label.more-info" path="moreInfo" width="80%"/>	
+	<acme:list-column code="inventor.artefact.list.label.published" path="published" width="80%"/>	
+
 </acme:list>
+
+<acme:button code="inventor.artefact.list.button.create" action="/inventor/artefact/create"/>
 
 

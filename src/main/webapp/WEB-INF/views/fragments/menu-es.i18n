@@ -32,7 +32,7 @@ master.menu.anonymous = Anónimo
 
 # master.menu.administrator ###################################################
 master.menu.administrator.components.list = Lista de componentes
-
+master.menu.administrator.administrator-dashboard = Panel administración
 master.menu.administrator.artefacts.list = Lista de Artefactos
 master.menu.administrator.announcements.list = Lista de anuncios
 
@@ -40,6 +40,7 @@ master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.system-configuration = Configuración del sistema
+master.menu.administrator.create-announcement = Crear anuncio
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
@@ -49,7 +50,7 @@ master.menu.inventor = Inventor
 master.menu.inventor.artefacts.list = Lista de Artefactos
 master.menu.inventor.my-toolkits = Mi herramienta
 master.menu.inventor.patronages.list = Lista de patrocinios
-master.menu.inventor.list.own = Artefactos propios
+master.menu.inventor.artefact.list = Artefactos propios
 master.menu.inventor.patronages.list = Mis patrocinios
 master.menu.inventor.announcements.list = Lista de anuncios
 
@@ -96,6 +97,10 @@ master.menu.user-account.announcements.list = Lista de anuncios
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.inventor = Datos del inventor
+master.menu.user-account.become-inventor = Hazte inventor
+master.menu.user-account.patron = Datos del patron
+master.menu.user-account.become-patron = Hazte patron
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor

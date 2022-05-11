@@ -22,6 +22,18 @@ public class InventorArtefactController extends AbstractController<Inventor, Art
 		
 		@Autowired
 		protected InvertorArtefactListService	ownListService;
+		
+		@Autowired
+		protected InventorArtefactCreateService createService;
+		
+		@Autowired
+		protected InventorArtefactPublishService publishService;
+		
+		@Autowired
+		protected InventorArtefactDeleteService deleteService;
+		
+		@Autowired
+		protected InventorArtefactUpdateService updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -29,8 +41,11 @@ public class InventorArtefactController extends AbstractController<Inventor, Art
 		@PostConstruct
 		protected void initialise() {
 			super.addCommand("show", this.showService);
-			super.addCommand("list-own", "list", this.ownListService);
+			super.addCommand("list-mine", "list", this.ownListService);
 			super.addCommand("list-artefact-toolkit", "list", this.componentAndToolByToolkitService);
-
+			super.addCommand("create", this.createService);
+			super.addCommand("publish", "update" ,this.publishService);
+			super.addCommand("delete",this.deleteService);
+			super.addCommand("update",this.updateService);
 		}
 }

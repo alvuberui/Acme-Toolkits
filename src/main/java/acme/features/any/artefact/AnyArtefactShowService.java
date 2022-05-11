@@ -41,7 +41,7 @@ public class AnyArtefactShowService implements AbstractShowService<Any, Artefact
 		assert model != null;
 
 		request.unbind(entity, model, "type", "name", "code", "technology",
-			"description","retailPrice", "moreInfo");
+			"description","retailPrice", "moreInfo", "published");
 	}
 
 }

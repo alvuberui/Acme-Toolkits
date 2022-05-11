@@ -13,6 +13,7 @@ inventor.toolkit.form.label.link = Link
 inventor.toolkit.form.label.published = Publicado
 
 inventor.toolkit.form.label.price = Precio total
+authenticated.toolkit.form.label.price = precio
 
 
 
