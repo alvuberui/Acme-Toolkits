@@ -11,5 +11,7 @@
 	<acme:input-textbox code="any.artefact.form.label.technology" path="technology"/>
 	<acme:input-textarea code="any.artefact.form.label.description" path="description"/>	
 	<acme:input-money code="any.artefact.form.label.retail-price" path="retailPrice"/>
+	<acme:input-money code="any.artefact.form.label.money-exchange" path="moneyExchange"/>
 	<acme:input-url code="any.artefact.form.label.more-info" path="moreInfo"/>	
+	<acme:input-url code="any.artefact.form.label.published" path="published"/>	
 </acme:form>

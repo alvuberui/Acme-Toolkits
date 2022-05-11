@@ -703,24 +703,23 @@ Proposed, Accepted, Denied</panel_attributes>
 &lt;&lt;Form&gt;&gt;
 Administrator Dashboard
 --
-+ totalOfComponents: Integer 
-+ totalOfTools: Integer
-
-+ averageRetailPriceOfComponentsByTechnologyAndCurrency: map&lt;Pair&lt;String,String&gt;,Double&gt;
-+ desviationRetailPriceOfComponentsByTechnologyAndCurrency: map&lt;Pair&lt;String,String&gt;,Double&gt;
-+ minimumRetailPriceOfComponentsByTechnologyAndCurrency: map&lt;Pair&lt;String,String&gt;,Double&gt;
-+ maximumRetailPriceOfComponentsByTechnologyAndCurrency: map&lt;Pair&lt;String,String&gt;,Double&gt;
-
-
-+ averageRetailPriceOfToolsByCurrency: Map&lt;String,Integer&gt;
-+ desviationRetailPriceOfToolsByCurrency: Map&lt;String,Integer&gt;
-+ minimumRetailPriceOfToolsByCurrency: Map&lt;String,Integer&gt;
-+ maximumRetailPriceOfToolsByCurrency: Map&lt;String,Integer&gt;
-+ totalPratronagesByStatus: Map&lt;String,Integer&gt;
-+ averageBudgetPratronagesByStatus: Map&lt;String,Integer&gt;
-+ desviationBudgetPratronagesByStatus: Map&lt;String,Integer&gt;
-+ minumumBudgetPratronagesByStatus: Map&lt;String,Integer&gt;
-+ maximumBudgetPratronagesByStatus: Map&lt;String,Integer&gt;
++ numberOfComponents: int
++ numberOfTools: int
++ avgRetailPriceOfComponents: map&lt;Pair&lt;String,String&gt;,Double&gt;
++ desviationRetailPriceOfComponents: map&lt;Pair&lt;String,String&gt;,Double&gt;
++ minRetailPriceOfComponents: map&lt;Pair&lt;String,String&gt;,Double&gt;
++ maximumRetailPriceOfComponents: map&lt;Pair&lt;String,String&gt;,Double&gt;
++ avgRetailPriceOfTools: Map&lt;String,Double&gt;
++ desviationRetailPriceOfTools: Map&lt;String,Double&gt;
++ minimumRetailPriceOfTools: Map&lt;String,Double&gt;
++ maximumRetailPriceOfTools: Map&lt;String,Double&gt;
++ numberOfProposedPatronages: int
++ numberOfAcceptedPatronages: int
++ numberOfDeniedPatronages: int
++ avgBudgetByStatus: Map&lt;String,Double&gt;
++ desviationBudgetByStatus: Map&lt;String,Double&gt;
++ minBudgetByStatus: Map&lt;String, Double&gt;
++ maxBudgetByStatus: Map&lt;String, Double&gt;
 
 
 

@@ -3,6 +3,7 @@ package acme.features.inventor.patronages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patonages.Patronages;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -15,6 +16,10 @@ public class InventorPatronagesShowService implements AbstractShowService<Invent
 	
 	// Internal state ---------------------------------------------------------
 
+	
+
+			@Autowired
+			protected ExchangeService exchangeService ;
 			@Autowired
 			protected InventorPatronagesRepository repository;
 				
@@ -61,6 +66,7 @@ public class InventorPatronagesShowService implements AbstractShowService<Invent
 				model.setAttribute("company", inventor.getCompany());
 
 				request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationTime", "initPeriod", "finalPeriod", "link");
+				model.setAttribute("moneyExchange", exchangeService.exchangeMoney(entity.getBudget()));
 				
 			}
 }

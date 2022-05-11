@@ -14,9 +14,10 @@ inventor.toolkit.form.label.link = Link
 inventor.toolkit.form.label.published = Published
 
 inventor.toolkit.form.label.price = Total price
-
+authenticated.toolkit.form.label.price = Price
 
 inventor.toolkit.form.button.toolkits-artefact = Artefacts
+
 
 
 inventor.toolkit.form.button.update = Update

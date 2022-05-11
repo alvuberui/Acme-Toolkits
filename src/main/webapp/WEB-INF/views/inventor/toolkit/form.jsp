@@ -5,6 +5,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form >
+
 	
 	<jstl:if test="${!acme:anyOf(command, 'show, add-artefact, delete-artefact')}">
 		<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>	
