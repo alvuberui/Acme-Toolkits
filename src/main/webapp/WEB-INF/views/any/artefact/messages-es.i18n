@@ -5,6 +5,7 @@ any.artefact.list.label.technology = Tecnología
 any.artefact.list.label.description = Descripción
 any.artefact.list.label.retail-price = Precio por menor
 any.artefact.list.label.more-info = Más información
+any.artefact.form.label.published = Publicado
 
 any.artefact.form.label.type = Tipo:
 any.artefact.form.label.name = Nombre:
@@ -16,3 +17,6 @@ any.artefact.form.label.more-info = Más información:
 
 any.artefact.list.button.component = Componentes
 any.artefact.list.button.tool = Herramientas
+
+
+any.artefact.form.label.money-exchange = Moneda del sistema

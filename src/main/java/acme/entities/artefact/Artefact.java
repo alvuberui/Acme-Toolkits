@@ -59,6 +59,7 @@ public class Artefact extends AbstractEntity {
 	protected boolean published;
 	
 	
+	
 	// Derived attributes -------------------------------------------------------------
 	
 	// Relationships  -------------------------------------------------------------
@@ -67,4 +68,5 @@ public class Artefact extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false) 
 	protected Inventor inventor;
+
 }

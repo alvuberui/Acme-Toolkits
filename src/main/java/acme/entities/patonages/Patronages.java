@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.data.annotation.CreatedDate;
 
 import acme.framework.datatypes.Money;
@@ -69,7 +70,10 @@ public class Patronages extends AbstractEntity {
 	@NotNull
 	private Date finalPeriod;
 	
+	@URL
 	private String link;
+	
+	private boolean published;
 	
 	@Valid
 	@NotNull

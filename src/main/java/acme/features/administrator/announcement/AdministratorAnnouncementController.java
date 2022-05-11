@@ -13,17 +13,13 @@ public class AdministratorAnnouncementController extends AbstractController<Admi
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected AdministratorAnnouncementListRecentAllService	announcementListAllService;
+		protected AdministratorAnnouncementCreateService	createService;
 		
-		@Autowired
-		protected AdministratorAnnouncementShowService	showService;
-
 	// Constructors -----------------------------------------------------------
 
 
 		@PostConstruct
 		protected void initialise() {
-			super.addCommand("list-all-announcements", "list", this.announcementListAllService);
-			super.addCommand("show", this.showService);
+			super.addCommand("create", this.createService);
 		}
 }

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Any;
-import acme.framework.roles.Authenticated;
 
 
 @Controller
