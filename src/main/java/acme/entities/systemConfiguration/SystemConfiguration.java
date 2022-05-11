@@ -27,7 +27,7 @@ public class SystemConfiguration extends AbstractEntity{
 	private String currencies;
 	
 	@NotBlank
-	private String language;
+	private String languageSystem;
 	
 	@NotBlank
 	private String weakTerms;
@@ -58,12 +58,44 @@ public class SystemConfiguration extends AbstractEntity{
 	}
 	
 	public String getWeakTerms() {
-		return this.getMapLenguajes(this.weakTerms).get(this.language.trim());
+		return this.getMapLenguajes(this.weakTerms).get(this.languageSystem.trim());
 	}
 	
 	public String getStrongTerms() {
-		return this.getMapLenguajes(this.strongTerms).get(this.language.trim());
+		return this.getMapLenguajes(this.strongTerms).get(this.languageSystem.trim());
 	}
+	
+	public String getAllStrongTerms() {
+		HashMap<String, String> m = this.getMapLenguajes(this.strongTerms);
+		String r = null;
+		for(String s : m.keySet()) {
+			r += m.get(s);
+		}
+		return r;
+	}
+	
+	public String getAllWeakTerms() {
+		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
+		String r = null;
+		for(String s : m.keySet()) {
+			r += m.get(s);
+		}
+		return r;
+	}
+	
+	public String getStrongTermsSpanish() {
+		return this.getMapLenguajes(this.strongTerms).get("SPANISH");
+	}
+	public String getStrongTermsEnglish() {
+		return this.getMapLenguajes(this.strongTerms).get("ENGLISH");
+	}
+	public String getWeakTermsSpanish() {
+		return this.getMapLenguajes(this.weakTerms).get("SPANISH");
+	}
+	public String getWeakTermsEnglish() {
+		return this.getMapLenguajes(this.weakTerms).get("ENGLISH");
+	}
+	
 	public void setStrongTerms(final String strongTerms) {
 		this.strongTerms = strongTerms;
 	}
