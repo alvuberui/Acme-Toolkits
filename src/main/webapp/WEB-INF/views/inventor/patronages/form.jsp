@@ -15,9 +15,11 @@
 		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>
 		<acme:input-option code="DENIED" value="DENIED" selected="${status == 'DENIED'}"/>
 	</acme:input-select>
+
 	<acme:input-textbox readonly="true" code="inventor.patronages.form.label.code" path="code" />
 	<acme:input-textbox readonly="true" code="inventor.patronages.form.label.legal-stuff" path="legalStuff"/>	
 	<acme:input-money readonly="true" code="inventor.patronages.form.label.budget" path="budget"/>
+  <acme:input-money readonly="true" code="inventor.patronage.form.label.money-exchange" path="moneyExchange"/>
 	<acme:input-moment readonly="true" code="inventor.patronages.form.label.init-period" path="initPeriod"/>
 	<acme:input-moment readonly="true" code="inventor.patronages.form.label.final-period" path="finalPeriod"/>	
 	<acme:input-url readonly="true" code="inventor.patronages.form.label.link" path="link"/>

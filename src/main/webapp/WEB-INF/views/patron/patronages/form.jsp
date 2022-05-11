@@ -12,6 +12,7 @@
 	<acme:input-moment code="patron.patronage.form.label.initPeriod" path="initPeriod"/>
 	<acme:input-moment code="patron.patronage.form.label.finalPeriod" path="finalPeriod"/>
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
+	<acme:input-money code="patron.patronage.form.label.money-exchange" path="moneyExchange"/>
 	<acme:input-textbox code="patron.patronage.form.label.legalStuff" path="legalStuff"/>
 	<acme:input-textbox code="patron.patronage.form.label.link" path="link"/>
 	<acme:input-textbox code="patron.patronage.form.label.username" path="inventor.userAccount.username"/>

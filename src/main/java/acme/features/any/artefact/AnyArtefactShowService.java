@@ -3,6 +3,7 @@ package acme.features.any.artefact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.artefact.Artefact;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -12,6 +13,9 @@ import acme.framework.services.AbstractShowService;
 @Service
 public class AnyArtefactShowService implements AbstractShowService<Any, Artefact>{
 
+	@Autowired
+	protected ExchangeService exchangeService;
+	
 	@Autowired
 	protected AnyArtefactRepository repository;
 	
@@ -41,7 +45,8 @@ public class AnyArtefactShowService implements AbstractShowService<Any, Artefact
 		assert model != null;
 
 		request.unbind(entity, model, "type", "name", "code", "technology",
-			"description","retailPrice", "moreInfo", "published");
+			"description","retailPrice", "moreInfo");
+		model.setAttribute("moneyExchange", exchangeService.exchangeMoney(entity.getRetailPrice()));
 	}
 
 }

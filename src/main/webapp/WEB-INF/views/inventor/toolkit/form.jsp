@@ -13,7 +13,7 @@
 	<acme:input-textbox code="inventor.toolkit.form.label.published" path="published"/>
 
 	<jstl:if test="${price!=null}">
-		<acme:input-money code="authenticated.toolkit.form.label.price" path="price"/>	
+		<acme:input-money code="authenticated.toolkit.form.label.price" path="price"/>
 	</jstl:if>
 	
 	<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/inventor/artefact/list-artefact-toolkit?masterId=${id}"/>

@@ -19,5 +19,13 @@ inventor.artefact.form.button.delete = Borrar
 inventor.artefact.form.button.publish = Publicar
 inventor.artefact.form.button.create = Crear
 
+
+inventor.artefact.list.button.component = Componentes
+inventor.artefact.list.button.tool = Herramientas
+
+
+inventor.artefact.form.label.money-exchange = Moneda del sistema
+
 inventor.artefact.error.duplicated = Código duplicado, ya existe uno
 inventor.artefact.form.error.negative-salary = No es posible asignar una cantidad negativa
+

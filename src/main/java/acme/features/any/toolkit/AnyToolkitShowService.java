@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import acme.components.ExchangeRate;
+import acme.components.ExchangeService;
 import acme.entities.artefact.Artefact;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
@@ -23,6 +24,9 @@ import acme.framework.services.AbstractShowService;
 public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 	
 
+	@Autowired
+	protected ExchangeService exchangeService;
+	
 	@Autowired
 	protected AnyToolkitRepository repository;
 
@@ -74,11 +78,13 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 				money.setAmount(price);
 				money.setCurrency(systemConfiguration.getCurrency());
 				model.setAttribute("price",money);
+
 			}else {
 				final Money money =  new Money();
 				money.setAmount(0.0);
 				money.setCurrency(systemConfiguration.getCurrency());
 				model.setAttribute("price",money);
+
 			}
 			
 		}
