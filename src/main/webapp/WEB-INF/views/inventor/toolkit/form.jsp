@@ -26,9 +26,11 @@
 		</jstl:if>
 		<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/inventor/artefact/list-artefact-toolkit?masterId=${toolkitId}"/>
 		<jstl:if  test="${!published}">
-			<acme:button code="inventor.toolkit.form.button.update" action="/inventor/toolkit/update?id=${toolkitId}"/>
 			<acme:button code="inventor.toolkit.form.button.add-artefact" action="/inventor/toolkit/add-artefact?id=${toolkitId}"/>
 			<acme:button code="inventor.toolkit.form.button.delete-artefact" action="/inventor/toolkit/delete-artefact?id=${toolkitId}"/>
+		
+			<acme:button code="inventor.toolkit.form.button.update" action="/inventor/toolkit/update?id=${toolkitId}"/>
+			<acme:submit code="inventor.toolkit.form.submit.delete" action="/inventor/toolkit/delete?id=${toolkitId}"/>
 			<acme:submit code="inventor.toolkit.form.submit.publish" action="/inventor/toolkit/publish?id=${toolkitId}"/>
 		</jstl:if>
 	</jstl:if>
