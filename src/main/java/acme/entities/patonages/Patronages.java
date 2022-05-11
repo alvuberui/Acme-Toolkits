@@ -71,6 +71,8 @@ public class Patronages extends AbstractEntity {
 	
 	private String link;
 	
+	private boolean published;
+	
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)

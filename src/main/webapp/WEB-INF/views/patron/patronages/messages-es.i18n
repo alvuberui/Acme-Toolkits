@@ -19,4 +19,21 @@ patron.patronages.list.label.budget = Presupuesto
 patron.patronages.list.label.username = Inventor 
 
 
+patron.patronage.form.button.update = Actualizar Patrocinio
+patron.patronage.form.button.create = Crear Patrocinio
+patron.patronage.form.button.delete = Borrar Patrocinio
+patron.patronage.form.button.publish = Publicar Patrocinio
+
+patron.patronages.list.button.create = Crear Patrocinio
+
+patron.patronages.form.error.duplicated-code = Este código ya ha sido utilizado
+
+patron.patronages.form.error.budget-negative = Valor negativo inválido
+
+patron.patronages.form.error.initPeriod-too-close = Error en el periodo, debe ser de al menos 1 mes de duración.
+
+patron.patronages.form.error.finalPeriod-too-close = Error en el periodo, debe ser de al menos 1 mes de duración.
+
+
 patron.patronage.form.label.money-exchange = Moneda del sistema
+

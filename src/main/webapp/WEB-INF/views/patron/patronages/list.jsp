@@ -10,3 +10,5 @@
 	<acme:list-column code="patron.patronages.list.label.budget" path="budget" width="20%" />
 	<acme:list-column code="patron.patronages.list.label.username" path="inventor.username" width="20%" />
 </acme:list>
+
+<acme:button code="patron.patronages.list.button.create" action="/patron/patronages/create"/>
