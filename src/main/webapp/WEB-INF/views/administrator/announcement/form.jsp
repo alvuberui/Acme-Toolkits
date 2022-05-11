@@ -5,7 +5,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.announcement.form.label.creation" path="creation"/>
+	<acme:input-textbox readonly="true" code="administrator.announcement.form.label.creation" path="creation"/>
 	<acme:input-textbox code="administrator.announcement.form.label.title" path="title"/>
 	<acme:input-textbox code="administrator.announcement.form.label.body" path="body"/>	
 	<acme:input-select code="administrator.announcement.form.label.flag" path="flag">
