@@ -1,6 +1,8 @@
 package acme.features.inventor.toolkits;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,7 +73,7 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 		SystemConfiguration systemConfiguration;
 		id = request.getModel().getInteger("id");
 		artefacts = this.repository.artefactByToolkitId(id);
-		
+
 		systemConfiguration = this.repository.findSystemConfuration();
 	
 		
@@ -85,7 +87,7 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 			if(!artefacts.isEmpty()) {
 				final Double price = artefacts.stream().map(x -> this.exchangeService.exchangeMoney(x.getRetailPrice()).getAmount()).reduce(0.0, (a, b) -> a + b);
 				final Money money =  new Money();
-				money.setAmount(price);
+				money.setAmount(price);	
 				money.setCurrency(systemConfiguration.getCurrency());
 				model.setAttribute("price",money);
 			}else {

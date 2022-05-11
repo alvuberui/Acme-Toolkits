@@ -18,3 +18,23 @@ authenticated.toolkit.form.label.price = Precio
 
 
 inventor.toolkit.form.button.toolkits-artefact = Artefactos
+
+
+
+inventor.toolkit.form.button.update = Actualizar
+inventor.toolkit.form.button.add-artefact = Añadir artefact
+inventor.toolkit.form.button.create.toolkit = Crear toolkit
+inventor.toolkit.form.label.quantity = Cantidad
+inventor.toolkit.form.label.new.artefact = Seleccion un nuevo artefacto
+
+inventor.toolkit.form.empty.list = No hay ningun artefacto para este kit de herramientas
+inventor.toolkit.form.submit.add = Añadir
+inventor.toolkit.form.submit.create= Crear
+inventor.toolkit.form.submit.update = Actualizar
+inventor.toolkit.form.submit.delete = Eliminar
+
+inventor.toolkit.form.submit.publish = Publicar
+
+inventor.toolkit.form.label.code.duplicate.error = Este codigo ya ha sido utilizado
+inventor.toolkit.form.label.quantity.error = Cantidad no válida. Tiene que ser mayor a 0
+

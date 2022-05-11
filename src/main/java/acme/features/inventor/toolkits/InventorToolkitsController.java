@@ -22,12 +22,37 @@ public class InventorToolkitsController extends AbstractController<Inventor, Too
 	@Autowired
 	protected InventorToolkitsShowService showService;
 	
+	@Autowired
+	protected InventorToolkitsCreateService createService;
+	
+	@Autowired
+	protected InventorToolkitsUpdateService updateService;
+	
+	@Autowired
+	protected InventorToolkitsPublishService publishService;
+	
+	@Autowired
+	protected InventorToolkitsAddArtefactService addArtefactService;
+	
+	@Autowired
+	protected InventorToolkitsDeleteArtefactService deleteArtefactService;
+	
+	@Autowired
+	protected InventorToolkitsDeleteService deleteService;
+	
 	// Constructors -------------------------------------------------------------------
 	
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("list-mine", "list", this.listMineService);
 		super.addCommand("show", this.showService);
+		super.addCommand("delete", this.deleteService);
+		super.addCommand("update", this.updateService);
+		super.addCommand("publish","update", this.publishService);
+		super.addCommand("create", this.createService);
+		super.addCommand("add-artefact","update", this.addArtefactService);
+		super.addCommand("delete-artefact","update", this.deleteArtefactService);
 	}
+	
 	
 }
