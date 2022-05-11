@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.patonages.Patronages;
 import acme.entities.patronageReport.PatronageReport;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
 
@@ -27,5 +28,8 @@ public interface InventorPatronageReportsRepository  extends AbstractRepository 
 	
 	@Query("Select p from Patronages p where p.id = :patronageId")
 	Patronages findPatronageById(int patronageId);
+	
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration getSystemConfiguration();
 	
 }

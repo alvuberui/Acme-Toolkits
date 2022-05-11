@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.chirp.Chirp;
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -77,7 +78,23 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		
+		if (!errors.hasErrors("body")) {
+			errors.state(request, SpamDetector.spamWeakTerms(entity.getBody(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.body.form.weakSpam");
+			
+			errors.state(request, SpamDetector.spamStrongTerms(entity.getBody(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.body.form.weakSpam");
+		}
 		
+		if (!errors.hasErrors("author")) {
+			errors.state(request, SpamDetector.spamWeakTerms(entity.getAuthor(), this.repository.getSystemConfiguration()), "author", "inventor.patronage-report.error.author.form.weakSpam");
+			
+			errors.state(request, SpamDetector.spamStrongTerms(entity.getAuthor(), this.repository.getSystemConfiguration()), "author", "inventor.patronage-report.error.author.form.weakSpam");
+		}
+		
+		if (!errors.hasErrors("title")) {
+			errors.state(request, SpamDetector.spamWeakTerms(entity.getTitle(), this.repository.getSystemConfiguration()), "title", "inventor.patronage-report.error.title.form.weakSpam");
+			
+			errors.state(request, SpamDetector.spamStrongTerms(entity.getTitle(), this.repository.getSystemConfiguration()), "title", "inventor.patronage-report.error.title.form.weakSpam");
+		}
 	}
 
 	@Override

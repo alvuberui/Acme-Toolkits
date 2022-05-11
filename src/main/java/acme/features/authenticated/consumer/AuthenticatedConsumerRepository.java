@@ -15,6 +15,7 @@ package acme.features.authenticated.consumer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Consumer;
@@ -27,5 +28,8 @@ public interface AuthenticatedConsumerRepository extends AbstractRepository {
 
 	@Query("select c from Consumer c where c.userAccount.id = :id")
 	Consumer findOneConsumerByUserAccountId(int id);
+	
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration getSystemConfiguration();
 
 }

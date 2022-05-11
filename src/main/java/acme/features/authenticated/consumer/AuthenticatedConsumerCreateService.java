@@ -15,6 +15,7 @@ package acme.features.authenticated.consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
@@ -54,6 +55,20 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		
+		if (!errors.hasErrors("sector")) {
+			errors.state(request, SpamDetector.spamWeakTerms(entity.getSector(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.sector.title.form.weakSpam");
+			
+			errors.state(request, SpamDetector.spamStrongTerms(entity.getSector(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.sector.title.form.weakSpam");
+		}
+		
+		
+		if (!errors.hasErrors("company")) {
+			errors.state(request, SpamDetector.spamWeakTerms(entity.getCompany(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.company.form.weakSpam");
+			
+			errors.state(request, SpamDetector.spamStrongTerms(entity.getCompany(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.company.form.weakSpam");
+		}
 	}
 
 	@Override

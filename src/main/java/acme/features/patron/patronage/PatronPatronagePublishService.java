@@ -106,6 +106,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 			errors.state(request, finalPeriod != null && finalPeriod.after(prueba), "finalPeriod", "patron.patronages.form.error.finalPeriod-too-close");
 		}
 	
+		
 	}
 
 	@Override

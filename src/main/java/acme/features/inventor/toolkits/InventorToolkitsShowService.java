@@ -85,7 +85,9 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 		model.setAttribute("toolkitId", entity.getId());
 		if(systemConfiguration != null && systemConfiguration.getCurrency() != null) {
 			if(!artefacts.isEmpty()) {
-				final Double price = artefacts.stream().map(x -> this.exchangeService.exchangeMoney(x.getRetailPrice()).getAmount()).reduce(0.0, (a, b) -> a + b);
+				final Double price = artefacts.stream()
+						.map(x -> this.exchangeService.exchangeMoney(x.getRetailPrice()).getAmount()*this.repository.findQuantityByToolkitAndArtefact(entity.getId(), x.getId()).getNumber())
+						.reduce(0.0, (a, b) -> a + b);
 				final Money money =  new Money();
 				money.setAmount(price);	
 				money.setCurrency(systemConfiguration.getCurrency());
