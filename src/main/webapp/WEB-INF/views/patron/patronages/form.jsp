@@ -39,7 +39,7 @@
 
 
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && !published}">
+		<jstl:when test="${acme:anyOf(command, 'show') && !published}">
 			<acme:button code="patron.patronage.form.button.update" action="/patron/patronages/update?id=${id}"/>
 			<acme:submit code="patron.patronage.form.button.delete" action="/patron/patronages/delete"/>
 			<acme:submit code="patron.patronage.form.button.publish" action="/patron/patronages/publish"/>
