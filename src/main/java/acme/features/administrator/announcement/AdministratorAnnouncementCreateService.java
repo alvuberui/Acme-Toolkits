@@ -82,15 +82,12 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		
 		
 		if (!errors.hasErrors("body")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getBody(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.body.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getBody(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.body.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getBody(),  this.repository.getSystemConfiguration()), "body", "any.form.error.spam");
 		}
 		
+
 		if (!errors.hasErrors("title")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getTitle(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.title.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getTitle(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.title.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getTitle(),  this.repository.getSystemConfiguration()), "title", "any.form.error.spam");
 		}
 	}
 

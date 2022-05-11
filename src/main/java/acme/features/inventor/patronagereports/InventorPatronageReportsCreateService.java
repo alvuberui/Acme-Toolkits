@@ -87,9 +87,7 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	
 		if (!errors.hasErrors("memorandum")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getMemorandum(), this.repository.getSystemConfiguration()), "memorandum", "inventor.patronage-report.error.memorandum.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getMemorandum(), this.repository.getSystemConfiguration()), "memorandum", "inventor.patronage-report.error.memorandum.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getMemorandum(),  this.repository.getSystemConfiguration()), "memorandum", "any.form.error.spam");
 		}
 	}
 

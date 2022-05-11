@@ -95,16 +95,15 @@ public class AuthenticatedProviderCreateService implements AbstractCreateService
 		
 		
 		if (!errors.hasErrors("sector")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getSector(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.sector.title.form.weakSpam");
 			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getSector(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.sector.title.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getSector(), this.repository.getSystemConfiguration()), "sector", "any.form.error.spam");
+
 		}
 		
 		
 		if (!errors.hasErrors("company")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getCompany(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.company.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getCompany(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.company.form.weakSpam");
+		
+			errors.state(request, SpamDetector.error(entity.getCompany(), this.repository.getSystemConfiguration()), "company", "any.form.error.spam");
 		}
 	}
 

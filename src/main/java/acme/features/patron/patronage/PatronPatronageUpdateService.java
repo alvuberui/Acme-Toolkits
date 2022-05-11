@@ -106,10 +106,9 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 	
 		
 		if (!errors.hasErrors("legalStuff")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getLegalStuff(), this.repository.getSystemConfiguration()), "legalStuff", "inventor.patronage-report.error.legalStuff.form.weakSpam");
-
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getLegalStuff(), this.repository.getSystemConfiguration()), "legalStuff", "inventor.patronage-report.error.legalStuff.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getLegalStuff(),  this.repository.getSystemConfiguration()), "legalStuff", "any.form.error.spam");
 		}
+	
 	}
 
 	@Override

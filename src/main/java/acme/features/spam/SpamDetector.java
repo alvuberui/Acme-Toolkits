@@ -15,7 +15,7 @@ public class SpamDetector {
 		  if(j == words.length) {
 			  return 0;
 		  }
-		  if(targetWords[i].equalsIgnoreCase(words[j])) {
+		  if(targetWords[i].trim().equalsIgnoreCase(words[j].trim())) {
 			 return findWordCRecursive(i+1, j+1, targetWords, words);
 		  }
 		 return 1;
@@ -32,7 +32,7 @@ public class SpamDetector {
 
 		  if(targetWords[i].contains(" ") && targetWords[i].split(" ")[0].equalsIgnoreCase(words[j])) {
 			 return findWordCRecursive(1, j+1, targetWords[i].split(" "), words) + findWordsRecursive(i+1, j, targetWords, words);
-		  }else if(targetWords[i].equalsIgnoreCase(words[j])) {
+		  }else if(targetWords[i].trim().equalsIgnoreCase(words[j].trim())) {
 			  return 1 + findWordsRecursive(i+1, j, targetWords, words);
 		  }
 		  return findWordsRecursive(i+1, j, targetWords, words);
@@ -40,19 +40,26 @@ public class SpamDetector {
 	 
 	  
 	  private static boolean spamTerms(final String words, final String terms, Double Threshold) {
-		  final String weakWordsByLenguaje[] = terms.split(",");
-		  final String wordsSplits[] = words.split("[ ,.:;/()]");
-		  int k = findWordsRecursive(0, 0, weakWordsByLenguaje, wordsSplits);
-		  final double porcentageWeakTerms = (k*100)/weakWordsByLenguaje.length;
+		  final String Words[] = terms.split(",");
+		  final String InputwordsSplits[] = words.split("[ ,.:;/()]");
+		  int k = findWordsRecursive(0, 0, Words, InputwordsSplits);
+		  final double porcentageWeakTerms = (k*100)/Words.length;
 		  if(porcentageWeakTerms >= Threshold)
 			  return false;
 		  return true;
 		}
 	  public static boolean spamWeakTerms(final String words, SystemConfiguration systemConfiguration) {
+		 
 		  return spamTerms(words, systemConfiguration.getWeakTerms(), systemConfiguration.getWeakThreshold());
 		}
 	  
 	  public static boolean spamStrongTerms(final String words, SystemConfiguration systemConfiguration) {
+		  System.out.println(words);
 		  return spamTerms(words, systemConfiguration.getStrongTerms(), systemConfiguration.getStrongThreshold());
+		} 
+	  
+	  public static boolean error(final String words, SystemConfiguration systemConfiguration) {
+		  return spamTerms(words, systemConfiguration.getAllStrongTerms(), systemConfiguration.getStrongThreshold()) 
+				  && spamTerms(words, systemConfiguration.getAllStrongTerms(), systemConfiguration.getWeakThreshold());
 		} 
 }

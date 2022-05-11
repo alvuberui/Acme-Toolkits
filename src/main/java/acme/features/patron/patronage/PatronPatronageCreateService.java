@@ -131,12 +131,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			errors.state(request, finalPeriod != null && finalPeriod.after(prueba), "finalPeriod", "patron.patronages.form.error.finalPeriod-too-close");
 		}
 	
-		
+
 		if (!errors.hasErrors("legalStuff")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getLegalStuff(), this.repository.getSystemConfiguration()), "legalStuff", "inventor.patronage-report.error.legalStuff.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getLegalStuff(), this.repository.getSystemConfiguration()), "legalStuff", "inventor.patronage-report.error.legalStuff.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getLegalStuff(),  this.repository.getSystemConfiguration()), "legalStuff", "any.form.error.spam");
 		}
+	
 	}
 
 	@Override

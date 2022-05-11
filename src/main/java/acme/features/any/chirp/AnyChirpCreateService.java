@@ -79,21 +79,14 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		
 		if (!errors.hasErrors("body")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getBody(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.body.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getBody(), this.repository.getSystemConfiguration()), "body", "inventor.patronage-report.error.body.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getBody(),  this.repository.getSystemConfiguration()), "body", "any.form.error.spam");
 		}
 		
 		if (!errors.hasErrors("author")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getAuthor(), this.repository.getSystemConfiguration()), "author", "inventor.patronage-report.error.author.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getAuthor(), this.repository.getSystemConfiguration()), "author", "inventor.patronage-report.error.author.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getAuthor(),  this.repository.getSystemConfiguration()), "author", "any.form.error.spam");
 		}
-		
 		if (!errors.hasErrors("title")) {
-			errors.state(request, SpamDetector.spamWeakTerms(entity.getTitle(), this.repository.getSystemConfiguration()), "title", "inventor.patronage-report.error.title.form.weakSpam");
-			
-			errors.state(request, SpamDetector.spamStrongTerms(entity.getTitle(), this.repository.getSystemConfiguration()), "title", "inventor.patronage-report.error.title.form.weakSpam");
+			errors.state(request, SpamDetector.error(entity.getTitle(),  this.repository.getSystemConfiguration()), "title", "any.form.error.spam");
 		}
 	}
 
