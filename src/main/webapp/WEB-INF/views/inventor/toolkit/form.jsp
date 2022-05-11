@@ -14,7 +14,6 @@
 
 	<jstl:if test="${price!=null}">
 		<acme:input-money code="authenticated.toolkit.form.label.price" path="price"/>
-		<acme:input-money code="inventor.toolkit.form.label.money-exchange" path="moneyExchange"/>		
 	</jstl:if>
 	
 	<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/inventor/artefact/list-artefact-toolkit?masterId=${id}"/>

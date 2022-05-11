@@ -88,13 +88,11 @@ public class InventorToolkitsShowService implements AbstractShowService<Inventor
 				money.setAmount(price);
 				money.setCurrency(systemConfiguration.getCurrency());
 				model.setAttribute("price",money);
-				model.setAttribute("moneyExchange", this.exchangeService.exchangeMoney(money));
 			}else {
 				final Money money =  new Money();
 				money.setAmount(0.0);
 				money.setCurrency(systemConfiguration.getCurrency());
 				model.setAttribute("price",money);
-				model.setAttribute("moneyExchange", this.exchangeService.exchangeMoney(money));
 			}
 		}
 	}
