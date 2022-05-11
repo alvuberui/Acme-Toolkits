@@ -6,6 +6,7 @@
 
 
 
+
 	<jstl:if test="${command == 'show'}">
 		<acme:button code="patron.patronage-reports.form.button.list-reports" action="/patron/patronage-report/list?id=${id}"/>
 	</jstl:if>
@@ -58,5 +59,4 @@
 	<jstl:if test="${command == 'update'}">
 		<acme:submit code="patron.patronage.form.button.update" action="/patron/patronages/update"/>
 	</jstl:if>
-		
 </acme:form>

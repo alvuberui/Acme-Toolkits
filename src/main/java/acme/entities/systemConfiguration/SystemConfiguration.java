@@ -50,7 +50,7 @@ public class SystemConfiguration extends AbstractEntity{
 		final String[] lenguages = terms.split(";");
 		for (int i = 0; i < lenguages.length; i++) {
 			final String[] parseLenguage = lenguages[i].split(":");
-			final String parseTerms = parseLenguage[1].replace(",", " ");
+			final String parseTerms = parseLenguage[1];
 			final String selectedLenguage = parseLenguage[0];
 			m.put(selectedLenguage, parseTerms);
 		}
