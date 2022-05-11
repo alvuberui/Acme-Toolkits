@@ -34,7 +34,7 @@ public class AdministratorSystemConfigurationUpdateService implements AbstractUp
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "currency", "currencies", "language","weakTermsSpanish","weakTermsEnglish", "strongTermsEnglish","strongTermsSpanish","weakThreshold","strongThreshold");
+		request.bind(entity, errors, "currency", "currencies", "languageSystem","weakTermsSpanish","weakTermsEnglish", "strongTermsEnglish","strongTermsSpanish","weakThreshold","strongThreshold");
 		
 	}
 
@@ -46,7 +46,7 @@ public class AdministratorSystemConfigurationUpdateService implements AbstractUp
 		
 		
 
-		request.unbind(entity, model, "currency", "currencies", "language","weakTermsSpanish","weakTermsEnglish", "strongTermsEnglish","strongTermsSpanish","weakThreshold","strongThreshold");
+		request.unbind(entity, model, "currency", "currencies", "languageSystem","weakTermsSpanish","weakTermsEnglish", "strongTermsEnglish","strongTermsSpanish","weakThreshold","strongThreshold");
 		
 	}
 
