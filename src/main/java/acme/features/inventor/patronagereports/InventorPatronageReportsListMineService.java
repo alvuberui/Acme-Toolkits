@@ -31,10 +31,7 @@ public class InventorPatronageReportsListMineService implements AbstractListServ
 		principal = request.getPrincipal();
 		final Inventor inventor = this.repository.findInventorByPatronageId(patronageId);
 		
-		result = principal.getActiveRoleId()==inventor.getId();
-			
-			
-		
+		result = principal.getActiveRoleId()==inventor.getId();		
 		return result;
 	}
 
@@ -63,6 +60,7 @@ public class InventorPatronageReportsListMineService implements AbstractListServ
 		assert model != null;
 		
 		request.unbind(entity, model, "creationMoment", "memorandum", "link");
+		model.setAttribute("patronageId", request.getModel().getInteger("id"));
 		
 	}
 
