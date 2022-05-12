@@ -8,6 +8,7 @@
 	<acme:list-column code="patron.patronages.list.label.status" path="status" width="20%" />
 	<acme:list-column code="patron.patronages.list.label.legalStuff" path="legalStuff" width="20%" />
 	<acme:list-column code="patron.patronages.list.label.budget" path="budget" width="20%" />
+	<acme:list-column code="patron.patronages.list.label.published" path="published" width="20%" />
 	<acme:list-column code="patron.patronages.list.label.username" path="inventor.username" width="20%" />
 </acme:list>
 

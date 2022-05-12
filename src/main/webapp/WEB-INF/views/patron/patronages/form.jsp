@@ -21,6 +21,9 @@
 			<acme:input-moment readonly="${true}" code="patron.patronage.form.label.initPeriod" path="initPeriod"/>
 			<acme:input-moment readonly="${true}" code="patron.patronage.form.label.finalPeriod" path="finalPeriod"/>
 			<acme:input-money readonly="${true}" code="patron.patronage.form.label.budget" path="budget"/>
+			
+			<acme:input-money  readonly="${true}" code="patron.patronage.form.label.money-exchange" path="moneyExchange"/>
+				
 			<acme:input-textbox readonly="${true}" code="patron.patronage.form.label.legalStuff" path="legalStuff"/>
 			<acme:input-textbox readonly="${true}" code="patron.patronage.form.label.link" path="link"/>
 		</jstl:if>	

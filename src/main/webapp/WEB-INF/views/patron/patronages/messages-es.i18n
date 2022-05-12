@@ -17,7 +17,7 @@ patron.patronages.list.label.status = Estado
 patron.patronages.list.label.legalStuff = Cosas Legales
 patron.patronages.list.label.budget = Presupuesto
 patron.patronages.list.label.username = Inventor 
-
+patron.patronages.list.label.published = Publicado
 
 patron.patronage.form.button.update = Actualizar Patrocinio
 patron.patronage.form.button.create = Crear Patrocinio

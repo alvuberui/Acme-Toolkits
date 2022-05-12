@@ -48,7 +48,9 @@ public class PatronPranonageListService implements AbstractListService<Patron, P
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model,"status", "code", "legalStuff", "budget", "inventor.username");
+		request.unbind(entity, model,"status", "code", "legalStuff", "budget", "published");
+		final String inventor = entity.getInventor().getUserAccount().getUsername();
+        model.setAttribute("inventor.username", inventor);
 	}
 
 }
