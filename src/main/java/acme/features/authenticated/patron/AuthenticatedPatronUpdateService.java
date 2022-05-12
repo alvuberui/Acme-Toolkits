@@ -3,6 +3,7 @@ package acme.features.authenticated.patron;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
@@ -32,6 +33,18 @@ public class AuthenticatedPatronUpdateService implements AbstractUpdateService<A
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		if (!errors.hasErrors("statement")) {
+			
+			errors.state(request, SpamDetector.error(entity.getStatement(), this.repository.getSystemConfiguration()), "statement", "any.form.error.spam");
+
+		}
+		
+		
+		if (!errors.hasErrors("company")) {
+			
+			errors.state(request, SpamDetector.error(entity.getCompany(), this.repository.getSystemConfiguration()), "company", "any.form.error.spam");
+		}
 	}
 	
 	@Override

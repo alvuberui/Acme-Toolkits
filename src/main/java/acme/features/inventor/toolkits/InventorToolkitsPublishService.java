@@ -48,7 +48,6 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 		assert errors != null;
 		
 		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "link", "published");
-		
 	}
 
 	@Override
@@ -78,6 +77,12 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Collection<Artefact> artefacts;
+		artefacts = this.repository.artefactByToolkitId(entity.getId());
+		
+		Boolean allPublished = artefacts.stream().allMatch(Artefact::isPublished);
+		
+		errors.state(request, allPublished, "publish-error", "code");
 		
 	}
 

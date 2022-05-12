@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -69,6 +70,21 @@ public class InventorArtefactCreateService implements AbstractCreateService<Inve
 		if (!errors.hasErrors("retailPrice")) {
 			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.artefact.form.error.negative-salary");
 		}
+	
+
+		if (!errors.hasErrors("name")) {
+			errors.state(request, SpamDetector.error(entity.getName(),  this.repository.getSystemConfiguration()), "name", "any.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, SpamDetector.error(entity.getDescription(),  this.repository.getSystemConfiguration()), "description", "any.form.error.spam");
+		}
+		if (!errors.hasErrors("technology")) {
+			errors.state(request, SpamDetector.error(entity.getTechnology(),  this.repository.getSystemConfiguration()), "technology", "any.form.error.spam");
+		}
+	
+	
+		
+		
 	}
 
 	@Override

@@ -15,6 +15,7 @@ package acme.features.authenticated.consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
@@ -54,6 +55,16 @@ public class AuthenticatedConsumerCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		
+		if (!errors.hasErrors("sector")) {
+			errors.state(request, SpamDetector.error(entity.getSector(),  this.repository.getSystemConfiguration()), "sector", "any.form.error.spam");
+		}
+		
+		
+		if (!errors.hasErrors("company")) {
+			errors.state(request, SpamDetector.error(entity.getCompany(),  this.repository.getSystemConfiguration()), "company", "any.form.error.spam");
+		}
 	}
 
 	@Override

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.patonages.PatronageStatus;
 import acme.entities.patonages.Patronages;
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -128,6 +129,11 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			prueba = monthDate.getTime();
 			
 			errors.state(request, finalPeriod != null && finalPeriod.after(prueba), "finalPeriod", "patron.patronages.form.error.finalPeriod-too-close");
+		}
+	
+
+		if (!errors.hasErrors("legalStuff")) {
+			errors.state(request, SpamDetector.error(entity.getLegalStuff(),  this.repository.getSystemConfiguration()), "legalStuff", "any.form.error.spam");
 		}
 	
 	}

@@ -1,6 +1,9 @@
 package acme.entities.systemConfiguration;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
@@ -66,21 +69,21 @@ public class SystemConfiguration extends AbstractEntity{
 	}
 	
 	public String getAllStrongTerms() {
-		HashMap<String, String> m = this.getMapLenguajes(this.strongTerms);
-		String r = null;
-		for(String s : m.keySet()) {
-			r += m.get(s);
-		}
-		return r;
+		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
+		List<String> l = new ArrayList<>();
+		for (Map.Entry<String,String> entry : m.entrySet()) {
+		    l.add(entry.getValue().trim());
+		  }
+		return l.toString();
 	}
 	
 	public String getAllWeakTerms() {
 		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
-		String r = null;
-		for(String s : m.keySet()) {
-			r += m.get(s);
-		}
-		return r;
+		List<String> l = new ArrayList<>();
+		for (Map.Entry<String,String> entry : m.entrySet()) {
+		    l.add(entry.getValue());
+		  }
+		return l.toString();
 	}
 	
 	public String getStrongTermsSpanish() {

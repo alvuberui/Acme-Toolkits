@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.patonages.Patronages;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
 import acme.roles.Patron;
@@ -34,4 +35,8 @@ public interface PatronPatronageRepository extends AbstractRepository{
 	
 	@Query("Select i from Inventor i")
 	Collection<Inventor> findAllInventors();
+	
+	
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration getSystemConfiguration();
 }

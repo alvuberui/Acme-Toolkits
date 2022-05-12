@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.chirp.Chirp;
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -77,7 +78,16 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp> 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		
+		if (!errors.hasErrors("body")) {
+			errors.state(request, SpamDetector.error(entity.getBody(),  this.repository.getSystemConfiguration()), "body", "any.form.error.spam");
+		}
 		
+		if (!errors.hasErrors("author")) {
+			errors.state(request, SpamDetector.error(entity.getAuthor(),  this.repository.getSystemConfiguration()), "author", "any.form.error.spam");
+		}
+		if (!errors.hasErrors("title")) {
+			errors.state(request, SpamDetector.error(entity.getTitle(),  this.repository.getSystemConfiguration()), "title", "any.form.error.spam");
+		}
 	}
 
 	@Override

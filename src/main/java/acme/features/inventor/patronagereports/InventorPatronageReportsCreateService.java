@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.patonages.Patronages;
 import acme.entities.patronageReport.PatronageReport;
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -18,6 +19,7 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 
 	@Autowired
 	protected InventorPatronageReportsRepository repository;
+
 
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -83,7 +85,10 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
-		
+	
+		if (!errors.hasErrors("memorandum")) {
+			errors.state(request, SpamDetector.error(entity.getMemorandum(),  this.repository.getSystemConfiguration()), "memorandum", "any.form.error.spam");
+		}
 	}
 
 	@Override
@@ -96,7 +101,6 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		creationMoment = new Date(System.currentTimeMillis() -1);
 		entity.setCreationMoment(creationMoment);
 		this.repository.save(entity);
-		
 	}
 	
 	

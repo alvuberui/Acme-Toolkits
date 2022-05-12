@@ -3,6 +3,7 @@ package acme.features.authenticated.patron;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Patron;
@@ -15,4 +16,7 @@ public interface AuthenticatedPatronRepository extends AbstractRepository{
 	
 	@Query("select p from Patron p where p.userAccount.id = :id")
 	Patron findOnePatronByUserAccountId(int id);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration getSystemConfiguration();
 }
