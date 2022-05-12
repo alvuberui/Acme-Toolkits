@@ -3,6 +3,7 @@ package acme.features.inventor.artefact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.artefact.Artefact;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -14,7 +15,10 @@ import acme.roles.Inventor;
 public class InventorArtefactShowService implements AbstractShowService<Inventor, Artefact>{
 	
 	// Internal state ---------------------------------------------------------
-
+	
+		@Autowired
+		protected ExchangeService exchangeService ;
+		
 		@Autowired
 		protected InventorArtefactRepository repository;
 			
@@ -60,6 +64,6 @@ public class InventorArtefactShowService implements AbstractShowService<Inventor
 
 			request.unbind(entity, model, "type", "name", "code", "technology",
 				"description","retailPrice", "moreInfo", "published");
-			
+			model.setAttribute("moneyExchange", this.exchangeService.exchangeMoney(entity.getRetailPrice()));
 		}
 }
