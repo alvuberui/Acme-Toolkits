@@ -54,7 +54,7 @@ public class InventorToolkitsDeleteArtefactService implements AbstractUpdateServ
 		assert errors != null;
 		
 		request.bind(entity, errors, "code", "title");
-		
+	
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class InventorToolkitsDeleteArtefactService implements AbstractUpdateServ
 		
 		Collection<Artefact> artefacts;
 		Collection<Artefact> artefactsOfToolkit;
-		artefacts = this.repository.findArtefactsFromInventor(request.getPrincipal().getActiveRoleId());
+		artefacts = this.repository.findArtefactsPublished();
 		
 		artefactsOfToolkit = this.repository.findComponentsAndToolsByToolkitId(entity.getId());
 		
@@ -112,11 +112,7 @@ public class InventorToolkitsDeleteArtefactService implements AbstractUpdateServ
 		quantity = this.repository.findQuantityByToolkitAndArtefact(entity.getId(), artefactId);
 		
 		if(quantity.getNumber()  - number <= 0) {
-			System.out.println(quantity);
 			this.repository.delete(quantity);
-			if(this.repository.findQuantityByToolkit(entity.getId()).isEmpty()) {
-				this.repository.delete(entity);
-			}
 		}else {
 			quantity.setNumber(quantity.getNumber()  - number);
 			this.repository.save(quantity);

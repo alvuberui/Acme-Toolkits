@@ -22,21 +22,16 @@ public class InventorToolkitsUpdateService implements AbstractUpdateService<Inve
 	public boolean authorise(Request<Toolkit> request) {
 		assert request != null;
 		
-		
 		Toolkit result;
 		int id;
 		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findToolkitById(id);
 		
-		
-		
 		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
 		
 		
 		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
-	
-		
 		return !result.isPublished() && isMine;
 	}
 
@@ -46,7 +41,7 @@ public class InventorToolkitsUpdateService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "link", "published");
+		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "link");
 		
 	}
 
@@ -56,7 +51,7 @@ public class InventorToolkitsUpdateService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "published");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 	}
 
 	@Override
@@ -84,7 +79,6 @@ public class InventorToolkitsUpdateService implements AbstractUpdateService<Inve
 	public void update(Request<Toolkit> request, Toolkit entity) {
 		assert request != null;
 		assert entity != null;
-		
 	
 		
 		this.repository.save(entity);
