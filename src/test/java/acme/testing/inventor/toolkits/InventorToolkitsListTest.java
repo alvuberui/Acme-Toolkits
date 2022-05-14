@@ -10,7 +10,7 @@ public class InventorToolkitsListTest extends TestHarness{
 
 	// Test cases -----------------------------
 	
-	@ParameterizedTest
+	/*@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/Toolkits/list-toolkits.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveToolkitInventorTest(final int recordIndex, final String code, final String title, final String description, final String assemblyNotes, final String link,final String published) {
@@ -36,12 +36,12 @@ public class InventorToolkitsListTest extends TestHarness{
 		super.checkInputBoxHasValue("published", published);
 		
 		super.signOut();
-	}
+	}*/
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/Toolkits/artefacts-list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void positiveToolInventorTest(final int recordIndex, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
+	public void positiveToolInventorTest(final int recordIndex, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo, final String published) {
 		super.signIn("inventor1", "inventor1");
 		
 		super.clickOnMenu("Inventor", "My toolkit");
@@ -54,8 +54,8 @@ public class InventorToolkitsListTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
 		super.checkColumnHasValue(recordIndex, 3, techonology);
-		super.checkColumnHasValue(recordIndex, 4, description);
-		super.checkColumnHasValue(recordIndex, 5, retailPrice);
+		super.checkColumnHasValue(recordIndex, 4, retailPrice);
+		super.checkColumnHasValue(recordIndex, 5, published);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -65,7 +65,7 @@ public class InventorToolkitsListTest extends TestHarness{
 		super.checkInputBoxHasValue("technology", techonology);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
-		
+		super.checkInputBoxHasValue("moreInfo",moreInfo);
 		super.signOut();
 	}
 	
