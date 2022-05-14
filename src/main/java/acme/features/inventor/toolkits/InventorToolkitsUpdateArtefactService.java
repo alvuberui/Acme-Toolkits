@@ -21,7 +21,7 @@ import acme.roles.Inventor;
 
 
 @Service
-public class InventorToolkitsAddArtefactService implements AbstractUpdateService<Inventor, Toolkit>{
+public class InventorToolkitsUpdateArtefactService implements AbstractUpdateService<Inventor, Toolkit>{
 
 	@Autowired
 	protected InventorToolkitsRepository repository;
@@ -102,23 +102,22 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		artefactId = request.getModel().getInteger("artefactId");
 		artefact = this.repository.findArtefactById(artefactId);
-		System.out.println("a");
 		quantity = this.repository.findQuantityByToolkitAndArtefact(entity.getId(), artefactId);
 		
-		System.out.println("a");
 		if(quantity == null) {
 			quantity = new Quantity();
 			quantity.setArtefact(artefact);
 			quantity.setToolkit(entity);
 		}
 		
-	
-		
 		number = request.getModel().getInteger("quantity");
+		if(number == 0) {
+			this.repository.delete(quantity);
+		}else {
+		
 		quantity.setNumber(number);
-
-		this.repository.save(entity);	
 		this.repository.save(quantity);
+		}
 	}
 }
 

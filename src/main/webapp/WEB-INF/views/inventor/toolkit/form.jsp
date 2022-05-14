@@ -9,7 +9,7 @@
 <acme:form >
 
 	
-	<jstl:if test="${acme:anyOf(command, 'create')}">
+	<jstl:if test="${acme:anyOf(command, 'create, update')}">
 		<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>	
 		<acme:input-textbox code="inventor.toolkit.form.label.title" path="title"/>
 		<acme:input-textbox code="inventor.toolkit.form.label.description" path="description"/>	
@@ -28,15 +28,14 @@
 		</jstl:if>
 		<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/inventor/artefact/list-artefact-toolkit?masterId=${toolkitId}"/>
 		<jstl:if  test="${!published}">
-			<acme:button code="inventor.toolkit.form.button.add-artefact" action="/inventor/toolkit/add-artefact?id=${toolkitId}"/>
-			<acme:button code="inventor.toolkit.form.button.delete-artefact" action="/inventor/toolkit/delete-artefact?id=${toolkitId}"/>
+			<acme:button code="inventor.toolkit.form.button.update-artefact" action="/inventor/toolkit/update-artefact?id=${toolkitId}"/>
 		
 			<acme:button code="inventor.toolkit.form.button.update" action="/inventor/toolkit/update?id=${toolkitId}"/>
 			<acme:submit code="inventor.toolkit.form.submit.delete" action="/inventor/toolkit/delete"/>
 			<acme:submit code="inventor.toolkit.form.submit.publish" action="/inventor/toolkit/publish"/>
 		</jstl:if>
 	</jstl:if>
-	<jstl:if test="${acme:anyOf(command, 'delete-artefact, add-artefact')}">
+	<jstl:if test="${acme:anyOf(command, 'update-artefact')}">
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.code" path="code"/>	
 		<acme:input-textbox readonly="true"  code="inventor.toolkit.form.label.title" path="title"/>
 		<acme:input-integer code="inventor.toolkit.form.label.quantity" path="quantity"/>
@@ -49,11 +48,8 @@
 			</jstl:forEach>
 		</acme:input-select>
 	</jstl:if>
-	<jstl:if test="${command == 'add-artefact' && artefacts.size() > 0}">	
-		<acme:submit code="inventor.toolkit.form.submit.add" action="/inventor/toolkit/add-artefact"/>
-	</jstl:if>
-	<jstl:if test="${command == 'delete-artefact' && artefacts.size() > 0}">
-		<acme:submit code="inventor.toolkit.form.submit.delete" action="/inventor/toolkit/delete-artefact"/>
+	<jstl:if test="${command == 'update-artefact' && artefacts.size() > 0}">	
+		<acme:submit code="inventor.toolkit.form.submit.update" action="/inventor/toolkit/update-artefact"/>
 	</jstl:if>
 	<jstl:if test="${command == 'create'}">
 		<acme:submit code="inventor.toolkit.form.submit.create" action="/inventor/toolkit/create"/>

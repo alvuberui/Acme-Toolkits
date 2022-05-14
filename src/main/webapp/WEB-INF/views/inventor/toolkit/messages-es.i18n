@@ -22,14 +22,13 @@ inventor.toolkit.form.button.toolkits-artefact = Artefactos
 
 
 inventor.toolkit.form.button.update = Actualizar
-inventor.toolkit.form.button.add-artefact = Añadir artefact
-inventor.toolkit.form.button.delete-artefact = Eliminar artefacto
+inventor.toolkit.form.button.update-artefact = Update artefacts
+
 inventor.toolkit.form.button.create.toolkit = Crear toolkit
 inventor.toolkit.form.label.quantity = Cantidad
 inventor.toolkit.form.label.new.artefact = Seleccion un artefacto
 
 inventor.toolkit.form.empty.list = No hay ningun artefacto para este kit de herramientas
-inventor.toolkit.form.submit.add = Añadir
 inventor.toolkit.form.submit.create= Crear
 inventor.toolkit.form.submit.update = Actualizar
 inventor.toolkit.form.submit.delete = Eliminar

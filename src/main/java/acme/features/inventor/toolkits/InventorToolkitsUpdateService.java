@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.toolkit.Toolkit;
+import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -72,7 +73,21 @@ public class InventorToolkitsUpdateService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
+		if(!errors.hasErrors("code")) {
+			boolean isDuplicatedCode;
+			isDuplicatedCode = this.repository.findAllToolkits().stream().noneMatch(x-> x.getCode().equals(entity.getCode()) && x.getId() != entity.getId());
+			errors.state(request, isDuplicatedCode , "code", "inventor.toolkit.form.label.code.duplicate.error");
+		}
+		if (!errors.hasErrors("title")) {
+			errors.state(request, SpamDetector.error(entity.getTitle(),  this.repository.getSystemConfiguration()), "title", "any.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, SpamDetector.error(entity.getDescription(),  this.repository.getSystemConfiguration()), "description", "any.form.error.spam");
+		}
+		if (!errors.hasErrors("assemblyNotes")) {
+			errors.state(request, SpamDetector.error(entity.getAssemblyNotes(),  this.repository.getSystemConfiguration()), "assemblyNotes", "any.form.error.spam");
+		}
 	}
 
 	@Override
