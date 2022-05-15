@@ -24,21 +24,12 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 		assert request != null;
 		
 		
-		Toolkit result;
-		int id;
-		
-		id = request.getModel().getInteger("id");
-		result = this.repository.findToolkitById(id);
-		
-		
 		
 		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
-		
-		
 		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
 	
 		
-		return !result.isPublished() && isMine;
+		return isMine;
 	}
 
 	@Override
@@ -57,6 +48,8 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 		assert model != null;
 		
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "published");
+		
+		
 	}
 
 	@Override
@@ -77,35 +70,21 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		Collection<Artefact> artefacts;
-		artefacts = this.repository.artefactByToolkitId(entity.getId());
 		
-		Boolean allPublished = artefacts.stream().allMatch(Artefact::isPublished);
+		Collection<Artefact> tools = this.repository.findToolsByToolkit(entity.getId());
 		
-		errors.state(request, allPublished, "publish-error", "code");
-		
+		if(tools == null || tools.isEmpty()){
+			errors.state(request, tools != null && !tools.isEmpty() , "*", "inventor.toolkit.published.error.artefacts");
+		}
 	}
 
 	@Override
 	public void update(Request<Toolkit> request, Toolkit entity) {
 		assert request != null;
 		assert entity != null;
-		
-		
-		Collection<Artefact> artefacts;
+	
 		
 		entity.setPublished(true);
-		
-		artefacts = this.repository.artefactByToolkitId(entity.getId());
-		
-		
-		for(Artefact a : artefacts) {
-			if(!a.isPublished()) {
-				a.setPublished(true);
-				this.repository.save(a);
-			}
-		}
-		
 		this.repository.save(entity);
 	}
 	

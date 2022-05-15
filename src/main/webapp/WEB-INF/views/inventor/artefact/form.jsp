@@ -31,6 +31,6 @@
 			<acme:submit code="inventor.artefact.form.button.create" action="/inventor/artefact/create"/>
 		</jstl:when>		
 	</jstl:choose>
-	
+
 </acme:form>
 

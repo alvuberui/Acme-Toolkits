@@ -5,7 +5,7 @@ inventor.artefact.list.label.technology = Technology
 inventor.artefact.list.label.retail-price = Retail price
 inventor.artefact.list.label.published = Published
 inventor.artefact.list.button.create = Create
-
+inventor.artefact.list.label.quantity = Quantity
 
 inventor.artefact.form.label.type = Type
 inventor.artefact.form.label.name = Name

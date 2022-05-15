@@ -21,7 +21,7 @@ import acme.roles.Inventor;
 
 
 @Service
-public class InventorToolkitsAddArtefactService implements AbstractUpdateService<Inventor, Toolkit>{
+public class InventorToolkitsUpdateArtefactService implements AbstractUpdateService<Inventor, Toolkit>{
 
 	@Autowired
 	protected InventorToolkitsRepository repository;
@@ -40,8 +40,6 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		
 		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
-		
-		
 		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
 		return !result.isPublished() && isMine;
 	}
@@ -64,15 +62,11 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		
 		Collection<Artefact> artefacts;
-		Collection<Artefact> artefactsOfToolkit;
-		artefacts = this.repository.findArtefactsFromInventor(request.getPrincipal().getActiveRoleId());
+		artefacts = this.repository.findArtefactsPublished();
 		
-		artefactsOfToolkit = this.repository.findComponentsAndToolsByToolkitId(entity.getId());
-		
-	
 		request.unbind(entity, model, "code", "title");
 		model.setAttribute("quantity", 1);
-		model.setAttribute("artefacts", artefacts.stream().filter(x-> !artefactsOfToolkit.contains(x)).collect(Collectors.toList()));
+		model.setAttribute("artefacts", artefacts);
 	}
 
 	@Override
@@ -84,7 +78,7 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findToolkitById(id);
-		
+		System.out.println("a");
 		return result;
 	}
 
@@ -108,18 +102,22 @@ public class InventorToolkitsAddArtefactService implements AbstractUpdateService
 		
 		artefactId = request.getModel().getInteger("artefactId");
 		artefact = this.repository.findArtefactById(artefactId);
+		quantity = this.repository.findQuantityByToolkitAndArtefact(entity.getId(), artefactId);
 		
-		quantity = new Quantity();
-		quantity.setArtefact(artefact);
+		if(quantity == null) {
+			quantity = new Quantity();
+			quantity.setArtefact(artefact);
+			quantity.setToolkit(entity);
+		}
 		
 		number = request.getModel().getInteger("quantity");
+		if(number == 0) {
+			this.repository.delete(quantity);
+		}else {
 		
 		quantity.setNumber(number);
-
-		this.repository.save(entity);
-		quantity.setToolkit(entity);
 		this.repository.save(quantity);
-		
+		}
 	}
 }
 
