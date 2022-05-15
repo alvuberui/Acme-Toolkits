@@ -56,7 +56,11 @@ public interface InventorToolkitsRepository extends AbstractRepository{
 	Quantity findQuantityByToolkitAndArtefact(int toolkitId, int artefactId);
 	
 	@Query("select a from Toolkit t, Quantity q, Artefact a where t.id = :toolkitId and q.toolkit = t and q.artefact = a")
-	Collection<Artefact> findArtefactsByToolkitAndArtefact(int toolkitId);
+	Collection<Artefact> findArtefactsByToolkit(int toolkitId);
+	
+	
+	@Query("select a from Toolkit t, Quantity q, Artefact a where t.id = :toolkitId and q.toolkit = t and q.artefact = a  and a.type = acme.entities.artefact.ArtefactType.TOOL")
+	Collection<Artefact> findToolsByToolkit(int toolkitId);
 	
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration getSystemConfiguration();
