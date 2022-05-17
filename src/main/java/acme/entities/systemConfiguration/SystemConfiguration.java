@@ -68,21 +68,29 @@ public class SystemConfiguration extends AbstractEntity{
 		return this.getMapLenguajes(this.strongTerms).get(this.languageSystem.trim());
 	}
 	
+
+
 	private String getAllTerms(String terms) {
 		HashMap<String, String> m = this.getMapLenguajes(terms);
 		List<String> l = new ArrayList<>();
 		for (Map.Entry<String,String> entry : m.entrySet()) {
+
 		    l.add(entry.getValue().trim());
 		  }
 		return l.toString();
 	}
 	
+
+	
+	
+
 	public String getAllStrongTerms() {
 		return getAllTerms(this.strongTerms);
 	}
 	
 	public String getAllWeakTerms() {
 		return getAllTerms(this.weakTerms);
+
 	}
 	
 	
