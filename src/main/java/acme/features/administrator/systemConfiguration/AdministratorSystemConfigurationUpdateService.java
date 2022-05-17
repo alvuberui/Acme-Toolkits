@@ -1,5 +1,8 @@
 package acme.features.administrator.systemConfiguration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,7 +69,24 @@ public class AdministratorSystemConfigurationUpdateService implements AbstractUp
 		assert entity != null;
 		assert errors != null;
 		
+		
+		final List<String> l = new ArrayList<>();
+		
+		final String[] currencies = entity.getCurrencies().split(" ");
+		for(int i = 0; i < currencies.length; i++) {
+			final String cur = currencies[i];
+			l.add(cur.trim());
+		}
+		
+		if(!errors.hasErrors("currency")){
+			errors.state(request, l.contains(entity.getCurrency().trim()) , "currency", "administrator.system-configuration.error.currencies");
+			
+		}
+			
+	
+	
 	}
+	
 
 	@Override
 	public void update(final Request<SystemConfiguration> request, final SystemConfiguration entity) {

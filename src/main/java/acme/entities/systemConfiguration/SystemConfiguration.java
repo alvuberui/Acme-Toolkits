@@ -69,18 +69,20 @@ public class SystemConfiguration extends AbstractEntity{
 	}
 	
 	public String getAllStrongTerms() {
-		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
-		List<String> l = new ArrayList<>();
-		for (Map.Entry<String,String> entry : m.entrySet()) {
+		final HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
+		final List<String> l = new ArrayList<>();
+		for (final Map.Entry<String,String> entry : m.entrySet()) {
 		    l.add(entry.getValue().trim());
 		  }
 		return l.toString();
 	}
 	
+	
+	
 	public String getAllWeakTerms() {
-		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
-		List<String> l = new ArrayList<>();
-		for (Map.Entry<String,String> entry : m.entrySet()) {
+		final HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
+		final List<String> l = new ArrayList<>();
+		for (final Map.Entry<String,String> entry : m.entrySet()) {
 		    l.add(entry.getValue());
 		  }
 		return l.toString();
