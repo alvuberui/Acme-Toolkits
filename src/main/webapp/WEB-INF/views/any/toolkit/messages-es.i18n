@@ -1,9 +1,9 @@
 any.toolkit.list.label.code = Codigo
-any.toolkit.list.label.title = Titulo
+any.toolkit.list.label.title = Título
 any.toolkit.list.label.description = Descripcion
 any.toolkit.list.label.assemblyNotes = Notas
 any.toolkit.list.label.link = Link
-any.toolkit.label.search = Filtrar por herramienta o componente
+any.toolkit.label.search = Filtrar por herramienta o componente (Por el nombre)
 any.toolkit.list.search.button = Filtrar
 
 any.toolkit.form.label.code = Codigo
