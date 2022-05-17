@@ -58,7 +58,6 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		System.out.println(	errors.getErroneousAttributes());
 		
 		if(!errors.hasErrors("code")) {
 			Patronages exists;

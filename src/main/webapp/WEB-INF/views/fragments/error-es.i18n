@@ -1,2 +1,3 @@
-any.form.error.spam = Error de spam
 administrator.system-configuration.error.currencies = Moneda no aceptada
+any.form.error.spam = Error. Contiene palabras de spam
+

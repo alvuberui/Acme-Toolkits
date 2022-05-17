@@ -40,16 +40,12 @@ public class ExchangeService {
 		
 		if(exchangeRate == null || !Objects.equals(exchangeRate.getBase(), systemConfiguration.getCurrency())) {
 			exchangeRate = computeMoneyExchange(systemConfiguration.getCurrency(), money.getCurrency(), systemConfiguration.getCurrencies());
-			System.out.println("if");
 			if(exchangeRate != null) {
-				System.out.println("if2");
 				result.setAmount(money.getAmount()*exchangeRate.getRate());
 				result.setCurrency(systemConfiguration.getCurrency());
 			}
 		}else {
-			System.out.println("else");
 			result.setAmount(money.getAmount()*exchangeRate.getRate());
-			System.out.println("else");
 			result.setCurrency(systemConfiguration.getCurrency());
 		}
 		
@@ -78,12 +74,8 @@ public class ExchangeService {
 			);
 			if(record != null) {
 				for(String c : currencies.split(" ")) {
-					System.out.println(currencies.split(" "));
 					if(!Objects.equals(c.trim(), source)) {
 						ExchangeRate r = new ExchangeRate();
-						System.out.println(source);
-						System.out.println(c.trim());
-						System.out.println(record.getRates());
 						r.setBase(record.getBase());
 						r.setRate(record.getRates().get(c.trim()));
 						r.setDate(record.getDate());
