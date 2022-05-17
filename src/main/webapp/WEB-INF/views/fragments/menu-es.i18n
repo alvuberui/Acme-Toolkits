@@ -48,7 +48,7 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 master.menu.inventor = Inventor
 master.menu.inventor.artefacts.list = Lista de Artefactos
-master.menu.inventor.my-toolkits = Mis herramientas
+master.menu.inventor.my-toolkits = Mis kits herramientas
 master.menu.inventor.patronages.list = Lista de patrocinios
 master.menu.inventor.artefact.list = Artefactos propios
 master.menu.inventor.patronages.list = Mis patrocinios
@@ -92,7 +92,7 @@ master.menu.authenticated.artefacts.list = Lista de artefactos
 
 # master.menu.user-account ####################################################
 master.menu.user-account.components.list = Lista de componentes
-master.menu.user-account.toolkits.list = Lista de herramientas
+master.menu.user-account.toolkits.list = Lista de kits de herramientas
 master.menu.user-account.announcements.list = Lista de anuncios
 
 master.menu.user-account = Cuenta
