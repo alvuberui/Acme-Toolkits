@@ -5,9 +5,11 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:button code="inventor.patronage-reports.form.button.list-mine-reports" action="/inventor/patronage-report/list-mine-reports?id=${id}"/>
 
+	<jstl:if test="${status == 'ACCEPTED'}">
+	<acme:button code="inventor.patronage-reports.form.button.list-mine-reports" action="/inventor/patronage-report/list-mine-reports?id=${id}"/>
 	<acme:button code="inventor.patronage-reports.list.button.create.patronage-report" action="/inventor/patronage-report/create?id=${id}"/>
+	</jstl:if>
 	
 	<jstl:if test="${acme:anyOf(command, 'show, update, delete, publish')}">
 	<acme:input-textbox readonly="true" code="inventor.patronages.form.label.status" path="status"/>

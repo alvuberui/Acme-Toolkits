@@ -22,9 +22,10 @@ inventor.patronages.patron.form.label.link = Link
 inventor.patronages.patron.form.label.statement = Statement
 
 inventor.patronage-reports.form.button.list-mine-reports = Patronage Reports
+inventor.patronage-reports.list.button.create.patronage-report = Create Patronage Report
 
 
-inventor.patronage.form.label.money-exchange = System money
+inventor.patronage.form.label.money-exchange = System price
 
 inventor.patronages.form.button.accept = Accept
 inventor.patronages.form.button.denied = Denied
