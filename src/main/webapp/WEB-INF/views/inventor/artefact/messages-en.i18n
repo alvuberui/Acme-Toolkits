@@ -27,7 +27,7 @@ inventor.artefact.list.button.tool = Tools
 
 inventor.artefact.form.button.create.toolkit = Create toolkit by this artefact
 
-inventor.artefact.form.label.money-exchange = System money
+inventor.artefact.form.label.money-exchange = System price
 
 inventor.artefact.error.duplicated = Code duplicated
 inventor.artefact.form.error.negative-salary = Not negative amount is posible
