@@ -22,7 +22,7 @@ inventor.patronages.patron.form.label.link = Link
 inventor.patronages.patron.form.label.statement = Statement
 
 inventor.patronage-reports.form.button.list-mine-reports = Reportes de Patrocinios
-
+inventor.patronage-reports.list.button.create.patronage-report = Crear Reporte de Patrocinio
 
 
 inventor.patronage.form.label.money-exchange = Moneda del sistema

@@ -32,7 +32,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert entity != null;
 		assert errors != null;
 		request.bind(entity, errors, "code", "legalStuff", 
-			"budget", "initPeriod", "finalPeriod", "link", "username", "company");
+			"budget", "initPeriod", "finalPeriod", "link", "patronUsername", "patronCompany","patronLink","patronStatement");
 		
 	}
 
@@ -42,7 +42,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "code", "legalStuff", 
-			"budget", "initPeriod", "finalPeriod", "link", "username", "company");
+			"budget", "initPeriod", "finalPeriod", "link", "patronUsername", "patronCompany","patronLink","patronStatement");
 		
 	}
 
