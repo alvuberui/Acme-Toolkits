@@ -18,6 +18,8 @@ inventor.patronages.form.label.link = link
 inventor.patronages.patron.form.label.title = Datos del patrocinador
 inventor.patronages.patron.form.label.username = Usuario
 inventor.patronages.patron.form.label.company = Empresa
+inventor.patronages.patron.form.label.link = Link
+inventor.patronages.patron.form.label.statement = Statement
 
 inventor.patronage-reports.form.button.list-mine-reports = Reportes de Patrocinios
 

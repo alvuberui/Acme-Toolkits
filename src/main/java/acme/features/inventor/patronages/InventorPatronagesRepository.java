@@ -12,7 +12,7 @@ import acme.roles.Inventor;
 @Repository
 public interface InventorPatronagesRepository  extends AbstractRepository {
 		
-	@Query("select p from Patronages p where p.inventor.id  = :inventorId")
+	@Query("select p from Patronages p where p.inventor.id  = :inventorId and p.published = 1")
 	Collection<Patronages> findManyPatronagesByInventorId(int inventorId);
 	
 	
