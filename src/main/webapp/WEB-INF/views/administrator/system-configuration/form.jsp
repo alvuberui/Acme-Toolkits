@@ -11,7 +11,6 @@
 		<jstl:when test="${command== 'show'}">
 		<acme:input-textbox code="administrator.systemConfiguration.label.currency" path="currency"/>
 		<acme:input-textbox code="administrator.systemConfiguration.label.currencies" path="currencies"/>
-		<acme:input-textbox code="administrator.systemConfiguration.label.language" path="language"/>
 		<acme:input-textbox code="administrator.systemConfiguration.label.weakTerms" path="weakTerms"/>	
 		<acme:input-textbox code="administrator.systemConfiguration.label.strongTerms" path="strongTerms"/>
 		<acme:input-textbox code="administrator.systemConfiguration.label.weakThreshold" path="weakThreshold"/>	
@@ -24,10 +23,6 @@
 		<jstl:when test="${command == 'update'}">
 		<acme:input-textbox code="administrator.systemConfiguration.label.currency" path="currency"/>
 		<acme:input-textbox code="administrator.systemConfiguration.label.currencies" path="currencies"/>
-		<acme:input-select code="administrator.systemConfiguration.label.language" path="languageSystem">
-			<acme:input-option code="SPANISH" value="SPANISH" />
-			<acme:input-option code="ENGLISH" value="ENGLISH" />
-		</acme:input-select>
 		<acme:input-textbox code="administrator.systemConfiguration.label.weakTermsSpanish" path="weakTermsSpanish"/>
 		<acme:input-textbox code="administrator.systemConfiguration.label.weakTermsEnglish" path="weakTermsEnglish"/>	
 		<acme:input-textbox code="administrator.systemConfiguration.label.strongTermsSpanish" path="strongTermsSpanish"/>

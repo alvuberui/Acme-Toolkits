@@ -41,7 +41,7 @@ public class AdministratorSystemConfigurationShowService implements AbstractShow
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "currency","currencies", "languageSystem","strongTerms","weakTerms",
+		request.unbind(entity, model, "currency","currencies","strongTerms","weakTerms",
 				"weakThreshold","strongThreshold");
 		
 	}
