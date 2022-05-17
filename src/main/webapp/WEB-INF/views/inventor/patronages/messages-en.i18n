@@ -18,6 +18,8 @@ inventor.patronages.form.label.link = link
 inventor.patronages.patron.form.label.title = Patron information
 inventor.patronages.patron.form.label.username = Username
 inventor.patronages.patron.form.label.company = Company
+inventor.patronages.patron.form.label.link = Link
+inventor.patronages.patron.form.label.statement = Statement
 
 inventor.patronage-reports.form.button.list-mine-reports = Patronage Reports
 
