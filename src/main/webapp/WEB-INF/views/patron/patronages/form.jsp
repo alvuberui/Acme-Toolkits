@@ -27,8 +27,14 @@
 			<acme:input-textbox readonly="${true}" code="patron.patronage.form.label.legalStuff" path="legalStuff"/>
 			<acme:input-textbox readonly="${true}" code="patron.patronage.form.label.link" path="link"/>
 		</jstl:if>	
-
-	
+		<jstl:if test="${command == 'show'}">
+			<br></br>
+			<acme:message code="patron.patronages.inventor.form.label.title"/>
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.username" path="inventorUsername"/>		
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.company" path="inventorCompany"/>
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.link" path="inventorLink"/>	
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.statement" path="inventorStatement"/>		
+		</jstl:if>
 	
 	
 	<jstl:if test="${acme:anyOf(command, 'create, update') }">

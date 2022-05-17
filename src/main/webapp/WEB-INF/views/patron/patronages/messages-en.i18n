@@ -36,3 +36,8 @@ patron.patronages.form.error.finalPeriod-too-close =  Period error. It must be a
 
 patron.patronage.form.label.money-exchange = System money
 
+patron.patronages.inventor.form.label.title = Inventor Data
+patron.patronages.inventor.form.label.username = Username
+patron.patronages.inventor.form.label.company = Company
+patron.patronages.inventor.form.label.link = Link
+patron.patronages.inventor.form.label.statement = Statement
