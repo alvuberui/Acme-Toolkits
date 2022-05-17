@@ -1,17 +1,10 @@
-administrator.announcement.list.label.creation = Creación
-administrator.announcement.list.label.title = Título
-administrator.announcement.list.label.body = Cuerpo
-administrator.announcement.list.label.flag = Bandera
-administrator.announcement.list.label.url = Url
-
 
 administrator.announcement.form.label.creation = Creación:
-authenticated.announcement.form.label.title = Título:
+administrator.announcement.form.label.title = Título:
 administrator.announcement.form.label.body = Cuerpo:
 administrator.announcement.form.label.flag = Bandera:
 administrator.announcement.form.label.url = Url:
 
-administrator.announcement.list.button.create = Crear
 
 administrator.announcement.form.label.confirmation = Confirma que el anuncio es correcto
 
