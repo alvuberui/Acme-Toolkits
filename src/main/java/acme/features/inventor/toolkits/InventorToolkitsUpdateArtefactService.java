@@ -78,7 +78,6 @@ public class InventorToolkitsUpdateArtefactService implements AbstractUpdateServ
 		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findToolkitById(id);
-		System.out.println("a");
 		return result;
 	}
 

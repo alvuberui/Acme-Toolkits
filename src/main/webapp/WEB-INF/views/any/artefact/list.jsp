@@ -10,6 +10,9 @@
 	<acme:list-column code="any.artefact.list.label.technology" path="technology" width="20%"/>
 	<acme:list-column code="any.artefact.list.label.description" path="description" width="20%"/>	
 	<acme:list-column code="any.artefact.list.label.retail-price" path="retailPrice" width="20%"/>
-	<acme:list-column code="any.artefact.list.label.more-info" path="moreInfo" width="80%"/>	
+	<acme:list-column code="any.artefact.list.label.more-info" path="moreInfo" width="80%"/>
+	<jstl:if test="${command == 'list-artefact-toolkit'}">
+			<acme:list-column code="inventor.artefact.list.label.quantity" path="quantity" width="80%"/>	
+	</jstl:if>
 </acme:list>
 
