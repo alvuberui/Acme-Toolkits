@@ -81,11 +81,9 @@ public class InventorArtefactCreateService implements AbstractCreateService<Inve
 		if (!errors.hasErrors("technology")) {
 			errors.state(request, SpamDetector.error(entity.getTechnology(),  this.repository.getSystemConfiguration()), "technology", "any.form.error.spam");
 		}
-		
-		final String money = entity.getRetailPrice().getCurrency();
+		final List<String> currenciesList = new ArrayList<>();
 		final String currencies = this.repository.findAllCurrencies();
 		final String[] currenciesArray = currencies.split(" ");
-		final List<String> currenciesList = new ArrayList<>();
 		
 		for(int i=0; i < currenciesArray.length; i++) {
 			currenciesList.add(currenciesArray[i].trim());
@@ -93,6 +91,7 @@ public class InventorArtefactCreateService implements AbstractCreateService<Inve
 
 		if(!errors.hasErrors("retailPrice")){
 			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.artefact.form.error.negative-salary");
+			final String money = entity.getRetailPrice().getCurrency();
 			errors.state(request, currenciesList.contains(money) , "retailPrice", "inventor.form.error.currency");
 		}
 		
