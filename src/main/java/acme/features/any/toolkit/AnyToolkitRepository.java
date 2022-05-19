@@ -9,6 +9,7 @@ import acme.entities.artefact.Quantity;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 
 @Repository
@@ -34,4 +35,6 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	
 	@Query("select distinct q from Toolkit t join Quantity q on q.toolkit.id  = t.id join Artefact a on a.id = q.artefact.id where t.id  = :toolkitId and a.id = :artefactId")
 	Quantity findQuantityByToolkitAndArtefact(int toolkitId, int artefactId);
+	
+
 }

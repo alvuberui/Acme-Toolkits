@@ -12,7 +12,6 @@ import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
-import antlr.build.Tool;
 
 @Repository
 public interface InventorArtefactRepository extends AbstractRepository{
@@ -51,5 +50,8 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	
 	@Query("select t from Toolkit t where t.id = :id")
 	Toolkit findToolkitById(int id);
+	
+	@Query("select currencies from SystemConfiguration c")
+	String findAllCurrencies();
 	
 }

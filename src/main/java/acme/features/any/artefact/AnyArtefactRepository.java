@@ -6,7 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.Quantity;
+import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 @Repository
 public interface AnyArtefactRepository extends AbstractRepository {
@@ -24,5 +27,17 @@ public interface AnyArtefactRepository extends AbstractRepository {
 
 	@Query("select a from Artefact a where a.id = :id and a.published = true")
 	Artefact findArtefactPublishedById(int id);
+	
+	
+	@Query("select t from Toolkit t where t.id = :id")
+	Toolkit findToolkitById(int id);
+	
+	@Query("select i from Inventor i where i.userAccount.username = :username")
+	Inventor findInventorIdById(String username);
+	
+	
+	@Query("select q from Quantity q where q.artefact.id = :artefactId and q.toolkit.id = :toolkitId")
+	Quantity findQuantityByArtefactIdAndToolkitId(int artefactId, int toolkitId);
+
 	
 }

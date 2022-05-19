@@ -1,5 +1,8 @@
 package acme.features.inventor.artefact;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -67,9 +70,6 @@ public class InventorArtefactCreateService implements AbstractCreateService<Inve
 			errors.state(request, existing == null, "code", "inventor.artefact.error.duplicated");
 		}
 		
-		if (!errors.hasErrors("retailPrice")) {
-			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.artefact.form.error.negative-salary");
-		}
 	
 
 		if (!errors.hasErrors("name")) {
@@ -81,8 +81,20 @@ public class InventorArtefactCreateService implements AbstractCreateService<Inve
 		if (!errors.hasErrors("technology")) {
 			errors.state(request, SpamDetector.error(entity.getTechnology(),  this.repository.getSystemConfiguration()), "technology", "any.form.error.spam");
 		}
-	
-	
+		final List<String> currenciesList = new ArrayList<>();
+		final String currencies = this.repository.findAllCurrencies();
+		final String[] currenciesArray = currencies.split(" ");
+		
+		for(int i=0; i < currenciesArray.length; i++) {
+			currenciesList.add(currenciesArray[i].trim());
+		}
+
+		if(!errors.hasErrors("retailPrice")){
+			errors.state(request, entity.getRetailPrice().getAmount() > 0, "retailPrice", "inventor.artefact.form.error.negative-salary");
+			final String money = entity.getRetailPrice().getCurrency();
+			errors.state(request, currenciesList.contains(money) , "retailPrice", "inventor.form.error.currency");
+		}
+		
 		
 		
 	}
