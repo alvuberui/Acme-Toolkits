@@ -1,10 +1,9 @@
 package acme.testing.inventor.toolkits;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-
-import acme.testing.TestHarness;
 
 public class InventorToolkitsCreateTest extends InventorToolkitsHarness{
 
@@ -30,6 +29,8 @@ public class InventorToolkitsCreateTest extends InventorToolkitsHarness{
 		
 		super.clickOnButton("Artefacts");
 		super.checkListingEmpty();
+		
+		super.signOut();
 	}
 	
 	@ParameterizedTest
@@ -43,6 +44,35 @@ public class InventorToolkitsCreateTest extends InventorToolkitsHarness{
 		super.checkErrorsExist("description");
 		super.checkErrorsExist("assemblyNotes");
 		super.checkErrorsExist("link");
+		
+		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		
+		super.checkNotLinkExists("Account");
+		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
+		super.checkPanicExists();
+		
+		
+		super.signIn("inventor2", "inventor2");
+		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
+		super.checkPanicExists();
+		super.signOut();
+		
+		super.signIn("patron1", "patron1");
+		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
+		super.checkPanicExists();
+		super.signOut();
+		
+		super.signIn("administrator", "administrator");
+		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
+		super.checkPanicExists();
+		super.signOut();
+		
+		
 	}
 	
 	
