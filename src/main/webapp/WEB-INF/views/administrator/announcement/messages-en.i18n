@@ -1,10 +1,4 @@
 
-administrator.announcement.list.label.creation = Creation
-administrator.announcement.list.label.title = Title
-administrator.announcement.list.label.body = Body
-administrator.announcement.list.label.flag = Flag
-administrator.announcement.list.label.url = Url
-
 
 administrator.announcement.form.label.creation = Creation:
 administrator.announcement.form.label.title = Title:
@@ -12,7 +6,6 @@ administrator.announcement.form.label.body = Body:
 administrator.announcement.form.label.flag = Flag:
 administrator.announcement.form.label.url = Url:
 
-administrator.announcement.list.button.create= Create
 
 administrator.announcement.form.label.confirmation = Confirm that the announcement is correct
 

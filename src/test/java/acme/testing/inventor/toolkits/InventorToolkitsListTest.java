@@ -86,7 +86,6 @@ public class InventorToolkitsListTest extends TestHarness{
 		super.signIn("inventor2", "inventor2");
 
 		final String queryNueva = query.substring(1);
-		System.out.println(query);
 		super.navigate("/inventor/artefact/list-artefact-toolkit",queryNueva);
 		super.checkPanicExists();
 

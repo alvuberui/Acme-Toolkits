@@ -1,8 +1,7 @@
 package acme.features.inventor.toolkits;
 
-import static org.mockito.Mockito.RETURNS_DEFAULTS;
 
-import java.io.IOException;
+
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,17 +29,11 @@ public class InventorToolkitsDeleteService implements AbstractDeleteService<Inve
 		
 		Toolkit result;
 		int id;
-		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findToolkitById(id);
-		
-		
-		
-		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
-		
-		
-		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
 	
+		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
+		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
 		
 		return !result.isPublished() && isMine;
 	}

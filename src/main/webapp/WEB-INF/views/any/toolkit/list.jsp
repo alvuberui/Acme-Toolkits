@@ -6,7 +6,7 @@
 
 
 <form>
-	<acme:input-textbox code="any.toolkit.label.search" path="artefactName" />
+	<acme:input-textbox placeholder="any.toolkit.label.search.placeholder" code="any.toolkit.label.search" path="artefactName" />
 	<acme:submit action="/any/toolkit/list-all?" method="get" code="any.toolkit.list.search.button" />
 </form>
 <br>

@@ -39,4 +39,7 @@ public interface PatronPatronageRepository extends AbstractRepository{
 	
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration getSystemConfiguration();
+
+	@Query("select currencies from SystemConfiguration c")
+	String findAllCurrencys();
 }

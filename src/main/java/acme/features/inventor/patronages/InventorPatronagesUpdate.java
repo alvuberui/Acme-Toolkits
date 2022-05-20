@@ -22,7 +22,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 	public boolean authorise(final Request<Patronages> request) {
 		final int id = request.getModel().getInteger("id");
 		final Patronages patronage = this.repository.findPatronagesById(id);
-		System.out.println(request.getModel().hasAttribute("status"));
+		
 		return patronage.getInventor().getId() == request.getPrincipal().getActiveRoleId() && request.getModel().hasAttribute("status") && request.getModel().getAttribute("status").equals("PROPOSED");
 	}
 
@@ -32,7 +32,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert entity != null;
 		assert errors != null;
 		request.bind(entity, errors, "code", "legalStuff", 
-			"budget", "initPeriod", "finalPeriod", "link", "username", "company");
+			"budget", "initPeriod", "finalPeriod", "link", "patronUsername", "patronCompany","patronLink","patronStatement");
 		
 	}
 
@@ -42,7 +42,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "code", "legalStuff", 
-			"budget", "initPeriod", "finalPeriod", "link", "username", "company");
+			"budget", "initPeriod", "finalPeriod", "link", "patronUsername", "patronCompany","patronLink","patronStatement");
 		
 	}
 
@@ -70,7 +70,6 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert request != null;
 		assert entity != null;
 		final PatronageStatus status = PatronageStatus.valueOf(request.getModel().getString("new-status"));
-		System.out.println(status);
 		entity.setStatus(status);
 		this.repository.save(entity);
 		

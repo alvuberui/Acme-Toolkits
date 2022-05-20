@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.patonages.PatronageStatus;
 import acme.entities.patonages.Patronages;
 import acme.entities.patronageReport.PatronageReport;
 import acme.features.spam.SpamDetector;
@@ -32,7 +33,7 @@ public class InventorPatronageReportsCreateService implements AbstractCreateServ
 		
 		patronageId = request.getModel().getInteger("id");
 		inventor = this.repository.findInventorByPatronageId(patronageId);
-		result = request.getPrincipal().getActiveRoleId() == inventor.getId();
+		result = request.getPrincipal().getActiveRoleId() == inventor.getId() && this.repository.findPatronageById(patronageId).getStatus() == PatronageStatus.ACCEPTED;
 			
 		return result;
 	}

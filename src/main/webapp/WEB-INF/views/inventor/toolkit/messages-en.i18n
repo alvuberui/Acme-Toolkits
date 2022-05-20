@@ -21,14 +21,13 @@ inventor.toolkit.form.button.toolkits-artefact = Artefacts
 
 
 inventor.toolkit.form.button.update = Update
-inventor.toolkit.form.button.add-artefact = Add artefact
-inventor.toolkit.form.button.delete-artefact = Delete artefact
+inventor.toolkit.form.button.update-artefact = Update artefacts
+
 inventor.toolkit.form.button.create.toolkit = Create toolkit
 inventor.toolkit.form.label.quantity = Quantity
 inventor.toolkit.form.label.new.artefact = Select a artefact
 
 inventor.toolkit.form.empty.list = There are any artefact for this toolkit
-inventor.toolkit.form.submit.add = Add
 inventor.toolkit.form.submit.create= Create
 inventor.toolkit.form.submit.update = Update
 inventor.toolkit.form.submit.delete = Delete
@@ -38,3 +37,4 @@ inventor.toolkit.form.submit.publish = Publish
 
 inventor.toolkit.form.label.code.duplicate.error = This code is already used
 inventor.toolkit.form.label.quantity.error = Quantity not valid. Must be greater than 0
+inventor.toolkit.published.error.artefacts = This toolkit can not be published without tools

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.artefact.Artefact;
 import acme.entities.artefact.Quantity;
 import acme.entities.systemConfiguration.SystemConfiguration;
+import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
 
@@ -40,6 +41,17 @@ public interface InventorArtefactRepository extends AbstractRepository{
 	@Query("select q from Quantity q where q.artefact.id = :id")
 	Quantity findQuantityByArtefactId(int id);
 	
+	
+	@Query("select q from Quantity q where q.artefact.id = :artefactId and q.toolkit.id = :toolkitId")
+	Quantity findQuantityByArtefactIdAndToolkitId(int artefactId, int toolkitId);
+	
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration getSystemConfiguration();
+	
+	@Query("select t from Toolkit t where t.id = :id")
+	Toolkit findToolkitById(int id);
+	
+	@Query("select currencies from SystemConfiguration c")
+	String findAllCurrencies();
+	
 }
