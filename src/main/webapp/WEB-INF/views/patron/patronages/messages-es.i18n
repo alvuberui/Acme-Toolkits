@@ -44,3 +44,4 @@ patron.patronages.inventor.form.label.username = Nombre de Usuario
 patron.patronages.inventor.form.label.company = Compañia
 patron.patronages.inventor.form.label.link = Link
 patron.patronages.inventor.form.label.statement = Statement
+patron.patronage.form.label.data = Inventor

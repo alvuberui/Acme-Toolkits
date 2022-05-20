@@ -59,7 +59,7 @@
 	</jstl:choose>
 	
 	<jstl:if test="${acme:anyOf(command, 'create, update') }">
-	<acme:input-select  code="patron.patronage.form.label.link" path="inventor">
+	<acme:input-select  code="patron.patronage.form.label.data" path="inventor">
 				<jstl:forEach items="${inventors}" var="inventor">
 					<acme:input-option code="${inventor.getUserAccount().getUsername()}: ${inventor.getCompany()}" value="${inventor.getId()}"/>
 				</jstl:forEach>
