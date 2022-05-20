@@ -2,6 +2,7 @@ package acme.testing.any.toolkit;
 
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -14,7 +15,7 @@ public class AnyToolkitListAllTest extends TestHarness {
 	// Test cases -------------------------------------------------------------
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveListToolkitPatronTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link) {
 	
@@ -36,7 +37,7 @@ public class AnyToolkitListAllTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveListToolkitAnonymousTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link) {
 	
@@ -55,7 +56,7 @@ public class AnyToolkitListAllTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-filter.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit-filter.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void positiveListToolkitByQueryPatronTest(final int recordIndex, final int recordIndex2, final String queryArtefactName, final String artefactName) {
 	
@@ -77,32 +78,23 @@ public class AnyToolkitListAllTest extends TestHarness {
 		
 	}
 	
-	
-	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-filter.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(20)
-	public void positiveListToolkitByQueryAnonymousTest(final int recordIndex, final int recordIndex2, final String queryArtefactName, final String artefactName) {
+	@Test
+	@Order(21)
+	public void positiveListToolkitByQueryAnonymousTestBlank() {
 	
 		
 		super.clickOnMenu("Anonymous", "Toolkit list");
 		super.checkListingExists();
 		
-		super.fillInputBoxIn("artefactName", queryArtefactName);
+		super.fillInputBoxIn("artefactName", "");
 		super.clickOnSubmit("Filter");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
-		super.clickOnButton("Artefact");
-		
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex2, 1, artefactName);
-		
+		super.checkNotListingEmpty();
+
 	}
 	
-	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-filter-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit-filter-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(30)
 	public void negativeListToolkitByQueryPatronTest(final String queryArtefactName) {
 
@@ -114,8 +106,6 @@ public class AnyToolkitListAllTest extends TestHarness {
 		super.fillInputBoxIn("artefactName", queryArtefactName);
 		super.clickOnSubmit("Filter");
 		super.checkListingEmpty();
-		
-		
 	}
 	
 
