@@ -67,7 +67,7 @@ public class InventorComponentAndToolsByToolkitListService implements AbstractLi
 		
 		
 		request.unbind(entity, model, "type", "name", "code", "technology",
-			"description","retailPrice", "moreInfo");
+			"description","retailPrice", "moreInfo","published");
 		
 		Quantity quantity;
 		quantity = this.repository.findQuantityByArtefactIdAndToolkitId(entity.getId(),toolkitId);
