@@ -1,7 +1,6 @@
 package acme.features.patron.patronage;
 
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
@@ -14,7 +13,6 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
-import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Service

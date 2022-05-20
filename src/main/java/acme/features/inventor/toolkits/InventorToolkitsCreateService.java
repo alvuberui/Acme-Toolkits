@@ -1,19 +1,13 @@
 package acme.features.inventor.toolkits;
 
-import java.util.Collection;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.artefact.Artefact;
-import acme.entities.artefact.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 

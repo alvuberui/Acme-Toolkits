@@ -1,8 +1,6 @@
 package acme.features.inventor.artefact;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.ArrayBlockingQueue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
