@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.TestHarness;
-
 public class InventorToolkitsPublishTest extends InventorToolkitsHarness{
 
 	// Test cases -----------------------------

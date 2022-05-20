@@ -10,7 +10,6 @@ import acme.entities.artefact.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.entities.UserAccount;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;

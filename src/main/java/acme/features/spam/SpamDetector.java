@@ -1,7 +1,5 @@
 package acme.features.spam;
 
-import java.util.List;
-
 import acme.entities.systemConfiguration.SystemConfiguration;
 
 public class SpamDetector {
