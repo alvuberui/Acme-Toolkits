@@ -15,6 +15,7 @@ public class InventorArtefactPublishTest extends TestHarness {
 		super.clickOnMenu("Inventor", "Own artefacts");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
+		super.sortListing(5, "desc");
 		super.clickOnSubmit("Publish");
 		super.checkNotErrorsExist();
 		super.checkListingExists();

@@ -13,6 +13,8 @@ public class InventorArtefactDeleteTest extends TestHarness {
 
 		super.clickOnMenu("Inventor", "Own artefacts");
 		super.checkListingExists();
+		super.sortListing(5, "asc");
+		
 		super.clickOnListingRecord(0);
 		super.clickOnSubmit("Delete");
 		super.checkNotErrorsExist();
