@@ -16,7 +16,7 @@ public class InventorToolkitsListTest extends TestHarness{
 	public void positiveToolkitInventorTest(final int recordIndex, final String code, final String title, final String description, final String assemblyNotes, final String link,final String published) {
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "My toolkit");
+		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -44,7 +44,7 @@ public class InventorToolkitsListTest extends TestHarness{
 	public void positiveToolInventorTest(final int recordIndex, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "My toolkit");
+		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
 		super.sortListing(0, "desc");		
 		super.clickOnListingRecord(recordIndex);
@@ -75,7 +75,7 @@ public class InventorToolkitsListTest extends TestHarness{
 	public void NegativeToolInventorTest(final int recordIndex) {
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "My toolkit");
+		super.clickOnMenu("Inventor", "My toolkits");
 		super.clickOnListingRecord(recordIndex);
 		super.clickOnButton("Artefacts");
 		final String query = super.getCurrentQuery();
@@ -99,7 +99,7 @@ public class InventorToolkitsListTest extends TestHarness{
 	public void NegativeToolkitInventorTest(final int recordIndex) {
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "My toolkit");
+		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkListingExists();
 		super.clickOnListingRecord(recordIndex);
 		final String query = super.getCurrentQuery();
