@@ -50,9 +50,9 @@ public class InventorToolkitsHarness extends TestHarness{
 		super.clickOnMenu("Anonymous", "Toolkit list");
 		super.checkListingExists();
 		if(component) {
-			super.fillInputBoxIn("artefactName", "name05");
+			super.fillInputBoxIn("artefactName", "name03");
 		}else {
-			super.fillInputBoxIn("artefactName", "name02");
+			super.fillInputBoxIn("artefactName", "name04");
 		}
 		super.clickOnSubmit("Filter");
 		super.sortListing(1, "asc");
@@ -60,7 +60,6 @@ public class InventorToolkitsHarness extends TestHarness{
 		super.clickOnButton("Artefacts");
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(0);
-		
 		return super.getCurrentQuery().replace("?id=", "");
 	}
 	

@@ -30,9 +30,9 @@ public class InventorToolkitsUpdateArtefactsTest extends InventorToolkitsHarness
 		super.updateArtefactFirstToolkit("1",componentId);
 		super.updateArtefactFirstToolkit("2",toolId);
 		super.clickOnButton("Artefacts");
-		super.sortListing(0,"asc");
-		super.checkColumnHasValue(0, 7, "2");
+		super.sortListing(1,"asc");
 		super.checkColumnHasValue(0, 7, "1");
+		super.checkColumnHasValue(1, 7, "2");
 	}
 	
 	@Test
@@ -41,7 +41,6 @@ public class InventorToolkitsUpdateArtefactsTest extends InventorToolkitsHarness
 		String componentId  = super.getIdArtefactComponentOrTool(true);
 		String toolId  = super.getIdArtefactComponentOrTool(false);
 		super.signIn("inventor1", "inventor1");
-		
 		super.updateArtefactFirstToolkit("0",componentId);
 		super.updateArtefactFirstToolkit("0",toolId);
 		super.clickOnButton("Artefacts");
