@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.ArtefactType;
 import acme.entities.artefact.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
@@ -86,6 +87,14 @@ public class InventorToolkitsUpdateArtefactService implements AbstractUpdateServ
 		assert entity != null;
 		assert errors != null;
 		
+		if(!errors.hasErrors("quantity")) {
+			int artefactId;
+			Artefact artefact;	Integer number;
+			artefactId = request.getModel().getInteger("artefactId");
+			artefact = this.repository.findArtefactById(artefactId);
+			number = request.getModel().getInteger("quantity");
+			errors.state(request, artefact.getType() == ArtefactType.COMPONENT || (artefact.getType() == ArtefactType.TOOL &&  number <=1 ), "quantity", "inventor.toolkit.form.label.quantity.tool.error");
+		}
 	}
 
 	@Override

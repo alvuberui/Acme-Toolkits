@@ -50,7 +50,7 @@ public class AdministratorSystemConfigurationUpdateService implements AbstractUp
 		
 
 		request.unbind(entity, model, "currency", "currencies","weakTermsSpanish","weakTermsEnglish", "strongTermsEnglish","strongTermsSpanish","weakThreshold","strongThreshold");
-		
+	
 	}
 
 	@Override

@@ -33,14 +33,16 @@ public class ExchangeService {
 	public Money exchangeMoneySystemConfiguration (Money money) {
 		SystemConfiguration systemConfiguration;
 		systemConfiguration = this.repository.findSystemConfuration();
-		return exchangeMoneyService2(money, systemConfiguration.getCurrency());
+		return exchangeMoneyService(money, systemConfiguration.getCurrency());
 	}
 
 	public Money exchangeMoneyToTarget (Money money, String target) {
-		return exchangeMoneyService2(money, target);
+		return exchangeMoneyService(money, target);
 	}
+	
+	
 	@SuppressWarnings("deprecation")
-	private Money exchangeMoneyService2 (Money money,String target) {
+	private Money exchangeMoneyService (Money money,String target) {
 		
 		Money result = new Money();
 		ExchangeRate exchangeRate;
@@ -62,6 +64,8 @@ public class ExchangeService {
 		Date creationMoment = new Date(System.currentTimeMillis());
 		Period p = Period.between(LocalDate.of(creationMoment.getYear(), creationMoment.getMonth()+1, creationMoment.getDate()), 
 				LocalDate.of(fecha.getYear(), fecha.getMonth()+1, fecha.getDate()));
+		
+		
 		if(p.getMonths()<-1) {
 			exchangeRate = computeMoneyExchange(target, money.getCurrency(), systemConfiguration.getCurrencies());
 			if(exchangeRate != null) {
@@ -80,7 +84,6 @@ public class ExchangeService {
 	private ExchangeRate computeMoneyExchange(final String source, final String targetCurrency, String currencies) {
 		assert source != null;
 		assert !StringHelper.isBlank(targetCurrency);
-System.out.println("request");
 		ExchangeRate result = new ExchangeRate();;
 		RestTemplate api;
 		ExchangeRateRequest record;
