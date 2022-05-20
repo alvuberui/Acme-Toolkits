@@ -52,7 +52,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 			,"initPeriod", "finalPeriod", "link", "inventor.userAccount.username",
 			"inventor.company","inventor.link","inventor.statement");
 
-		model.setAttribute("moneyExchange", this.exchangeService.exchangeMoney(entity.getBudget()));
+		model.setAttribute("moneyExchange", this.exchangeService.exchangeMoneySystemConfiguration(entity.getBudget()));
 		model.setAttribute("inventorUsername", entity.getInventor().getUserAccount().getUsername());
 		model.setAttribute("inventorCompany", entity.getInventor().getCompany());
 		model.setAttribute("inventorLink", entity.getInventor().getLink());

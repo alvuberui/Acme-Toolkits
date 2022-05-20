@@ -8,6 +8,12 @@ import acme.entities.systemConfiguration.ExchangeRate;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.datatypes.Money;
 import acme.framework.helpers.StringHelper;
+
+import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.TemporalAmount;
 import java.util.Objects;
 
 
@@ -20,10 +26,18 @@ public class ExchangeService {
 	@Autowired
 	protected ExchangeRepository repository;
 	
-	
-	public Money exchangeMoney (Money money) {
-		
-		
+
+	public Money exchangeMoneySystemConfiguration (Money money) {
+		SystemConfiguration systemConfiguration;
+		systemConfiguration = this.repository.findSystemConfuration();
+		return exchangeMoneyService2(money, systemConfiguration.getCurrency());
+	}
+
+	public Money exchangeMoneyToTarget (Money money, String target) {
+		return exchangeMoneyService2(money, target);
+	}
+	@SuppressWarnings("deprecation")
+	private Money exchangeMoneyService2 (Money money,String target) {
 		
 		Money result = new Money();
 		ExchangeRate exchangeRate;
@@ -31,31 +45,39 @@ public class ExchangeService {
 		
 		systemConfiguration = this.repository.findSystemConfuration();
 		
-		if(Objects.equals(money.getCurrency(), systemConfiguration.getCurrency())) {
+		
+		if(Objects.equals(money.getCurrency(), target)) {
 			return money;
 		}
-
-		exchangeRate = this.repository.findExchangeRateByCurrency(money.getCurrency(), systemConfiguration.getCurrency());
+		exchangeRate = this.repository.findExchangeRateByCurrency(String.format("%s,%s",target,money.getCurrency()));
 		
 		
-		if(exchangeRate == null || !Objects.equals(exchangeRate.getBase(), systemConfiguration.getCurrency())) {
-			exchangeRate = computeMoneyExchange(systemConfiguration.getCurrency(), money.getCurrency(), systemConfiguration.getCurrencies());
+		if(exchangeRate == null) {
+			exchangeRate = computeMoneyExchange(target, money.getCurrency(), systemConfiguration.getCurrencies());
+		}
+		Date fecha = exchangeRate.getDate();
+		Date creationMoment = new Date(System.currentTimeMillis());
+		Period p = Period.between(LocalDate.of(creationMoment.getYear(), creationMoment.getMonth()+1, creationMoment.getDate()), 
+				LocalDate.of(fecha.getYear(), fecha.getMonth()+1, fecha.getDate()));
+		if(p.getMonths()<-1) {
+			exchangeRate = computeMoneyExchange(target, money.getCurrency(), systemConfiguration.getCurrencies());
 			if(exchangeRate != null) {
 				result.setAmount(money.getAmount()*exchangeRate.getRate());
-				result.setCurrency(systemConfiguration.getCurrency());
+				result.setCurrency(target);
 			}
+			
 		}else {
 			result.setAmount(money.getAmount()*exchangeRate.getRate());
-			result.setCurrency(systemConfiguration.getCurrency());
+			result.setCurrency(target);
 		}
-		
 		return result;
 	}
+	
 	
 	private ExchangeRate computeMoneyExchange(final String source, final String targetCurrency, String currencies) {
 		assert source != null;
 		assert !StringHelper.isBlank(targetCurrency);
-
+System.out.println("request");
 		ExchangeRate result = new ExchangeRate();;
 		RestTemplate api;
 		ExchangeRateRequest record;
@@ -70,16 +92,21 @@ public class ExchangeService {
 					"https://api.exchangerate.host/latest?base={0}", //
 					ExchangeRateRequest.class, //
 					sourceCurrency
-
 			);
 			if(record != null) {
 				for(String c : currencies.split(" ")) {
 					if(!Objects.equals(c.trim(), source)) {
-						ExchangeRate r = new ExchangeRate();
-						r.setBase(record.getBase());
-						r.setRate(record.getRates().get(c.trim()));
+						ExchangeRate r;
+						ExchangeRate request = this.repository.findExchangeRateByCurrency(String.format("%s,%s",record.getBase(), c.trim()));
+						if(request!= null) {
+							r = request;
+						}else {
+							r = new ExchangeRate();
+							r.setBaseTarget(String.format("%s,%s",record.getBase(), c.trim()));
+						}
 						r.setDate(record.getDate());
-						r.setTarget(c.trim());
+						r.setRate(record.getRates().get(c.trim()));
+					
 						this.repository.save(r);
 						if(Objects.equals(c.trim(), targetCurrency)) {
 							result = r;

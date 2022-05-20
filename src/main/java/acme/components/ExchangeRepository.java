@@ -10,8 +10,8 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface ExchangeRepository extends AbstractRepository {
 	
-	@Query("Select er from ExchangeRate er where er.target like :currency and er.base like :base")
-	ExchangeRate findExchangeRateByCurrency(String currency, String base);
+	@Query("Select er from ExchangeRate er where er.baseTarget like :baseTarget")
+	ExchangeRate findExchangeRateByCurrency(String baseTarget);
 	
 	@Query("Select c from SystemConfiguration c")
 	SystemConfiguration findSystemConfuration();
