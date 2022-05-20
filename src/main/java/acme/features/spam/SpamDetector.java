@@ -1,4 +1,5 @@
 package acme.features.spam;
+
 import acme.entities.systemConfiguration.SystemConfiguration;
 
 public class SpamDetector {
@@ -20,6 +21,7 @@ public class SpamDetector {
 	  }
 	
 	  private static Integer findWordsRecursive(int i, int j, String[] targetWords, String[] words) {
+		 
 		  if(i >= targetWords.length) {
 			  j++;
 			  i=0;

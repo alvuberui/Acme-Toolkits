@@ -62,7 +62,7 @@ public class InventorPatronagesShowService implements AbstractShowService<Invent
 				assert model != null;
 
 				request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationTime", "initPeriod", "finalPeriod", "link");
-				model.setAttribute("moneyExchange", this.exchangeService.exchangeMoney(entity.getBudget()));
+				model.setAttribute("moneyExchange", this.exchangeService.exchangeMoneySystemConfiguration(entity.getBudget()));
 				model.setAttribute("patronUsername", entity.getPatron().getUserAccount().getUsername());
 				model.setAttribute("patronCompany", entity.getPatron().getCompany());
 				model.setAttribute("patronLink", entity.getPatron().getLink());

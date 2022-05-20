@@ -64,6 +64,6 @@ public class InventorArtefactShowService implements AbstractShowService<Inventor
 
 			request.unbind(entity, model, "type", "name", "code", "technology",
 				"description","retailPrice", "moreInfo", "published");
-			model.setAttribute("moneyExchange", this.exchangeService.exchangeMoney(entity.getRetailPrice()));
+			model.setAttribute("moneyExchange", this.exchangeService.exchangeMoneySystemConfiguration(entity.getRetailPrice()));
 		}
 }

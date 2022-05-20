@@ -27,20 +27,14 @@ import lombok.Setter;
 public class ExchangeRate extends AbstractEntity{
 
 	// Attributes -------------------------------------------------------------
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 	public Double	          	rate;
 	
-	public String				base;
-	
-	
 	@Column(unique = true)
-	public String				target;
+	public String				baseTarget;
 	
 	public Date					date;
-
+	
 }
