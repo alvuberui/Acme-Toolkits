@@ -12,12 +12,17 @@
 
 package acme.features.authenticated.moneyExchange;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.collect.Lists;
+
 import acme.components.ExchangeService;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -31,6 +36,10 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 
 	// AbstractPerformService<Authenticated, ExchangeRecord> interface ---------
 
+
+	@Autowired
+	protected AuthenticatedMoneyExchangeRepository repository;
+	
 	@Autowired
 	protected ExchangeService exchangeService;
 	
@@ -75,6 +84,15 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		SystemConfiguration systemConfiguration = this.repository.getSystemConfiguration();
+		
+	
+		if(!errors.hasErrors("targetCurrency")) {
+			String[] s = systemConfiguration.getCurrencies().split(" ");
+			errors.state(request,	Arrays.asList(s).contains(entity.targetCurrency), "targetCurrency", "authenticated.money-exchange.error");
+		}
+		
 	}
 
 	@Override
@@ -91,8 +109,6 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 		errors.state(request, exchange != null, "*", "authenticated.money-exchange.form.label.api-error");
 		entity.setTarget(exchange);
 	}
-
-	// Ancillary methods ------------------------------------------------------
 
 
 }
