@@ -1,7 +1,7 @@
 timestamp,test-class,test-method,time,description,result
-"2022-04-24 12:46:23.476","acme.testing.any.userAccount.AnyUserAccountTest","anonymousPositiveUserAccountTest",6487,""[1] recordIndex=0, rol=Inventor, username=inventor3, name=inventor3, surname=inventor, email=inventor3@acme.com"","OK"
-"2022-04-24 12:46:28.007","acme.testing.any.userAccount.AnyUserAccountTest","anonymousPositiveUserAccountTest",3816,""[2] recordIndex=1, rol=Inventor, username=inventor2, name=inventor2, surname=inventor, email=inventor2@acme.com"","OK"
-"2022-04-24 12:46:32.686","acme.testing.any.userAccount.AnyUserAccountTest","anonymousPositiveUserAccountTest",4005,""[3] recordIndex=2, rol=Inventor, username=inventor4, name=inventor4, surname=inventor, email=inventor4@acme.com"","OK"
-"2022-04-24 12:46:37.068","acme.testing.any.userAccount.AnyUserAccountTest","anonymousPositiveUserAccountTest",3521,""[4] recordIndex=3, rol=Inventor, username=inventor1, name=inventor1, surname=inventor, email=inventor1@acme.com"","OK"
-"2022-04-24 12:46:43.179","acme.testing.any.userAccount.AnyUserAccountTest","anonymousPositiveUserAccountTest",4488,""[5] recordIndex=4, rol=Patron, username=patron1, name=Patron-01, surname=Acme, email=patron-01@acme.com"","OK"
-"2022-04-24 12:46:48.12","acme.testing.any.userAccount.AnyUserAccountTest","anonymousPositiveUserAccountTest",3868,""[6] recordIndex=5, rol=Patron, username=patron2, name=Patron-02, surname=Acme, email=patron-02@acme.com"","OK"
+"2022-05-21 18:04:42.941","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolkitInventorTest",11303,""[1] recordIndex=0, code=AAA-123-A, title=New title 1, description=New description 1, assemblyNotes=This is assembly notes 1, link=https://www.google.es, published=true"","OK"
+"2022-05-21 18:04:51.73","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolkitInventorTest",8463,""[2] recordIndex=1, code=ABB-321-A, title=New title 2, description=New description 2, assemblyNotes=This is assembly notes 2, link=https://www.google.com, published=true"","OK"
+"2022-05-21 18:05:02.856","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolInventorTest",10796,""[1] recordIndex=0, type=TOOL, name=name04, code=ABC-012-D, techonology=technology04, description=description04, retailPrice=EUR 10.00, moreInfo=null"","OK"
+"2022-05-21 18:05:16.116","acme.testing.inventor.toolkits.InventorToolkitsListTest","NegativeToolInventorTest",12941,""[1] recordIndex=0"","OK"
+"2022-05-21 18:05:28.594","acme.testing.inventor.toolkits.InventorToolkitsListTest","NegativeToolkitInventorTest",12143,""[1] recordIndex=0"","OK"
+"2022-05-21 18:05:41.077","acme.testing.inventor.toolkits.InventorToolkitsListTest","NegativeToolkitInventorTest",12181,""[2] recordIndex=1"","OK"

@@ -1,0 +1,4 @@
+2022-05-21 16:13:33.845 INFO  [acme.Launcher@main] Starting Launcher using Java 1.8.0_281 on DESKTOP-OMS50DK with PID 10184 (D:\Mario\Universidad\3º de Carrera 2021-2022\2 - Diseño y Pruebas II (DP2)\Workspace-22.0\Frameworks\Acme-Framework-22.5.1\target\classes started by Mario in D:\Mario\Universidad\3º de Carrera 2021-2022\2 - Diseño y Pruebas II (DP2)\Workspace-22.0\Projects\Acme-Toolkits) 
+2022-05-21 16:13:33.847 DEBUG [acme.Launcher@main] Running with Spring Boot v2.4.2, Spring v5.3.3 
+2022-05-21 16:13:33.849 INFO  [acme.Launcher@main] The following profiles are active: development,default 
+2022-05-21 16:13:37.313 DEBUG [org.apache.jasper.servlet.JasperInitializer@main] Initializing Jasper for context [application] 
