@@ -1,0 +1,7 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-21 17:51:23.748","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolkitInventorTest",15517,""[1] recordIndex=0, code=AAA-123-A, title=New title 1, description=New description 1, assemblyNotes=This is assembly notes 1, link=https://www.google.es, published=true"","OK"
+"2022-05-21 17:51:34.315","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolkitInventorTest",10028,""[2] recordIndex=1, code=ABB-321-A, title=New title 2, description=New description 2, assemblyNotes=This is assembly notes 2, link=https://www.google.com, published=true"","OK"
+"2022-05-21 17:51:41.135","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolInventorTest",6273,""[1] recordIndex=0, type=TOOL, name=name04, code=ABC-012-D, techonology=technology04, description=description04, retailPrice=EUR 10.00, moreInfo=null, published=true"","Expected value 'EUR 10.00' in attribute 4 of record 0, but found 'description04'"
+"2022-05-21 17:51:57.77","acme.testing.inventor.toolkits.InventorToolkitsListTest","NegativeToolInventorTest",16211,""[1] recordIndex=0"","OK"
+"2022-05-21 17:52:11.49","acme.testing.inventor.toolkits.InventorToolkitsListTest","NegativeToolkitInventorTest",12798,""[1] recordIndex=0"","OK"
+"2022-05-21 17:52:24.092","acme.testing.inventor.toolkits.InventorToolkitsListTest","NegativeToolkitInventorTest",12301,""[2] recordIndex=1"","OK"

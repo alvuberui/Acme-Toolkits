@@ -70,33 +70,6 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 		super.signOut();
 	}
 
-	/*
-	 * 
-	 * @ParameterizedTest
-	 * 
-	 * @CsvFileSource(resources = "/inventor/patronages/update-accept-status.csv", encoding = "utf-8", numLinesToSkip = 1)
-	 * 
-	 * @Order(20)
-	 * public void negativeURLPatronageInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String
-	 * username,
-	 * final String company) {
-	 * super.signIn("inventor3", "inventor3");
-	 * 
-	 * super.clickOnMenu("Inventor", "My Patronages");
-	 * super.checkListingExists();
-	 * super.sortListing(0, "asc");
-	 * 
-	 * super.clickOnListingRecord(0);
-	 * super.checkFormExists();
-	 * 
-	 * 
-	 * final String query = super.getCurrentQuery();
-	 * query.replace("?", "");
-	 * super.navigateHome();
-	 * super.navigate("/inventor/patronages/update", "new-status=ACCEPTED&"+query);
-	 * super.checkPanicExists();
-	 * 
-	 * }
-	 */
+
 
 }

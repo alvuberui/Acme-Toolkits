@@ -1,2 +1,2 @@
-recordIndex,status,code,legalStuff,budget,initPeriod,finalPeriod,link, patronUsername, patronCompany, patronLink, patronStatement
-0,ACCEPTED,ABC-012-A,legal stuff 1,EUR 25.00,2022/02/20 15:23,2022/03/19 12:23,, patron1, "Macarena, Inc.",https://www.linkedin.com , This is a example statement
+recordIndex,status,code,legalStuff,budget,initPeriod,finalPeriod,link,patronUsername,patronCompany,patronLink,patronStatement
+0,PROPOSED,ABC-012-A,legal stuff 1,EUR 25.00,2022/02/20 15:23,2022/05/19 12:23,,patron1,"Macarena, Inc.",https://www.linkedin.com,This is a example statement

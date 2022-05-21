@@ -12,3 +12,5 @@ administrator.systemConfiguration.label.weakTermsEnglish = Palabras débiles en 
 
 administrator.systemConfiguration.label.strongTermsSpanish = Palabras fuertes en Español
 administrator.systemConfiguration.label.strongTermsEnglish = Palabras fuertes en Inglés
+
+administrator.system-configuration.error.spamTerm = Los términos de spam no pueden estar vacios

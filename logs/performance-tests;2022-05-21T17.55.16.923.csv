@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-21 17:53:36.569","acme.testing.inventor.toolkits.InventorToolkitsListTest","positiveToolInventorTest",8908,""[1] recordIndex=0, type=TOOL, name=name04, code=ABC-012-D, techonology=technology04, description=description04, retailPrice=EUR 10.00, moreInfo=null, published=true"","Expected value 'EUR 10.00' in attribute 4 of record 0, but found 'description04'"

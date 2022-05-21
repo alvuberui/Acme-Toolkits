@@ -40,8 +40,14 @@ public class AdministratorSystemConfigurationShowService implements AbstractShow
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		request.unbind(entity, model, "currency","currencies","strongTerms","weakTerms",
+		
+		final String allStrongTerms = this.repository.getSystemConfiguration().getAllStrongTerms();
+		final String allWeakTerms = this.repository.getSystemConfiguration().getAllWeakTerms();
+		model.setAttribute("allStrongTerms", allStrongTerms);
+		model.setAttribute("allWeakTerms", allWeakTerms);
+		
+		
+		request.unbind(entity, model, "currency","currencies",
 				"weakThreshold","strongThreshold");
 		
 	}
