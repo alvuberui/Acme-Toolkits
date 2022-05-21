@@ -1,3 +1,3 @@
 recordIndex,status,code,legalStuff,budget,initPeriod,finalPeriod,link,username,company
-0,PROPOSED,ABC-012-A,legal stuff 1,EUR 25.00,2022/02/20 15:23,2022/03/19 12:23,,inventor1,"Macarena, Inc."
-1,PROPOSED,ABC-012-D,legal stuff 2,EUR 20.00,2022/02/20 17:23,2022/03/19 12:23,,inventor3,"LS, Inc."
+0,PROPOSED,ABC-012-A,legal stuff 1,EUR 25.00,2022/02/20 15:23,2022/05/19 12:23,,inventor1,"Macarena, Inc."
+1,PROPOSED,ABC-012-D,legal stuff 2,EUR 20.00,2022/02/20 17:23,2022/04/19 12:23,,inventor3,"LS, Inc."

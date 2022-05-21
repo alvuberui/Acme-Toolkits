@@ -1,5 +1,0 @@
-1653150911382	geckodriver	INFO	Listening on 127.0.0.1:14992
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\alvar\\AppData\\Local\\Temp\\rust_mozprofileIgORak\\search.json.mozlz4", (void 0)))
-console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:8081"
-console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:80J81"
-avaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null

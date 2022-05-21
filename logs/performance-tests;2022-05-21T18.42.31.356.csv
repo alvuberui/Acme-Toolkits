@@ -1,2 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-21 18:40:54.002","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","positiveAnnouncementInventorTest",12236,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","OK"

@@ -1,5 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-21 18:42:54.118","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","positiveAnnouncementInventorTest",14404,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","OK"
-"2022-05-21 18:43:05.053","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","positiveAnnouncementAdministratorTest",10299,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","OK"
-"2022-05-21 18:43:06.349","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","NegativeAnonymousListAnnouncementsTest",890,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","OK"
-"2022-05-21 18:43:16.474","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","positiveAnnouncementPatronTest",9710,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","OK"

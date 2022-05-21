@@ -1,2 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-21 18:38:03.72","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","positiveAnnouncementInventorTest",7067,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","Expected value 'null' in attribute 4 of record 0, but found ''"

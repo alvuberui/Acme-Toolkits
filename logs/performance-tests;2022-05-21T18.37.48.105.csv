@@ -1,2 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-"2022-05-21 18:36:30.665","acme.testing.authenticated.announcement.AuthenticatedAnnouncementListRecentTest","positiveAnnouncementInventorTest",8960,""[1] recordIndex=0, creation=-2, title=New announcement 3, body=This is announcement body 3, flag=true, url=null"","Record index 0 is out of range"

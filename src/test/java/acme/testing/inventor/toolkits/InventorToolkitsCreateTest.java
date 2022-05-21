@@ -89,33 +89,7 @@ public class InventorToolkitsCreateTest extends InventorToolkitsHarness{
 		
 		super.signOut();
 	}
-	
-	@Test
-	@Order(30)
-	public void hackingTest() {
-		
-		super.checkNotLinkExists("Account");
-		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
-		super.checkPanicExists();
-		
-		
-		super.signIn("inventor2", "inventor2");
-		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
-		super.checkPanicExists();
-		super.signOut();
-		
-		super.signIn("patron1", "patron1");
-		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
-		super.checkPanicExists();
-		super.signOut();
-		
-		super.signIn("administrator", "administrator");
-		super.navigate("http://localhost:8080/acme-toolkits-0.1/inventor/patronage-report/create?id=33");
-		super.checkPanicExists();
-		super.signOut();
-		
-		
-	}
+
 
 	
 	
