@@ -1,6 +1,6 @@
 package acme.features.inventor.toolkits;
 
-import static org.mockito.ArgumentMatchers.isNotNull;
+
 
 import java.util.Collection;
 
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
-import acme.entities.artefact.ArtefactType;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -23,20 +22,18 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 	protected InventorToolkitsRepository repository;
 
 	@Override
-	public boolean authorise(Request<Toolkit> request) {
+	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
 		
 		
 		
-		Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
-		boolean isMine = toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
+		final Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(request.getPrincipal().getActiveRoleId());
+		return toolkits.stream().anyMatch(x -> x.getId() == request.getModel().getInteger("id"));
 	
-		
-		return isMine;
 	}
 
 	@Override
-	public void bind(Request<Toolkit> request, Toolkit entity, Errors errors) {
+	public void bind(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -45,7 +42,7 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 	}
 
 	@Override
-	public void unbind(Request<Toolkit> request, Toolkit entity, Model model) {
+	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -56,7 +53,7 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 	}
 
 	@Override
-	public Toolkit findOne(Request<Toolkit> request) {
+	public Toolkit findOne(final Request<Toolkit> request) {
 		assert request != null;
 		
 		Toolkit result;
@@ -69,12 +66,12 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 	}
 
 	@Override
-	public void validate(Request<Toolkit> request, Toolkit entity, Errors errors) {
+	public void validate(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 		
-		Collection<Artefact> artefacts = this.repository.findComponentsAndToolsByToolkitId(entity.getId());
+		final Collection<Artefact> artefacts = this.repository.findComponentsAndToolsByToolkitId(entity.getId());
 		
 		if(artefacts == null || artefacts.isEmpty()){
 			errors.state(request, artefacts != null && !artefacts.isEmpty() , "*", "inventor.toolkit.published.error.artefacts");
@@ -83,7 +80,7 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 	}
 
 	@Override
-	public void update(Request<Toolkit> request, Toolkit entity) {
+	public void update(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;
 		assert entity != null;
 	

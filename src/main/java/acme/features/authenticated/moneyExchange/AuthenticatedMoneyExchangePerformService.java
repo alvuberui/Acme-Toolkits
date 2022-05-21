@@ -13,13 +13,9 @@
 package acme.features.authenticated.moneyExchange;
 
 import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.google.common.collect.Lists;
 
 import acme.components.ExchangeService;
 import acme.entities.systemConfiguration.SystemConfiguration;
@@ -85,11 +81,11 @@ public class AuthenticatedMoneyExchangePerformService implements AbstractPerform
 		assert entity != null;
 		assert errors != null;
 		
-		SystemConfiguration systemConfiguration = this.repository.getSystemConfiguration();
+		final SystemConfiguration systemConfiguration = this.repository.getSystemConfiguration();
 		
 	
 		if(!errors.hasErrors("targetCurrency")) {
-			String[] s = systemConfiguration.getCurrencies().split(" ");
+			final String[] s = systemConfiguration.getCurrencies().split(" ");
 			errors.state(request,	Arrays.asList(s).contains(entity.targetCurrency), "targetCurrency", "authenticated.money-exchange.error");
 		}
 		

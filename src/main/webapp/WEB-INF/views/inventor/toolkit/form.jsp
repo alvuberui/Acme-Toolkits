@@ -7,7 +7,13 @@
 
 
 <acme:form >
-
+	<jstl:if test="${acme:anyOf(command, 'publish')}">
+		<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>	
+		<acme:input-textbox code="inventor.toolkit.form.label.title" path="title"/>
+		<acme:input-textbox code="inventor.toolkit.form.label.description" path="description"/>	
+		<acme:input-textbox code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
+		<acme:input-textbox code="inventor.toolkit.form.label.link" path="link"/>
+	</jstl:if>
 	
 	<jstl:if test="${acme:anyOf(command, 'create, update')}">
 		<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>	
@@ -16,7 +22,7 @@
 		<acme:input-textbox code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 		<acme:input-textbox code="inventor.toolkit.form.label.link" path="link"/>
 	</jstl:if>
-	<jstl:if test="${acme:anyOf(command, 'show, delete, publish')}">
+	<jstl:if test="${acme:anyOf(command, 'show, delete')}">
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.code" path="code"/>	
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.title" path="title"/>
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.description" path="description"/>	

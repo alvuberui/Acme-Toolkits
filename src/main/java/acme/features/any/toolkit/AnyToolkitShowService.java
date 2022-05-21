@@ -4,17 +4,14 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import acme.components.ExchangeService;
 import acme.entities.artefact.Artefact;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
-import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
-import acme.framework.helpers.StringHelper;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 

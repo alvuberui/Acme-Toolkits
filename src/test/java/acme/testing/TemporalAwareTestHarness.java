@@ -23,11 +23,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.chirp.Chirp;
 import acme.framework.helpers.FactoryHelper;
 import acme.testing.any.chirps.ChirpRepository;
+import acme.testing.authenticated.announcement.AnnouncementRepository;
 
 public class TemporalAwareTestHarness extends TestHarness {
 
 	// Lifecycle management ---------------------------------------------------
-
+	@Autowired
+	private AnnouncementRepository Arepository;
 	
 	@Autowired
 	private ChirpRepository repository;
@@ -38,7 +40,9 @@ public class TemporalAwareTestHarness extends TestHarness {
 		super.beforeAll();
 		FactoryHelper.autowire(this);
 		this.patchChirps();
+		this.patchAnnouncements();
 	}
+	
 
 	// Business methods -------------------------------------------------------
 	
@@ -51,6 +55,18 @@ public class TemporalAwareTestHarness extends TestHarness {
 			moment = this.adjustMoment(chirp.getCreationMoment());
 			chirp.setCreationMoment(moment);
 			this.repository.save(chirp);
+		}
+	}
+	
+	protected void patchAnnouncements() {
+		Collection<acme.entities.announcement.Announcement> announcements;
+		Date moment;
+
+		announcements = this.Arepository.announcementToPatch();
+		for (final acme.entities.announcement.Announcement announcement : announcements) {
+			moment = this.adjustMoment(announcement.getCreation());
+			announcement.setCreation(moment);
+			this.Arepository.save(announcement);
 		}
 	}
 

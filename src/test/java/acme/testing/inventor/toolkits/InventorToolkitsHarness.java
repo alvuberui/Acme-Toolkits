@@ -1,9 +1,7 @@
 package acme.testing.inventor.toolkits;
 
 
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
+
 
 import acme.testing.TestHarness;
 
@@ -12,7 +10,7 @@ public class InventorToolkitsHarness extends TestHarness{
 	// Test cases -----------------------------
 	
 	
-	public void createToolkit(String code, String title, String description, String AssemblyNotes, String link) {
+	public void createToolkit(final String code, final String title, final String description, final String AssemblyNotes, final String link) {
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.clickOnButton("Create toolkit");
 		super.fillInputBoxIn("code", code);
@@ -23,7 +21,7 @@ public class InventorToolkitsHarness extends TestHarness{
 		super.clickOnSubmit("Create");
 	}
 
-	public void updateFirstToolkit(String input, String value) {
+	public void updateFirstToolkit(final String input, final String value) {
 		super.signIn("inventor1", "inventor1");
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkNotErrorsExist();
@@ -35,7 +33,7 @@ public class InventorToolkitsHarness extends TestHarness{
 
 	}
 	
-	public void updateArtefactFirstToolkit(String quantityValue, String artefactValue) {
+	public void updateArtefactFirstToolkit(final String quantityValue, final String artefactValue) {
 		super.clickOnMenu("Inventor", "My toolkits");
 		super.checkNotErrorsExist();
 		super.sortListing(0, "asc");
@@ -46,7 +44,7 @@ public class InventorToolkitsHarness extends TestHarness{
 		super.clickOnSubmit("Update");
 	}
 	
-	public String getIdArtefactComponentOrTool(Boolean component) {
+	public String getIdArtefactComponentOrTool(final Boolean component) {
 		super.clickOnMenu("Anonymous", "Toolkit list");
 		super.checkListingExists();
 		if(component) {

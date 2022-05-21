@@ -1,11 +1,9 @@
 package acme.entities.systemConfiguration;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
@@ -13,8 +11,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
-
-import com.google.common.collect.Sets;
 
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -72,11 +68,11 @@ public class SystemConfiguration extends AbstractEntity{
 		return this.getMapLenguajes(this.strongTerms).get(this.languageSystem.trim());
 	}
 	
-	private String getAllTerms(String terms) {
-		HashMap<String, String> m = this.getMapLenguajes(terms);
-		HashSet<String> l = new HashSet<String>();
-		for (Map.Entry<String,String> entry : m.entrySet()) {
-			for(String s : entry.getValue().trim().split(",")) {
+	private String getAllTerms(final String terms) {
+		final HashMap<String, String> m = this.getMapLenguajes(terms);
+		final HashSet<String> l = new HashSet<String>();
+		for (final Map.Entry<String,String> entry : m.entrySet()) {
+			for(final String s : entry.getValue().trim().split(",")) {
 				 l.add(s.trim());
 			}
 		  }
@@ -84,11 +80,11 @@ public class SystemConfiguration extends AbstractEntity{
 	}
 	
 	public String getAllStrongTerms() {
-		return getAllTerms(this.strongTerms);
+		return this.getAllTerms(this.strongTerms);
 	}
 	
 	public String getAllWeakTerms() {
-		return getAllTerms(this.weakTerms);
+		return this.getAllTerms(this.weakTerms);
 
 	}
 		

@@ -1,5 +1,8 @@
 package acme.components;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Date;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +13,6 @@ import acme.entities.systemConfiguration.ExchangeRate;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.datatypes.Money;
 import acme.framework.helpers.StringHelper;
-
-import java.util.Date;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.TemporalAmount;
-import java.util.Objects;
 
 
 
@@ -30,21 +26,21 @@ public class ExchangeService {
 	protected ExchangeRepository repository;
 	
 
-	public Money exchangeMoneySystemConfiguration (Money money) {
+	public Money exchangeMoneySystemConfiguration (final Money money) {
 		SystemConfiguration systemConfiguration;
 		systemConfiguration = this.repository.findSystemConfuration();
-		return exchangeMoneyService(money, systemConfiguration.getCurrency());
+		return this.exchangeMoneyService(money, systemConfiguration.getCurrency());
 	}
 
-	public Money exchangeMoneyToTarget (Money money, String target) {
-		return exchangeMoneyService(money, target);
+	public Money exchangeMoneyToTarget (final Money money, final String target) {
+		return this.exchangeMoneyService(money, target);
 	}
 	
 	
 	@SuppressWarnings("deprecation")
-	private Money exchangeMoneyService (Money money,String target) {
+	private Money exchangeMoneyService (final Money money,final String target) {
 		
-		Money result = new Money();
+		final Money result = new Money();
 		ExchangeRate exchangeRate;
 		SystemConfiguration systemConfiguration;
 		
@@ -58,30 +54,35 @@ public class ExchangeService {
 		
 		
 		if(exchangeRate == null) {
-			exchangeRate = computeMoneyExchange(money.getCurrency(),target, systemConfiguration.getCurrencies());
+			exchangeRate = this.computeMoneyExchange(money.getCurrency(),target, systemConfiguration.getCurrencies());
 		}
-		Date fecha = exchangeRate.getDate();
-		Date creationMoment = new Date(System.currentTimeMillis());
-		Period p = Period.between(LocalDate.of(creationMoment.getYear(), creationMoment.getMonth()+1, creationMoment.getDate()), 
-				LocalDate.of(fecha.getYear(), fecha.getMonth()+1, fecha.getDate()));
-		
-		
-		if(p.getMonths()<-1) {
-			exchangeRate = computeMoneyExchange(target, money.getCurrency(), systemConfiguration.getCurrencies());
-			if(exchangeRate != null) {
+		if(exchangeRate != null) {
+			final Date fecha = exchangeRate.getDate();
+			final Date creationMoment = new Date(System.currentTimeMillis());
+			final Period p = Period.between(LocalDate.of(creationMoment.getYear(), creationMoment.getMonth()+1, creationMoment.getDate()), 
+					LocalDate.of(fecha.getYear(), fecha.getMonth()+1, fecha.getDate()));
+			
+			if(p.getMonths()<-1) {
+				exchangeRate = this.computeMoneyExchange(target, money.getCurrency(), systemConfiguration.getCurrencies());
+				if(exchangeRate != null) {
+					result.setAmount(money.getAmount()*exchangeRate.getRate());
+					result.setCurrency(target);
+				}
+				
+			}else {
 				result.setAmount(money.getAmount()*exchangeRate.getRate());
 				result.setCurrency(target);
 			}
-			
-		}else {
-			result.setAmount(money.getAmount()*exchangeRate.getRate());
-			result.setCurrency(target);
 		}
+		
+		
+		
+		
 		return result;
 	}
 	
 	
-	private ExchangeRate computeMoneyExchange(final String source, final String targetCurrency, String currencies) {
+	private ExchangeRate computeMoneyExchange(final String source, final String targetCurrency, final String currencies) {
 		assert source != null;
 		assert !StringHelper.isBlank(targetCurrency);
 		ExchangeRate result = new ExchangeRate();;
@@ -100,10 +101,10 @@ public class ExchangeService {
 					sourceCurrency
 			);
 			if(record != null) {
-				for(String c : currencies.split(" ")) {
+				for(final String c : currencies.split(" ")) {
 					if(!Objects.equals(c.trim(), source)) {
 						ExchangeRate r;
-						ExchangeRate request = this.repository.findExchangeRateByCurrency(String.format("%s,%s",record.getBase(), c.trim()));
+						final ExchangeRate request = this.repository.findExchangeRateByCurrency(String.format("%s,%s",record.getBase(), c.trim()));
 						if(request!= null) {
 							r = request;
 						}else {
