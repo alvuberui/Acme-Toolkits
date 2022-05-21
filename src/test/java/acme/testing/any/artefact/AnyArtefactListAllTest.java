@@ -15,11 +15,10 @@ public class AnyArtefactListAllTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/artefact/list-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveArtefactAnonymousTest(final int recordIndex, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
+	public void positiveArtefactAnonymousTest(final int recordIndex, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo, final String published) {
 
 		super.clickOnMenu("Anonymous", "Artefact List");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
 
 		
 		super.checkColumnHasValue(recordIndex, 0, type);
@@ -28,6 +27,7 @@ public class AnyArtefactListAllTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 3, techonology);
 		super.checkColumnHasValue(recordIndex, 4, description);
 		super.checkColumnHasValue(recordIndex, 5, retailPrice);
+		super.checkColumnHasValue(recordIndex, 6, moreInfo);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -37,7 +37,7 @@ public class AnyArtefactListAllTest extends TestHarness {
 		super.checkInputBoxHasValue("technology", techonology);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
-
+		super.checkInputBoxHasValue("moreInfo", moreInfo);
 	}
 	
 	

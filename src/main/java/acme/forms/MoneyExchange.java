@@ -39,7 +39,4 @@ public class MoneyExchange {
 
 	@Valid
 	public Money	target;
-
-	public Date		date;
-
 }

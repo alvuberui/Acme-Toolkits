@@ -14,11 +14,6 @@
 	<acme:input-textbox code="inventor.artefact.form.label.technology" path="technology"/>
 	<acme:input-textarea code="inventor.artefact.form.label.description" path="description"/>	
 	<acme:input-money code="inventor.artefact.form.label.retail-price" path="retailPrice"/>
-	<jstl:choose>	
-		<jstl:when test="${command == 'show'}">
-			<acme:input-money readonly="${true}" code="inventor.artefact.form.label.money-exchange" path="moneyExchange"/>
-		</jstl:when>	
-	</jstl:choose>
 	<acme:input-url code="inventor.artefact.form.label.more-info" path="moreInfo"/>	
 	
 	<jstl:choose>	 

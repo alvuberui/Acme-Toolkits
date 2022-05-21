@@ -1,11 +1,14 @@
 package acme.features.inventor.toolkits;
 
+import static org.mockito.ArgumentMatchers.isNotNull;
+
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
+import acme.entities.artefact.ArtefactType;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -71,11 +74,12 @@ public class InventorToolkitsPublishService implements AbstractUpdateService<Inv
 		assert entity != null;
 		assert errors != null;
 		
-		Collection<Artefact> tools = this.repository.findToolsByToolkit(entity.getId());
+		Collection<Artefact> artefacts = this.repository.findComponentsAndToolsByToolkitId(entity.getId());
 		
-		if(tools == null || tools.isEmpty()){
-			errors.state(request, tools != null && !tools.isEmpty() , "*", "inventor.toolkit.published.error.artefacts");
+		if(artefacts == null || artefacts.isEmpty()){
+			errors.state(request, artefacts != null && !artefacts.isEmpty() , "*", "inventor.toolkit.published.error.artefacts");
 		}
+	
 	}
 
 	@Override

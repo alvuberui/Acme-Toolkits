@@ -8,7 +8,9 @@
 
 
 	<jstl:if test="${command == 'show'}">
-		<acme:button code="patron.patronage-reports.form.button.list-reports" action="/patron/patronage-report/list?id=${id}"/>
+			<jstl:if test="${status == 'ACCEPTED'}">
+			<acme:button code="patron.patronage-reports.form.button.list-reports" action="/patron/patronage-report/list?id=${id}"/>
+			</jstl:if>
 	</jstl:if>
 
 <br />
@@ -56,12 +58,15 @@
 		</jstl:when>
 	</jstl:choose>
 	
-	<jstl:if test="${command == 'create'}">
-			<acme:input-select  code="patron.patronage.form.label.link" path="inventor">
+	<jstl:if test="${acme:anyOf(command, 'create, update') }">
+	<acme:input-select  code="patron.patronage.form.label.data" path="inventor">
 				<jstl:forEach items="${inventors}" var="inventor">
 					<acme:input-option code="${inventor.getUserAccount().getUsername()}: ${inventor.getCompany()}" value="${inventor.getId()}"/>
 				</jstl:forEach>
 			</acme:input-select>
+	</jstl:if>
+	
+	<jstl:if test="${command == 'create'}">
 			<acme:submit code="patron.patronage.form.button.create" action="/patron/patronages/create"/>
 	</jstl:if>
 	
