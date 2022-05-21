@@ -58,7 +58,7 @@ public class ExchangeService {
 		
 		
 		if(exchangeRate == null) {
-			exchangeRate = computeMoneyExchange(target, money.getCurrency(), systemConfiguration.getCurrencies());
+			exchangeRate = computeMoneyExchange(money.getCurrency(),target, systemConfiguration.getCurrencies());
 		}
 		Date fecha = exchangeRate.getDate();
 		Date creationMoment = new Date(System.currentTimeMillis());
