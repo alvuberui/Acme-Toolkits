@@ -32,7 +32,6 @@ public class AnyToolkitListAllTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 2, description);
 		super.checkColumnHasValue(recordIndex, 3, assemblyNotes);
 		super.checkColumnHasValue(recordIndex, 4, link);
-	
 	}
 	
 	
@@ -70,7 +69,7 @@ public class AnyToolkitListAllTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
-		super.clickOnButton("Artefact");
+		super.clickOnButton("Artefacts");
 		
 		super.checkListingExists();
 		super.sortListing(0, "asc");

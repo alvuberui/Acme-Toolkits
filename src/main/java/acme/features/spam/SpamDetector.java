@@ -58,7 +58,7 @@ public class SpamDetector {
 		} 
 
 	  public static boolean error(final String words, SystemConfiguration systemConfiguration) {
-		  return spamTerms(words, systemConfiguration.getAllStrongTerms(), systemConfiguration.getStrongThreshold()) 
-				  && spamTerms(words, systemConfiguration.getAllWeakTerms(), systemConfiguration.getWeakThreshold());
+		  return spamTerms(words.trim(), systemConfiguration.getAllStrongTerms(), systemConfiguration.getStrongThreshold()) 
+				  && spamTerms(words.trim(), systemConfiguration.getAllWeakTerms(), systemConfiguration.getWeakThreshold());
 		} 
 }

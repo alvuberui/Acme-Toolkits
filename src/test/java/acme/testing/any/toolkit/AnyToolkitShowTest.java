@@ -72,8 +72,8 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		
 	}
@@ -90,8 +90,8 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		
 	}
@@ -108,8 +108,8 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -136,8 +136,8 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
