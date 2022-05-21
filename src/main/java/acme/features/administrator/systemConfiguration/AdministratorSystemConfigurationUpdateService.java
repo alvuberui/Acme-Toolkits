@@ -82,7 +82,18 @@ public class AdministratorSystemConfigurationUpdateService implements AbstractUp
 			errors.state(request, l.contains(entity.getCurrency().trim()) , "currency", "administrator.system-configuration.error.currencies");
 			
 		}
-			
+		if(!errors.hasErrors("weakTermsEnglish")) {
+			errors.state(request,!request.getModel().getString("weakTermsEnglish").trim().isEmpty() , "weakTermsEnglish", "administrator.system-configuration.error.spamTerm");
+		}
+		if(!errors.hasErrors("weakTermsSpanish")) {
+			errors.state(request,!request.getModel().getString("weakTermsSpanish").trim().isEmpty(), "weakTermsSpanish", "administrator.system-configuration.error.spamTerm");
+		}
+		if(!errors.hasErrors("strongTermsSpanish")) {
+			errors.state(request,!request.getModel().getString("strongTermsSpanish").trim().isEmpty(), "strongTermsSpanish", "administrator.system-configuration.error.spamTerm");
+		}
+		if(!errors.hasErrors("strongTermsEnglish")) {
+			errors.state(request,!request.getModel().getString("strongTermsEnglish").trim().isEmpty(), "strongTermsEnglish", "administrator.system-configuration.error.spamTerm");
+		}	
 	
 	
 	}
