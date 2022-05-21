@@ -55,7 +55,9 @@ public class InventorArtefactUpdateTest extends TestHarness {
 		super.fillInputBoxIn("retailPrice", retailPrice);
 		super.fillInputBoxIn("moreInfo", moreInfo);
 		super.clickOnSubmit("Update");
-
+		
+		super.checkNotErrorsExist();
+		
 		super.signOut();
 	}
 	
