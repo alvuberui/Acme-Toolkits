@@ -1,0 +1,13 @@
+1653241543685	geckodriver	INFO	Listening on 127.0.0.1:11723
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DP2\\AppData\\Local\\Temp\\rust_mozprofilepCUsJn\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:8081"
+console.warn: LoginRecipes: "getRecipJaevs: falliaScript error: resource://ngreg back to a synchronous m/modulesessa/Lgeog fior:" "hnManagerParent.jsm, line 136: TypeError:ttp:// localhogst:8081"
+RecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falliJavaScript error: resource://nggr eb/amcokd utloe sa/ LsoginManagerParent.jysnchronous messmage for:," " hltitnpe: /1/3localhost6:8081":
+ TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipJaes: falling back tvoa a Sscyrnipt error: resourccehr:o/n/gre/modules/LoginManagerParent.ojsmus m,e linssaege f o1r3:6":  "Thyttp://localhospte:8081"
+Error: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message forJavaScr:" "ihttp:pt //loerrcalhor:ost: re8s081"ource://g
+re/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchroJavaScript error: renous msource://gre/moedules/Logissagne fManaor:"gerP "ahrent.jsm, line 136:ttp: Typ//locaeErrorl:h ogsRecipeManatg:8081"
+er is null

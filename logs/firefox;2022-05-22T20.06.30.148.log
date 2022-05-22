@@ -1,0 +1,18 @@
+1653242669537	geckodriver	INFO	Listening on 127.0.0.1:9758
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\DP2\\AppData\\Local\\Temp\\rust_mozprofilejYBig5\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:8081"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: Type"http://localhost:8081"
+Error: gRecipeManager is null
+console.warn: LoginReJcaivpaes: "getRecipes: falling bacSkc rtiop ta  error: resource://gre/modules/LoginManagerParent.jssymn,c line 136: TypeError: gRecipeManager is null
+hronous message for:" "http://localhost:8081"
+console.warn: LoginRecipes: "getRecipes: falliJavaScript errorn:g  rbacke source://gtroe /am odulses/LoginManagerPayrnecnhtr.onous mjesm, lsisnaeg e1 3f6or:": "htt pT:ypeE//rlroocra:l hgoRsetc:i8p0eM8an1a"ge
+r is null
+console.warn: LoginRecipes: "getRecipes: falling back to a JsynchraovaScript error: resource://gre/modules/LoginManagerParennt.ojussm, l messagei nfeo r1:3"6 "http://localhost:8081"
+: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous Javamessage forScri:" "http://lpot errcoarl:h resource:o/s/t:8081"gre/m
+odules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_untrustedmodules_ping
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+

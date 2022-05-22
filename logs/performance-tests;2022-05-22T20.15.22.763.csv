@@ -1,0 +1,3 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-22 20:13:50.313","acme.testing.inventor.patronages.InventorPatronagesAcceptTest","positivePatronageInventorpositiveAcceptTest",15275,""[1] recordIndex=0, status=ACCEPTED, code=ABC-012-A, legalStuff=legal stuff 1, budget=EUR 25.00, initPeriod=2022/02/20 15:23, finalPeriod=2022/05/19 12:23, link=null, username=patron1, company=Macarena, Inc."","OK"
+"2022-05-22 20:14:02.04","acme.testing.inventor.patronages.InventorPatronagesAcceptTest","negativePatronageInventorTest",11292,""[1] recordIndex=0, status=ACCEPTED, code=ABC-012-A, legalStuff=legal stuff 1, budget=EUR 25.00, initPeriod=2022/02/20 15:23, finalPeriod=2022/05/19 12:23, link=null, username=patron1, company=Macarena, Inc."","OK"

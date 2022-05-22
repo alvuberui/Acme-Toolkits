@@ -1,0 +1,4 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-22 10:25:29.961","acme.testing.inventor.toolkits.InventorToolkitsPublishTest","createToolkit",11368,""[1] recordIndex=1, code=AAA-000-B, title=New title 2, description=New description 2, assemblyNotes=This is assembly notes 2, link=null"","OK"
+"2022-05-22 10:25:34.718","acme.testing.inventor.toolkits.InventorToolkitsPublishTest","negativePublishWithNoArtefactsToolkitInventorTest",4413,""negativePublishWithNoArtefactsToolkitInventorTest()"","OK"
+"2022-05-22 10:26:03.978","acme.testing.inventor.toolkits.InventorToolkitsPublishTest","positivePublishToolkitInventorTest",28874,""positivePublishToolkitInventorTest()"","OK"
