@@ -1,8 +1,8 @@
 package acme.entities.systemConfiguration;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
 
 import javax.persistence.Entity;
@@ -68,24 +68,26 @@ public class SystemConfiguration extends AbstractEntity{
 		return this.getMapLenguajes(this.strongTerms).get(this.languageSystem.trim());
 	}
 	
-	public String getAllStrongTerms() {
-		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
-		List<String> l = new ArrayList<>();
-		for (Map.Entry<String,String> entry : m.entrySet()) {
-		    l.add(entry.getValue().trim());
+	private String getAllTerms(final String terms) {
+		final HashMap<String, String> m = this.getMapLenguajes(terms);
+		final HashSet<String> l = new HashSet<String>();
+		for (final Map.Entry<String,String> entry : m.entrySet()) {
+			for(final String s : entry.getValue().trim().split(",")) {
+				 l.add(s.trim());
+			}
 		  }
-		return l.toString();
+		return l.toString().replace("[", "").replace("]", "").trim();
+	}
+	
+	public String getAllStrongTerms() {
+		return this.getAllTerms(this.strongTerms);
 	}
 	
 	public String getAllWeakTerms() {
-		HashMap<String, String> m = this.getMapLenguajes(this.weakTerms);
-		List<String> l = new ArrayList<>();
-		for (Map.Entry<String,String> entry : m.entrySet()) {
-		    l.add(entry.getValue());
-		  }
-		return l.toString();
+		return this.getAllTerms(this.weakTerms);
+
 	}
-	
+		
 	public String getStrongTermsSpanish() {
 		return this.getMapLenguajes(this.strongTerms).get("SPANISH");
 	}

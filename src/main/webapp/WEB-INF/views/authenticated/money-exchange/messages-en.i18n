@@ -16,3 +16,4 @@ authenticated.money-exchange.form.label.target = Target money:
 authenticated.money-exchange.form.button.perform = Perform exchange
 
 authenticated.money-exchange.form.label.api-error = Sorry, couldn't perform the exchange
+authenticated.money-exchange.error = This currency is not in the system

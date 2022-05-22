@@ -29,7 +29,6 @@ public class InventorToolkitsDeleteService implements AbstractDeleteService<Inve
 		
 		Toolkit result;
 		int id;
-		System.out.println(request.getModel());
 		id = request.getModel().getInteger("id");
 		result = this.repository.findToolkitById(id);
 	

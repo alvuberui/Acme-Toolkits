@@ -16,7 +16,7 @@ public class AnyToolkitShowTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveShowToolkitPatronTest(final int recordIndex, final String title,final String code, final String description, final String assemblyNotes, final String link, final String price) {
 	
@@ -39,7 +39,7 @@ public class AnyToolkitShowTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void positiveShowToolkitAnonymousTest(final int recordIndex, final String title,final String code, final String description, final String assemblyNotes, final String link, final String price) {
 	
@@ -62,7 +62,7 @@ public class AnyToolkitShowTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(30)
 	public void positiveListArtefactToolkitPatronTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link, final String price) {
 	
@@ -72,15 +72,15 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		
 	}
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(40)
 	public void positiveListArtefactToolkitAnonymousTest(final int recordIndex,final String code, final String title, final String description, final String assemblyNotes, final String link, final String price) {
 	
@@ -90,14 +90,14 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(50)
 	public void positiveArtefactOfToolkitPatronTest(final int recordIndex,final int recordIndex2, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
 		
@@ -108,8 +108,8 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -126,7 +126,7 @@ public class AnyToolkitShowTest extends TestHarness {
 
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/toolkit/list-toolkit-artefact.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)
 	public void positiveArtefactOfToolkitAnonymousTest(final int recordIndex,final int recordIndex2, final String type, final String name, final String code, final String techonology, final String description, final String retailPrice, final String moreInfo) {
 		
@@ -136,8 +136,8 @@ public class AnyToolkitShowTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
+		super.checkButtonExists("Artefacts");
+		super.clickOnButton("Artefacts");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -152,23 +152,6 @@ public class AnyToolkitShowTest extends TestHarness {
 
 	}
 	
-	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/toolkit/list-toolkit-artefact-not-published.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(70)
-	public void negativeNotPublishedArtefactTest(final int recordIndex) {
-		
-		super.signIn("patron1", "patron1");
-		
-		super.clickOnMenu("Authenticated", "Toolkit list");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.clickOnListingRecord(recordIndex);
-		super.checkButtonExists("Artefact");
-		super.clickOnButton("Artefact");
-		super.checkListingEmpty();
-	}
-
 	
 
 	

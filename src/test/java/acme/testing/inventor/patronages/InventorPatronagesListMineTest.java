@@ -15,7 +15,7 @@ public class InventorPatronagesListMineTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronages/list-patronages.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positivePatronagesInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username, final String company) {
+	public void positivePatronagesInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String patronUsername, final String patronCompany, final String patronLink, final String patronStatement) {
 		
 		
 		super.signIn("inventor1", "inventor1");
@@ -40,8 +40,11 @@ public class InventorPatronagesListMineTest extends TestHarness {
 		super.checkInputBoxHasValue("finalPeriod", finalPeriod);
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("initPeriod", initPeriod);
-		super.checkInputBoxHasValue("username", username);
-		super.checkInputBoxHasValue("company", company);
+
+		super.checkInputBoxHasValue("patronUsername", patronUsername);
+		super.checkInputBoxHasValue("patronCompany", patronCompany);
+		super.checkInputBoxHasValue("patronLink", patronLink);
+		super.checkInputBoxHasValue("patronStatement", patronStatement);
 		
 		super.signOut();
 	}

@@ -64,7 +64,6 @@ public class InventorArtefactPublishService implements AbstractUpdateService<Inv
 
 		if (!errors.hasErrors("code")) {
 			Artefact existing;
-			
 			existing = this.repository.findOneByCode(entity.getCode());
 			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "inventor.artefact.error.duplicated");
 		}

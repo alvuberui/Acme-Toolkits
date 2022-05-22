@@ -1,8 +1,6 @@
 package acme.features.inventor.artefact;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.ArrayBlockingQueue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,7 +67,7 @@ public class InventorComponentAndToolsByToolkitListService implements AbstractLi
 		
 		
 		request.unbind(entity, model, "type", "name", "code", "technology",
-			"description","retailPrice", "moreInfo");
+			"description","retailPrice", "moreInfo","published");
 		
 		Quantity quantity;
 		quantity = this.repository.findQuantityByArtefactIdAndToolkitId(entity.getId(),toolkitId);

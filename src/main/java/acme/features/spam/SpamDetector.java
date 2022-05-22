@@ -1,5 +1,4 @@
 package acme.features.spam;
-import java.util.List;
 
 import acme.entities.systemConfiguration.SystemConfiguration;
 
@@ -22,6 +21,7 @@ public class SpamDetector {
 	  }
 	
 	  private static Integer findWordsRecursive(int i, int j, String[] targetWords, String[] words) {
+		 
 		  if(i >= targetWords.length) {
 			  j++;
 			  i=0;
@@ -54,12 +54,11 @@ public class SpamDetector {
 		}
 	  
 	  public static boolean spamStrongTerms(final String words, SystemConfiguration systemConfiguration) {
-		  System.out.println(words);
 		  return spamTerms(words, systemConfiguration.getStrongTerms(), systemConfiguration.getStrongThreshold());
 		} 
-	  
+
 	  public static boolean error(final String words, SystemConfiguration systemConfiguration) {
-		  return spamTerms(words, systemConfiguration.getAllStrongTerms(), systemConfiguration.getStrongThreshold()) 
-				  && spamTerms(words, systemConfiguration.getAllStrongTerms(), systemConfiguration.getWeakThreshold());
+		  return spamTerms(words.trim(), systemConfiguration.getAllStrongTerms(), systemConfiguration.getStrongThreshold()) 
+				  && spamTerms(words.trim(), systemConfiguration.getAllWeakTerms(), systemConfiguration.getWeakThreshold());
 		} 
 }

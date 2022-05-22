@@ -8,7 +8,7 @@ patron.patronage.form.label.link = Enlace
 patron.patronage.form.label.username = Nombre de Inventor
 patron.patronage.form.label.company = Compañía
 patron.patronage.form.label.statement = Declaración
-patron.patronage.form.label.inventor-link = Enlace
+patron.patronage.form.label.inventor-link = Inventor
 patron.patronage-reports.form.button.list-reports = Reportes de Patrocinios
 
 
@@ -35,5 +35,13 @@ patron.patronages.form.error.initPeriod-too-close = Error en el periodo, debe se
 patron.patronages.form.error.finalPeriod-too-close = Error en el periodo, debe ser de al menos 1 mes de duración.
 
 
-patron.patronage.form.label.money-exchange = Moneda del sistema
+patron.patronages.form.error.currency-not-exist = Moneda Invalida
 
+patron.patronage.form.label.money-exchange = Precio del sistema
+
+patron.patronages.inventor.form.label.title = Datos del Inventor
+patron.patronages.inventor.form.label.username = Nombre de Usuario
+patron.patronages.inventor.form.label.company = Compañia
+patron.patronages.inventor.form.label.link = Link
+patron.patronages.inventor.form.label.statement = Statement
+patron.patronage.form.label.data = Inventor

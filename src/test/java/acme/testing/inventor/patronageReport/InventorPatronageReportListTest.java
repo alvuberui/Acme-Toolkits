@@ -99,7 +99,6 @@ public class InventorPatronageReportListTest extends TestHarness {
 
         super.signIn("inventor2", "inventor2");
         final String queryNueva = query.substring(1);
-        System.out.println(queryNueva);
         super.navigate("/inventor/patronage-report/list-mine-reports",queryNueva);
         super.checkPanicExists();
 

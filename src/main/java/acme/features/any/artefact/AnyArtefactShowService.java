@@ -46,7 +46,7 @@ public class AnyArtefactShowService implements AbstractShowService<Any, Artefact
 
 		request.unbind(entity, model, "type", "name", "code", "technology",
 			"description","retailPrice", "moreInfo");
-		model.setAttribute("moneyExchange", exchangeService.exchangeMoney(entity.getRetailPrice()));
+		model.setAttribute("moneyExchange", exchangeService.exchangeMoneySystemConfiguration(entity.getRetailPrice()));
 	}
 
 }

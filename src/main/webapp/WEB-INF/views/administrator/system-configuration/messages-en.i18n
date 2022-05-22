@@ -12,3 +12,4 @@ administrator.systemConfiguration.label.weakTermsEnglish = Weak terms on English
 
 administrator.systemConfiguration.label.strongTermsSpanish = Strong terms on Spanish
 administrator.systemConfiguration.label.strongTermsEnglish =  Strong terms on English
+administrator.system-configuration.error.spamTerm = Spam terms can not be empty

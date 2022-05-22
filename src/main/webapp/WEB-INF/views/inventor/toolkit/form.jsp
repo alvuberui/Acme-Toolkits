@@ -7,7 +7,13 @@
 
 
 <acme:form >
-
+	<jstl:if test="${acme:anyOf(command, 'publish')}">
+		<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>	
+		<acme:input-textbox code="inventor.toolkit.form.label.title" path="title"/>
+		<acme:input-textbox code="inventor.toolkit.form.label.description" path="description"/>	
+		<acme:input-textbox code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
+		<acme:input-textbox code="inventor.toolkit.form.label.link" path="link"/>
+	</jstl:if>
 	
 	<jstl:if test="${acme:anyOf(command, 'create, update')}">
 		<acme:input-textbox code="inventor.toolkit.form.label.code" path="code"/>	
@@ -16,7 +22,7 @@
 		<acme:input-textbox code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 		<acme:input-textbox code="inventor.toolkit.form.label.link" path="link"/>
 	</jstl:if>
-	<jstl:if test="${acme:anyOf(command, 'show, delete, publish')}">
+	<jstl:if test="${acme:anyOf(command, 'show, delete')}">
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.code" path="code"/>	
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.title" path="title"/>
 		<acme:input-textbox readonly="true" code="inventor.toolkit.form.label.description" path="description"/>	
@@ -26,7 +32,7 @@
 		<jstl:if test="${price!=null}">
 			<acme:input-money readonly="true" code="inventor.toolkit.form.label.price" path="price"/>	
 		</jstl:if>
-		<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/inventor/artefact/list-artefact-toolkit?masterId=${toolkitId}"/>
+		<acme:button code="inventor.toolkit.form.button.toolkits-artefact" action="/any/artefact/list-artefact-toolkit?masterId=${toolkitId}"/>
 		<jstl:if  test="${!published}">
 			<acme:button code="inventor.toolkit.form.button.update-artefact" action="/inventor/toolkit/update-artefact?id=${toolkitId}"/>
 		
@@ -44,7 +50,7 @@
 					<acme:input-option code="inventor.toolkit.form.empty.list" value="" selected="true"/>
 			</jstl:if>
 			<jstl:forEach items="${artefacts}" var="artefact">
-				<acme:input-option code="${artefact.getType()}: ${artefact.getCode()} ${artefact.getRetailPrice()}" value="${artefact.getId()}"/>
+				<acme:input-option code="${artefact.getType()}: ${artefact.getCode()} ${artefact.getName()} ${artefact.getRetailPrice()}" value="${artefact.getId()}"/>
 			</jstl:forEach>
 		</acme:input-select>
 	</jstl:if>

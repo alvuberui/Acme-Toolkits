@@ -8,7 +8,9 @@
 
 
 	<jstl:if test="${command == 'show'}">
-		<acme:button code="patron.patronage-reports.form.button.list-reports" action="/patron/patronage-report/list?id=${id}"/>
+			<jstl:if test="${status == 'ACCEPTED'}">
+			<acme:button code="patron.patronage-reports.form.button.list-reports" action="/patron/patronage-report/list?id=${id}"/>
+			</jstl:if>
 	</jstl:if>
 
 <br />
@@ -27,8 +29,14 @@
 			<acme:input-textbox readonly="${true}" code="patron.patronage.form.label.legalStuff" path="legalStuff"/>
 			<acme:input-textbox readonly="${true}" code="patron.patronage.form.label.link" path="link"/>
 		</jstl:if>	
-
-	
+		<jstl:if test="${command == 'show'}">
+			<br></br>
+			<acme:message code="patron.patronages.inventor.form.label.title"/>
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.username" path="inventorUsername"/>		
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.company" path="inventorCompany"/>
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.link" path="inventorLink"/>	
+			<acme:input-textbox readonly="true" code="patron.patronages.inventor.form.label.statement" path="inventorStatement"/>		
+		</jstl:if>
 	
 	
 	<jstl:if test="${acme:anyOf(command, 'create, update') }">
@@ -50,12 +58,15 @@
 		</jstl:when>
 	</jstl:choose>
 	
-	<jstl:if test="${command == 'create'}">
-			<acme:input-select  code="patron.patronage.form.label.link" path="inventor">
+	<jstl:if test="${acme:anyOf(command, 'create, update') }">
+	<acme:input-select  code="patron.patronage.form.label.data" path="inventor">
 				<jstl:forEach items="${inventors}" var="inventor">
 					<acme:input-option code="${inventor.getUserAccount().getUsername()}: ${inventor.getCompany()}" value="${inventor.getId()}"/>
 				</jstl:forEach>
 			</acme:input-select>
+	</jstl:if>
+	
+	<jstl:if test="${command == 'create'}">
 			<acme:submit code="patron.patronage.form.button.create" action="/patron/patronages/create"/>
 	</jstl:if>
 	
