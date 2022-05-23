@@ -25,9 +25,7 @@ public class InventorArtefactListOwnTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
 		super.checkColumnHasValue(recordIndex, 3, techonology);
-		super.checkColumnHasValue(recordIndex, 4, description);
-		super.checkColumnHasValue(recordIndex, 5, retailPrice);
-		super.checkColumnHasValue(recordIndex, 6, moreInfo);
+		super.checkColumnHasValue(recordIndex, 4, retailPrice);
 		
 		//Revisamos que el show va bien y tiene todo
 		super.clickOnListingRecord(recordIndex);

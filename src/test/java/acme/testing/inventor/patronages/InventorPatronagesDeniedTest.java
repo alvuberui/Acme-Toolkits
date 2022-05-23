@@ -20,7 +20,7 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 
 		super.clickOnMenu("Inventor", "My Patronages");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(0, "desc");
 
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);
@@ -31,7 +31,7 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 		super.clickOnSubmit("Denied");
 
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(0, "desc");
 
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);
@@ -60,7 +60,7 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 
 		super.clickOnMenu("Inventor", "My Patronages");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(0, "desc");
 
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);

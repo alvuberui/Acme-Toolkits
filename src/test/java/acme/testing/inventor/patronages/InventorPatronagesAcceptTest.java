@@ -16,7 +16,7 @@ public class InventorPatronagesAcceptTest extends TestHarness {
 		
 		super.clickOnMenu("Inventor", "My Patronages");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);
@@ -27,7 +27,7 @@ public class InventorPatronagesAcceptTest extends TestHarness {
 		super.clickOnSubmit("Accept");
 		
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);

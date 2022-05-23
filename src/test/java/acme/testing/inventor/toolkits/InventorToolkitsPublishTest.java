@@ -28,8 +28,9 @@ public class InventorToolkitsPublishTest extends InventorToolkitsHarness{
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(0);
 		
-		super.clickOnSubmit("Publish");
 		super.checkSubmitExists("Publish");
+		super.clickOnSubmit("Publish");
+		
 		
 	}
 	
@@ -38,8 +39,8 @@ public class InventorToolkitsPublishTest extends InventorToolkitsHarness{
 	@Test
 	@Order(30)
 	public void positivePublishToolkitInventorTest() {
-		String componentId = super.getIdArtefactComponentOrTool(true);
-		String toolId = super.getIdArtefactComponentOrTool(false);
+		final String componentId = super.getIdArtefactComponentOrTool(true);
+		final String toolId = super.getIdArtefactComponentOrTool(false);
 		super.signIn("inventor1", "inventor1");
 		super.updateArtefactFirstToolkit("1", toolId);
 		super.updateArtefactFirstToolkit("1", componentId);
