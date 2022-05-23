@@ -12,15 +12,15 @@ import acme.framework.repositories.AbstractRepository;
 public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.PROPOSED")
-	int NumberOfProposedPatronages();
+	int numberOfProposedPatronages();
 	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.ACCEPTED")
-	int NumberOfAcceptedPatronages();
+	int numberOfAcceptedPatronages();
 	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED")
-	int NumberOfDeniedPatronages();
+	int numberOfDeniedPatronages();
 	@Query("select count(i) from Artefact i where i.type = acme.entities.artefact.ArtefactType.TOOL")
-	int NumberOfTools();	
+	int numberOfTools();	
 	@Query("select count(i) from Artefact i where i.type = acme.entities.artefact.ArtefactType.COMPONENT")
-	int NumberOfComponents();	
+	int numberOfComponents();	
 	
 	@Query("select i.retailPrice.currency, avg(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.TOOL group by i.retailPrice.currency")
 	List<String> avgRetailPriceOfTools();
