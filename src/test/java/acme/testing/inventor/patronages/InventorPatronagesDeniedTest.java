@@ -17,11 +17,11 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 	public void positivePatronageInventorpositiveAcceptTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link,
 		final String username, final String company) {
 		super.signIn("inventor1", "inventor1");
-
+		
 		super.clickOnMenu("Inventor", "My Patronages");
 		super.checkListingExists();
-		super.sortListing(0, "desc");
-
+		super.sortListing(1, "desc");
+		
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -29,10 +29,10 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 		super.checkSubmitExists("Accept");
 		super.checkSubmitExists("Denied");
 		super.clickOnSubmit("Denied");
-
+		
 		super.checkListingExists();
-		super.sortListing(0, "desc");
-
+		super.sortListing(1, "desc");
+		
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkInputBoxHasValue("status", status);
@@ -45,29 +45,52 @@ public class InventorPatronagesDeniedTest extends TestHarness {
 		super.checkInputBoxHasValue("initPeriod", initPeriod);
 		super.checkInputBoxHasValue("patronUsername", username);
 		super.checkInputBoxHasValue("patronCompany", company);
-
+		
 		super.signOut();
 	}
 
 	@ParameterizedTest
-
 	@CsvFileSource(resources = "/inventor/patronages/update-accept-status.csv", encoding = "utf-8", numLinesToSkip = 1)
-
 	@Order(20)
-	public void negativePatronageInventorTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username,
+	public void negativePatronageInventorBadStatusTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username,
 		final String company) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "My Patronages");
 		super.checkListingExists();
-		super.sortListing(0, "desc");
+		super.sortListing(1, "desc");
 
-		super.checkColumnHasValue(recordIndex, 1, code);
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 		super.checkNotSubmitExists("Accept");
 		super.checkNotSubmitExists("Denied");
 		super.signOut();
+	}
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/patronages/update-accept-status.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(30)
+	public void negativePatronageInventorBadDateTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String initPeriod, final String finalPeriod, final String link, final String username,
+		final String company) {
+		super.signIn("inventor1", "inventor1");
+
+		super.clickOnMenu("Inventor", "My Patronages");
+		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.clickOnListingRecord(0);
+		super.checkFormExists();
+		super.checkSubmitExists("Accept");
+		super.checkSubmitExists("Denied");
+		super.clickOnSubmit("Denied");
+		
+		super.checkListingExists();
+		super.sortListing(1, "asc");
+		
+		super.clickOnListingRecord(0);
+		super.checkInputBoxHasValue("status", "DENIED");
+		
+		
 	}
 
 

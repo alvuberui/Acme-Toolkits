@@ -30,3 +30,5 @@ inventor.patronage.form.label.money-exchange = System price
 inventor.patronages.form.button.accept = Accept
 inventor.patronages.form.button.denied = Denied
 inventor.patronage.form.error.status = Wrong Status
+
+inventor.patron.form.error.init-period = Patronage can only be Denied if the initial Period is before today

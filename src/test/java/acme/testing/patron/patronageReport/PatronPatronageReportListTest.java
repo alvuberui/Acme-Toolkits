@@ -22,11 +22,11 @@ public class PatronPatronageReportListTest extends TestHarness{
 
 		super.signIn("patron1", "patron1");
 		super.clickOnMenu("Patron", "My patronages");
-		super.sortListing(0, "desc");
+		super.sortListing(1, "asc");
 		super.clickOnListingRecord(0);
 		super.clickOnButton("Patronage Reports");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(1, "desc");
 
 
 		//Revisar que la cabecera esta bien
