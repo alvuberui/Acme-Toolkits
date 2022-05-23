@@ -1,5 +1,9 @@
 package acme.features.inventor.patronages;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +46,7 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "code", "legalStuff", 
-			"budget", "initPeriod", "finalPeriod", "link", "patronUsername", "patronCompany","patronLink","patronStatement");
+			"budget", "initPeriod", "finalPeriod", "link", "patronUsername", "patronCompany", "patronLink", "patronStatement");
 		
 	}
 
@@ -62,17 +66,33 @@ public class InventorPatronagesUpdate implements AbstractUpdateService<Inventor,
 			errors.state(request,request.getModel().getString("new-status").equals("ACCEPTED") || request.getModel().getString("new-status").equals("DENIED"), "new-status", "inventor.patronage.form.error.status");
 		}
 		
-		
 	}
 
 	@Override
 	public void update(final Request<Patronages> request, final Patronages entity) {
 		assert request != null;
 		assert entity != null;
-		final PatronageStatus status = PatronageStatus.valueOf(request.getModel().getString("new-status"));
-		entity.setStatus(status);
-		this.repository.save(entity);
+	
+		Date initialPeriod;
+		Calendar monthDate;
+
 		
+		initialPeriod = entity.getInitPeriod();
+		monthDate = new GregorianCalendar();
+		monthDate.setTime(initialPeriod);
+		monthDate.add(Calendar.MONTH, 1);
+
+		
+		if (entity.getInitPeriod().before(Calendar.getInstance().getTime())) {
+			entity.setStatus(PatronageStatus.DENIED);
+			
+		}
+		else {
+			final PatronageStatus status = PatronageStatus.valueOf(request.getModel().getString("new-status"));
+			entity.setStatus(status);
+			
+		}
+		this.repository.save(entity);
 	}
 
 }
