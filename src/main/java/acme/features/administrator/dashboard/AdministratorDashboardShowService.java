@@ -29,11 +29,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 	public AdministratorDashboard findOne(final Request<AdministratorDashboard> request) {
 		assert request != null;
 		final AdministratorDashboard result=new AdministratorDashboard();
-		final int NumberOfProposedPatronages=this.repository.NumberOfProposedPatronages();
-		final int NumberOfAcceptedPatronages=this.repository.NumberOfAcceptedPatronages();
-		final int NumberOfDeniedPatronages=this.repository.NumberOfDeniedPatronages();	
-		final int NumberOfTools= this.repository.NumberOfTools();
-		final int NumberOfComponents= this.repository.NumberOfComponents();
+		final int NumberOfProposedPatronages=this.repository.numberOfProposedPatronages();
+		final int NumberOfAcceptedPatronages=this.repository.numberOfAcceptedPatronages();
+		final int NumberOfDeniedPatronages=this.repository.numberOfDeniedPatronages();	
+		final int NumberOfTools= this.repository.numberOfTools();
+		final int NumberOfComponents= this.repository.numberOfComponents();
 		final Map<Pair<String, String>, Double> avgRetailPriceOfComponents =  new HashMap<Pair<String, String>, Double>();	
 		final Map<Pair<String, String>, Double> deviationRetailPriceOfComponents =  new HashMap<Pair<String, String>, Double>();		
 		final Map<Pair<String, String>, Double> minRetailPriceOfComponents =  new HashMap<Pair<String, String>, Double>();		
