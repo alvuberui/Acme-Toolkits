@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -10,29 +10,28 @@ import com.google.common.base.Objects;
 
 import acme.entities.artefact.Artefact;
 import acme.entities.chimpum.Chimpum;
-import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractUpdateService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 
 @Service
-public class InventorChimpumUpdateArtefactService  implements AbstractUpdateService<Inventor,Chimpum>{
+public class PatronChimpumUpdateArtefactService  implements AbstractUpdateService<Patron,Chimpum>{
 
 	
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected PatronChimpumRepository repository;
 	
 	
 	@Override
-	public boolean authorise(Request<Chimpum> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		return true;
 	}
 
 	@Override
-	public void bind(Request<Chimpum> request, Chimpum entity, Errors errors) {	
+	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {	
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -41,14 +40,14 @@ public class InventorChimpumUpdateArtefactService  implements AbstractUpdateServ
 		request.bind(entity, errors, "artefactId");
 		
 		
-		Integer componentId = request.getModel().getInteger("artefactId");
+		final Integer componentId = request.getModel().getInteger("artefactId");
 		
 		
 		entity.setArtefact(this.repository.findComponentById(componentId));
 	}
 
 	@Override
-	public void unbind(Request<Chimpum> request, Chimpum entity, Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -68,7 +67,7 @@ public class InventorChimpumUpdateArtefactService  implements AbstractUpdateServ
 	}
 
 	@Override
-	public Chimpum findOne(Request<Chimpum> request) {
+	public Chimpum findOne(final Request<Chimpum> request) {
 		
 		int id;
 		Chimpum chimpum;
@@ -80,14 +79,14 @@ public class InventorChimpumUpdateArtefactService  implements AbstractUpdateServ
 	}
 
 	@Override
-	public void validate(Request<Chimpum> request, Chimpum entity, Errors errors) {
+	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 	}
 
 	@Override
-	public void update(Request<Chimpum> request, Chimpum entity) {
+	public void update(final Request<Chimpum> request, final Chimpum entity) {
 		assert request != null;
 		assert entity != null;
 		

@@ -1,4 +1,4 @@
-package acme.features.inventor.systemdashboard;
+package acme.features.patron.systemdashboard;
 
 import java.util.List;
 

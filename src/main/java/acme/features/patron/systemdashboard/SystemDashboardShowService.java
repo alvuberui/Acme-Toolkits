@@ -1,4 +1,4 @@
-package acme.features.inventor.systemdashboard;
+package acme.features.patron.systemdashboard;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,10 +10,10 @@ import acme.forms.SystemDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Service
-public class SystemDashboardShowService implements AbstractShowService<Inventor, SystemDashboard>{
+public class SystemDashboardShowService implements AbstractShowService<Patron, SystemDashboard>{
 	@Autowired
 	protected  SystemDashboardRepository repository;
 

@@ -1,41 +1,38 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.chimpum.Chimpum;
-import acme.features.inventor.chimpum.InventorChimpumListService;
-import acme.features.inventor.chimpum.InventorChimpumRepository;
 import acme.features.spam.SpamDetector;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Service
-public class InventorChimpumCreateService implements AbstractCreateService<Inventor, Chimpum>{
+public class PatronChimpumCreateService implements AbstractCreateService<Patron, Chimpum>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected PatronChimpumRepository repository;
 	
 	@Override
-	public boolean authorise(Request<Chimpum> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		assert request != null;
 		
 		return true;
 	}
 
 	@Override
-	public void bind(Request<Chimpum> request, Chimpum entity, Errors errors) {
+	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -50,7 +47,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	}
 
 	@Override
-	public void unbind(Request<Chimpum> request, Chimpum entity, Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -62,7 +59,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 
 	
 	@Override
-	public void validate(Request<Chimpum> request, Chimpum entity, Errors errors) {
+	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -80,7 +77,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 					LocalDate.of(entity.getInitPeriod().getYear(), entity.getInitPeriod().getMonth()+1, entity.getInitPeriod().getDate()));
 			System.out.println(p2.getMonths());
 			
-			long p = ChronoUnit.DAYS.between(LocalDate.of(entity.getInitPeriod().getYear(), entity.getInitPeriod().getMonth()+1, entity.getInitPeriod().getDate()), 
+			final long p = ChronoUnit.DAYS.between(LocalDate.of(entity.getInitPeriod().getYear(), entity.getInitPeriod().getMonth()+1, entity.getInitPeriod().getDate()), 
 					LocalDate.of(entity.getFinalPeriod().getYear(), entity.getFinalPeriod().getMonth()+1, entity.getFinalPeriod().getDate()));
 			System.out.println(p);
 			errors.state(request, p2.getMonths() >= 1, "initPeriod", "inventor.toolkit.form.label.period.month.error");
@@ -90,7 +87,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	}
 
 	@Override
-	public Chimpum instantiate(Request<Chimpum> request) {
+	public Chimpum instantiate(final Request<Chimpum> request) {
 		Chimpum result;
 		
 		result = new Chimpum();
@@ -100,12 +97,12 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	}
 
 	@Override
-	public void create(Request<Chimpum> request, Chimpum entity) {
+	public void create(final Request<Chimpum> request, final Chimpum entity) {
 		assert request != null;
 		assert entity != null;
 
-		String pattern = "MM/dd/yy";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		final String pattern = "MM/dd/yy";
+		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		entity.setCode(String.format("%s-%s",entity.getCode() ,simpleDateFormat.format(Date.from(Instant.now()))));
 		this.repository.save(entity);
 		

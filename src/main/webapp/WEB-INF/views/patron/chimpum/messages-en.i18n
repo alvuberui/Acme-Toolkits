@@ -1,0 +1,21 @@
+patron.chimpum.form.label.code = Code
+patron.chimpum.form.label.description = Description
+patron.chimpum.form.label.initPeriod = Initial Period
+patron.chimpum.form.label.finalPeriod =  Final Period
+patron.chimpum.form.label.budget = Budget
+patron.chimpum.form.label.creationMoment = Creation Moment
+patron.chimpum.list.label.retail-price = Price?
+patron.chimpum.form.label.artefact.selected = Arefact Selected
+patron.toolkit.form.label.artefact = Artefacts
+patron.toolkit.form.empty.list = No Artefacts Available
+
+patron.chimpum.list.label.code = Code
+patron.chimpum.list.label.description = Description
+patron.chimpum.list.label.initPeriod = Initial Period
+patron.chimpum.list.label.finalPeriod =  Final Period
+patron.chimpum.list.label.budget = Budget
+
+patron.toolkit.form.submit.update.chimpum-artefact = Change Artefact
+patron.toolkit.form.submit.update.chimpum = Update
+patron.toolkit.form.submit.delete.chimpum = Delete
+patron.toolkit.form.button.create.chimpum = Create Chimpum

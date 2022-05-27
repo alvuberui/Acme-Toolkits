@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 import javax.annotation.PostConstruct;
 
@@ -7,27 +7,27 @@ import org.springframework.stereotype.Controller;
 
 import acme.entities.chimpum.Chimpum;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 
 @Controller
-public class InventorChimpumController  extends AbstractController<Inventor, Chimpum>{
+public class PatronChimpumController  extends AbstractController<Patron, Chimpum>{
 	
 	@Autowired 
-	protected InventorChimpumListService listAll;
+	protected PatronChimpumListService listAll;
 	
 	@Autowired 
-	protected InventorChimpumShowService show;
+	protected PatronChimpumShowService show;
 	
 	@Autowired 
-	protected InventorChimpumCreateService create;
+	protected PatronChimpumCreateService create;
 	@Autowired 
-	protected InventorChimpumUpdateArtefactService updateArtefact;
+	protected PatronChimpumUpdateArtefactService updateArtefact;
 	@Autowired 
-	protected InventorChimpumUpdateService update;
+	protected PatronChimpumUpdateService update;
 	
 	@Autowired 
-	protected InventorChimpumDeleteService delete;
+	protected PatronChimpumDeleteService delete;
 	
 	@PostConstruct
 	protected void initialise() {

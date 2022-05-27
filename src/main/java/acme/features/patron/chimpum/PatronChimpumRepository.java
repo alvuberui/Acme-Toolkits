@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 import java.util.Collection;
 
@@ -8,12 +8,11 @@ import org.springframework.stereotype.Repository;
 import acme.entities.artefact.Artefact;
 import acme.entities.chimpum.Chimpum;
 import acme.entities.systemConfiguration.SystemConfiguration;
-import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 
 
 @Repository
-public interface InventorChimpumRepository  extends AbstractRepository{
+public interface PatronChimpumRepository  extends AbstractRepository{
 	
 	@Query("Select c from Chimpum c")
 	Collection<Chimpum> findAllChimpum();

@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 import java.util.Collection;
 
@@ -9,26 +9,26 @@ import acme.entities.chimpum.Chimpum;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 
 @Service
-public class InventorChimpumListService implements AbstractListService<Inventor, Chimpum> {
+public class PatronChimpumListService implements AbstractListService<Patron, Chimpum> {
 
 	
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected PatronChimpumRepository repository;
 
 	
 	@Override
-	public boolean authorise(Request<Chimpum> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		assert request != null;
 		
 		return true;
 	}
 
 	@Override
-	public Collection<Chimpum> findMany(Request<Chimpum> request) {
+	public Collection<Chimpum> findMany(final Request<Chimpum> request) {
 		assert request != null;
 		Collection<Chimpum> chimpums;
 		
@@ -38,7 +38,7 @@ public class InventorChimpumListService implements AbstractListService<Inventor,
 	}
 
 	@Override
-	public void unbind(Request<Chimpum> request, Chimpum entity, Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		
 		assert request != null;
 		assert entity != null;

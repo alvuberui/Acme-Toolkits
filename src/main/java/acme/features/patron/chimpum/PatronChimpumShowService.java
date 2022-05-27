@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,23 +8,23 @@ import acme.entities.chimpum.Chimpum;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 
 @Service
-public class InventorChimpumShowService implements AbstractShowService<Inventor,Chimpum>{
+public class PatronChimpumShowService implements AbstractShowService<Patron,Chimpum>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected PatronChimpumRepository repository;
 
 	
 	@Override
-	public boolean authorise(Request<Chimpum> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		return true;
 	}
 
 	@Override
-	public Chimpum findOne(Request<Chimpum> request) {
+	public Chimpum findOne(final Request<Chimpum> request) {
 		assert request != null;
 		
 		int id;
@@ -38,7 +38,7 @@ public class InventorChimpumShowService implements AbstractShowService<Inventor,
 
 
 	@Override
-	public void unbind(Request<Chimpum> request, Chimpum entity, Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;

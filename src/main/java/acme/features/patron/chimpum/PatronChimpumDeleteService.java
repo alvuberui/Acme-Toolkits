@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.patron.chimpum;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,24 +9,23 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractDeleteService;
-import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 
 @Service
-public class InventorChimpumDeleteService implements AbstractDeleteService<Inventor,Chimpum>{
+public class PatronChimpumDeleteService implements AbstractDeleteService<Patron,Chimpum>{
 
 	@Autowired
-	protected InventorChimpumRepository repository;
+	protected PatronChimpumRepository repository;
 
 	
 	@Override
-	public boolean authorise(Request<Chimpum> request) {
+	public boolean authorise(final Request<Chimpum> request) {
 		return true;
 	}
 
 	@Override
-	public Chimpum findOne(Request<Chimpum> request) {
+	public Chimpum findOne(final Request<Chimpum> request) {
 		assert request != null;
 		
 		int id;
@@ -40,7 +39,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 
 
 	@Override
-	public void unbind(Request<Chimpum> request, Chimpum entity, Model model) {
+	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -52,7 +51,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 	}
 
 	@Override
-	public void bind(Request<Chimpum> request, Chimpum entity, Errors errors) {
+	public void bind(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -62,7 +61,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 	}
 
 	@Override
-	public void validate(Request<Chimpum> request, Chimpum entity, Errors errors) {
+	public void validate(final Request<Chimpum> request, final Chimpum entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -70,7 +69,7 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 	}
 
 	@Override
-	public void delete(Request<Chimpum> request, Chimpum entity) {
+	public void delete(final Request<Chimpum> request, final Chimpum entity) {
 		this.repository.delete(entity);
 		
 	}

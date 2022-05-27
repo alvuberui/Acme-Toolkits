@@ -1,4 +1,4 @@
-package acme.features.inventor.systemdashboard;
+package acme.features.patron.systemdashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 
 import acme.forms.SystemDashboard;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Controller
-public class SystemDashboardController extends AbstractController<Inventor, SystemDashboard>{
+public class SystemDashboardController extends AbstractController<Patron, SystemDashboard>{
 	@Autowired
 	protected SystemDashboardShowService adShowService;
 
