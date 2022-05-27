@@ -70,6 +70,11 @@ public class Artefact extends AbstractEntity {
 	@ManyToOne(optional = false) 
 	protected Inventor inventor;
 	
+	
+	@Valid
+	@OneToOne
+	protected Chimpum chimpum;
+	
 
 
 }
