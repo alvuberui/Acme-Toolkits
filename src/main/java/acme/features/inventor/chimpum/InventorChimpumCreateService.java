@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.Date;
 
@@ -44,9 +45,7 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		
 		entity.setCreationMoment(Date.from(Instant.now()));
 		
-		String pattern = "MM/dd/yy";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		entity.setCode(String.format("%s-%s",entity.getCode() ,simpleDateFormat.format(Date.from(Instant.now()))));
+	
 		
 	}
 
@@ -76,22 +75,16 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		}
 		
 	
-		if(!errors.hasErrors("initPeriod") && !errors.hasErrors("finalPeriod")) {
-			System.out.println(entity.getInitPeriod());
-			System.out.println(entity.getFinalPeriod());
-			final Period p = Period.between(LocalDate.of(entity.getInitPeriod().getYear(), entity.getInitPeriod().getMonth()+1, entity.getInitPeriod().getDate()), 
-					LocalDate.of(entity.getFinalPeriod().getYear(), entity.getFinalPeriod().getMonth()+1, entity.getFinalPeriod().getDate()));
-			System.out.println(p.getUnits());
-			System.out.println(p);
-			
-			
+		if(!errors.hasErrors("initPeriod") && !errors.hasErrors("finalPeriod")) {			
 			final Period p2 = Period.between(LocalDate.of(entity.getCreationMoment().getYear(), entity.getCreationMoment().getMonth()+1, entity.getCreationMoment().getDate()), 
 					LocalDate.of(entity.getInitPeriod().getYear(), entity.getInitPeriod().getMonth()+1, entity.getInitPeriod().getDate()));
 			System.out.println(p2.getMonths());
 			
-			
+			long p = ChronoUnit.DAYS.between(LocalDate.of(entity.getInitPeriod().getYear(), entity.getInitPeriod().getMonth()+1, entity.getInitPeriod().getDate()), 
+					LocalDate.of(entity.getFinalPeriod().getYear(), entity.getFinalPeriod().getMonth()+1, entity.getFinalPeriod().getDate()));
+			System.out.println(p);
 			errors.state(request, p2.getMonths() >= 1, "initPeriod", "inventor.toolkit.form.label.period.month.error");
-			errors.state(request, p.getDays() >= 7, "initPeriod", "inventor.toolkit.form.label.period.week.error");
+			errors.state(request, p >= 7, "finalPeriod", "inventor.toolkit.form.label.period.week.error");
 		}
 		
 	}
@@ -103,8 +96,6 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		result = new Chimpum();
 		
 		
-
-		
 		return result;
 	}
 
@@ -113,6 +104,9 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		assert entity != null;
 
+		String pattern = "MM/dd/yy";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		entity.setCode(String.format("%s-%s",entity.getCode() ,simpleDateFormat.format(Date.from(Instant.now()))));
 		this.repository.save(entity);
 		
 	}
