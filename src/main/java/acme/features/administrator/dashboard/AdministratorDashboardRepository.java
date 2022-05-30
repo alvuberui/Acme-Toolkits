@@ -17,27 +17,27 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	int numberOfAcceptedPatronages();
 	@Query("select count(p) from Patronages p where p.status = acme.entities.patonages.PatronageStatus.DENIED")
 	int numberOfDeniedPatronages();
-	@Query("select count(i) from Artefact i where i.type = acme.entities.artefact.ArtefactType.TOOL")
+	@Query("select count(a) from Artefact a where a.type = acme.entities.artefact.ArtefactType.TOOL")
 	int numberOfTools();	
-	@Query("select count(i) from Artefact i where i.type = acme.entities.artefact.ArtefactType.COMPONENT")
+	@Query("select count(a) from Artefact a where a.type = acme.entities.artefact.ArtefactType.COMPONENT")
 	int numberOfComponents();	
 	
-	@Query("select i.retailPrice.currency, avg(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.TOOL group by i.retailPrice.currency")
+	@Query("select a.retailPrice.currency, avg(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.TOOL group by a.retailPrice.currency")
 	List<String> avgRetailPriceOfTools();
-	@Query("select i.retailPrice.currency, stddev(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.TOOL group by i.retailPrice.currency")
+	@Query("select a.retailPrice.currency, stddev(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.TOOL group by a.retailPrice.currency")
 	List<String> deviationRetailPriceOfTools();
-	@Query("select i.retailPrice.currency, min(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.TOOL group by i.retailPrice.currency")
+	@Query("select a.retailPrice.currency, min(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.TOOL group by a.retailPrice.currency")
 	List<String> minRetailPriceOfTools();
-	@Query("select i.retailPrice.currency, min(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.TOOL group by i.retailPrice.currency")
+	@Query("select a.retailPrice.currency, min(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.TOOL group by a.retailPrice.currency")
 	List<String> maxRetailPriceOfTools();
 	
-	@Query("select i.retailPrice.currency, i.technology, avg(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.COMPONENT group by i.retailPrice.currency, i.technology")
+	@Query("select a.retailPrice.currency, a.technology, avg(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.COMPONENT group by a.retailPrice.currency, a.technology")
 	List<String> avgRetailPriceOfComponents();
-	@Query("select i.retailPrice.currency, i.technology, stddev(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.COMPONENT group by i.retailPrice.currency, i.technology")
+	@Query("select a.retailPrice.currency, a.technology, stddev(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.COMPONENT group by a.retailPrice.currency, a.technology")
 	List<String> deviationRetailPriceOfComponents();
-	@Query("select i.retailPrice.currency, i.technology, min(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.COMPONENT group by i.retailPrice.currency, i.technology")
+	@Query("select a.retailPrice.currency, a.technology, min(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.COMPONENT group by a.retailPrice.currency, a.technology")
 	List<String> minRetailPriceOfComponents();
-	@Query("select i.retailPrice.currency, i.technology, max(i.retailPrice.amount), i.type from Artefact i where i.type=acme.entities.artefact.ArtefactType.COMPONENT group by i.retailPrice.currency, i.technology")
+	@Query("select a.retailPrice.currency, a.technology, max(a.retailPrice.amount), a.type from Artefact a where a.type=acme.entities.artefact.ArtefactType.COMPONENT group by a.retailPrice.currency, a.technology")
 	List<String> maxRetailPriceOfComponents();
 	
 	@Query("select p.budget.currency, avg(p.budget.amount), p.status from Patronages p group by p.status")

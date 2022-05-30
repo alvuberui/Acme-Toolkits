@@ -47,9 +47,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final Map<String,Double> minBudgetByStatus=new HashMap<String, Double>();
 		final Map<String,Double> maxBudgetByStatus=new HashMap<String, Double>();
 
-		int i=0;
 		
-		while(i<this.repository.deviationRetailPriceOfComponents().size()) {
+		
+		for(int i = 0; i < this.repository.deviationRetailPriceOfComponents().size(); i++) {
 			final String linea= this.repository.deviationRetailPriceOfComponents().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[2]);
@@ -57,13 +57,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			final String tecnologia= sub[1];
 			final Pair<String, String> res=Pair.of(divisa, tecnologia);
 			deviationRetailPriceOfComponents.put(res, key);
-			i++;
 		}
-		i=0;
+	
 		
 		
 		
-		while(i<this.repository.avgRetailPriceOfComponents().size()) {
+		for(int i = 0; i<this.repository.avgRetailPriceOfComponents().size(); i++) {
 			final String linea= this.repository.avgRetailPriceOfComponents().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[2]);
@@ -71,10 +70,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			final String tecnologia= sub[1];
 			final Pair<String, String> res=Pair.of(divisa, tecnologia);
 			avgRetailPriceOfComponents.put(res, key);
-			i++;
+			
 		}
-		i=0;
-		while(i<this.repository.minRetailPriceOfComponents().size()) {
+		
+		for(int i= 0; i<this.repository.minRetailPriceOfComponents().size(); i++) {
 			final String linea= this.repository.minRetailPriceOfComponents().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[2]);
@@ -82,20 +81,19 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			final String tecnologia= sub[1];
 			final Pair<String, String> res=Pair.of(divisa, tecnologia);
 			minRetailPriceOfComponents.put(res, key);
-			i++;
 		}
-		i=0;
-		while(i<this.repository.avgRetailPriceOfTools().size()) {
+		
+		
+		for(int i= 0; i<this.repository.avgRetailPriceOfTools().size(); i++) {
 			final String linea= this.repository.avgRetailPriceOfTools().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String divisa=sub[0];
 			avgRetailPriceOfTools.put(divisa, key);
-			i++;
 		}
 		
-		i=0;
-		while(i<this.repository.maxRetailPriceOfComponents().size()) {
+		
+		for(int i=0; i<this.repository.maxRetailPriceOfComponents().size(); i++) {
 			final String linea= this.repository.maxRetailPriceOfComponents().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[2]);
@@ -103,77 +101,67 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			final String tecnologia= sub[1];
 			final Pair<String, String> res=Pair.of(divisa, tecnologia);
 			maxRetailPriceOfComponents.put(res, key);
-			i++;
 		 }
 		
-		i=0;
-		while(i<this.repository.deviationRetailPriceOfTools().size()) {
+		
+		for(int i = 0; i<this.repository.deviationRetailPriceOfTools().size(); i++) {
 			final String linea= this.repository.deviationRetailPriceOfTools().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String divisa=sub[0];
 			deviationRetailPriceOfTools.put(divisa, key);
-			i++;
 		 }
-		i=0;
 		
-		while(i<this.repository.minRetailPriceOfTools().size()) {
+		
+		for(int i=0; i<this.repository.minRetailPriceOfTools().size(); i++) {
 			final String linea= this.repository.minRetailPriceOfTools().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String divisa=sub[0];
 			minRetailPriceOfTools.put(divisa, key);
-			i++;
 		 }
-		i=0;
 		
-		while(i<this.repository.maxRetailPriceOfTools().size()) {
+		
+		for(int i=0; i<this.repository.maxRetailPriceOfTools().size(); i++) {
 			final String linea= this.repository.maxRetailPriceOfTools().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String divisa=sub[0];
 			maxRetailPriceOfTools.put(divisa, key);
-			i++;
 		}
-		i=0;
-		while(i<this.repository.deviationBudgetByStatus().size()) {
+		
+		for(int i = 0; i<this.repository.deviationBudgetByStatus().size(); i++) {
 			final String linea= this.repository.deviationBudgetByStatus().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String status=sub[2];
 			deviationBudgetByStatus.put(status, key);
-			i++;
 		 }
 		
 		 
-		i=0;
-		while(i<this.repository.avgBudgetByStatus().size()) {
+		
+		for(int i=0; i<this.repository.avgBudgetByStatus().size(); i++) {
 			final String linea= this.repository.avgBudgetByStatus().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String status=sub[2];
 			avgBudgetByStatus.put(status, key);
-			i++;
 		}
-		i=0;
-		while(i<this.repository.maxBudgetByStatus().size()) {
+		
+		for(int i =0 ;i<this.repository.maxBudgetByStatus().size(); i++) {
 			final String linea= this.repository.maxBudgetByStatus().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String status=sub[2];
-			maxBudgetByStatus.put(status, key);
-			i++;
-		
-		
+			maxBudgetByStatus.put(status, key);	
 		 }
-		i=0;
-		while(i<this.repository.minBudgetByStatus().size()) {
+		
+		for(int i = 0; i<this.repository.minBudgetByStatus().size(); i++) {
 			final String linea= this.repository.minBudgetByStatus().get(i);
 			final String[] sub=linea.split(",");
 			final Double key=Double.parseDouble(sub[1]);
 			final String status=sub[2];
 			minBudgetByStatus.put(status, key);
-			i++;
 		}
 		
 		result.setAvgBudgetByStatus(avgBudgetByStatus);
