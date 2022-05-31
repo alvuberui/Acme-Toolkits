@@ -7,6 +7,7 @@ package acme.features.inventor.toolkits;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.stereotype.Service;
 
 import acme.entities.artefact.Artefact;
@@ -87,15 +88,20 @@ public class InventorToolkitsUpdateArtefactService implements AbstractUpdateServ
 		assert entity != null;
 		assert errors != null;
 		
+		
 		if(!errors.hasErrors("quantity")) {
-			int artefactId;
-			Artefact artefact;	final Integer number;
-			artefactId = request.getModel().getInteger("artefactId");
-			artefact = this.repository.findArtefactById(artefactId);
-
-			
-			number = request.getModel().getInteger("quantity");
-			errors.state(request, artefact.getType() == ArtefactType.COMPONENT && number >=0|| (artefact.getType() == ArtefactType.TOOL &&  number <=1 && number >=0 ), "*", "inventor.toolkit.form.label.quantity.tool.error");
+			try {
+				Integer number;
+				int artefactId;
+				Artefact artefact;
+				artefactId = request.getModel().getInteger("artefactId");
+				artefact = this.repository.findArtefactById(artefactId);
+				number = request.getModel().getInteger("quantity");
+				errors.state(request, artefact.getType() == ArtefactType.COMPONENT && number >=0|| (artefact.getType() == ArtefactType.TOOL &&  number <=1 && number >=0 ), "*", "inventor.toolkit.form.label.quantity.tool.error");
+			} catch (final ConversionFailedException e) {
+				errors.state(request, false, "quantity", "inventor.toolkit.form.label.quantity.string.error");
+			}
+		
 		}
 	}
 
